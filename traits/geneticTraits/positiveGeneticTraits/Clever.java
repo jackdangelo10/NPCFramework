@@ -12,19 +12,19 @@ public class Clever extends Trait
         addOpposite("Genius");
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
         c.setINT(c.getINT() + 2);
         c.setBaseSway(c.getBaseSway() + 5);
     }
 
-    public void revertCharacter(characters.Character c)
+    public void unapply(characters.Character c)
     {
         c.setINT(c.getINT() - 2);
         c.setBaseSway(c.getBaseSway() - 5);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

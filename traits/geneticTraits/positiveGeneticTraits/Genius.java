@@ -12,21 +12,21 @@ public class Genius extends Trait
         addOpposite("Clever");
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
         c.setINT(c.getINT() + 4);
         c.setCHR(c.getCHR() - 1);
         c.setBaseSway(c.getBaseSway() + 10);
     }
 
-    public void revertCharacter(characters.Character c)
+    public void unapply(characters.Character c)
     {
         c.setINT(c.getINT() - 4);
         c.setCHR(c.getCHR() + 1);
         c.setBaseSway(c.getBaseSway() - 10);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

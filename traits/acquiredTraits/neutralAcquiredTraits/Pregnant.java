@@ -1,5 +1,5 @@
 package traits.acquiredTraits.neutralAcquiredTraits;
-import characters.Attributes.Sex;
+
 import traits.*;
 
 public class Pregnant extends Trait
@@ -12,23 +12,21 @@ public class Pregnant extends Trait
         setTraitName("Pregnant");
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
         c.setCON(c.getCON() - 2);
-        c.setMonthsAlong(0);
         c.setBaseSway(c.getBaseSway() + 5);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setCON(c.getCON() + 2);
-        c.setMonthsAlong(0);
         c.setBaseSway(c.getBaseSway() - 5);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
-        if(c.getSex() == Sex.MALE)
+        if(c.getSex() == characters.CharacterAttributes.Sex.MALE)
         {
             return false;
         }

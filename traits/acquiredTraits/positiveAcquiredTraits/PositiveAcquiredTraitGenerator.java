@@ -1,16 +1,20 @@
 package traits.acquiredTraits.positiveAcquiredTraits;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import traits.Trait;
 
-public class PositiveAcquiredTraitContainer 
+public class PositiveAcquiredTraitGenerator 
 {
-    private static ArrayList<Trait> positiveTraits = new ArrayList<Trait>();
+    private static ArrayList<Trait> positiveTraits;
+    private static Random random;
 
-    public PositiveAcquiredTraitContainer()
+    public PositiveAcquiredTraitGenerator()
     {
-        positiveTraits.clear();
+        positiveTraits = new ArrayList<Trait>();
+        random = new Random();
+
         positiveTraits.add(new Brave()); //0
         positiveTraits.add(new Charming()); //1
         positiveTraits.add(new Compassionate()); //2
@@ -27,6 +31,17 @@ public class PositiveAcquiredTraitContainer
         positiveTraits.add(new Generous()); //13
         positiveTraits.add(new Humble()); //14
         positiveTraits.add(new Honest()); //15
+    }
+
+    public Trait generateRandomTrait()
+    {
+        if (positiveTraits.isEmpty()) 
+        {
+            return null;
+        }
+        
+        int index = random.nextInt(positiveTraits.size());
+        return positiveTraits.get(index);
     }
 
     public ArrayList<Trait> getList()

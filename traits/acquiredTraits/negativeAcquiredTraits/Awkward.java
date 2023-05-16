@@ -12,19 +12,19 @@ public class Awkward extends Trait
         addOpposite("Charming");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() - 15);
         c.setCHR(c.getCHR() - 2);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() + 15);
         c.setCHR(c.getCHR() + 2);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

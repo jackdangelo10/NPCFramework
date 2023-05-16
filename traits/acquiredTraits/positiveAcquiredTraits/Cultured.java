@@ -11,17 +11,17 @@ public class Cultured extends Trait
         setTraitName("Cultured");
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
         c.setBaseSway(c.getBaseSway() + 5);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() - 5);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

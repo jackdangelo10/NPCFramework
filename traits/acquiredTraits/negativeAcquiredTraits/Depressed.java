@@ -11,7 +11,7 @@ public class Depressed extends Trait
         setTraitName("Depressed");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setSTR(c.getSTR() - 1);
         c.setCON(c.getCON() - 1);
@@ -24,7 +24,7 @@ public class Depressed extends Trait
         c.setHealth(c.getHealth() - 5);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setSTR(c.getSTR() + 1);
         c.setCON(c.getCON() + 1);
@@ -37,7 +37,7 @@ public class Depressed extends Trait
         c.setHealth(c.getHealth() + 5);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

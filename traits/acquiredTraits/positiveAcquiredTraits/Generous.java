@@ -12,19 +12,19 @@ public class Generous extends Trait
         addOpposite("Frugal");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() + 10);
-        c.setBaseRep(c.getBaseReputation() + 10);
+        c.setBaseReputation(c.getBaseReputation() + 10);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() - 10);
-        c.setBaseRep(c.getBaseReputation() - 10);
+        c.setBaseReputation(c.getBaseReputation() - 10);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

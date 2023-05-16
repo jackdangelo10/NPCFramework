@@ -12,19 +12,19 @@ public class Grotesque extends Trait
         addOpposite("Gorgeous");
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
         c.setCHR(c.getCHR() - 2);
         c.setBaseSway(c.getBaseSway() - 10);
     }
 
-    public void revertCharacter(characters.Character c)
+    public void unapply(characters.Character c)
     {
         c.setCHR(c.getCHR() + 2);
         c.setBaseSway(c.getBaseSway() + 10);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

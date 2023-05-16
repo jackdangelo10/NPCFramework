@@ -13,19 +13,19 @@ public class Craven extends Trait
         addOpposite("Proud");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() - 5);
         c.setCHR(c.getCHR() - 1);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() + 5);
         c.setCHR(c.getCHR() + 1);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

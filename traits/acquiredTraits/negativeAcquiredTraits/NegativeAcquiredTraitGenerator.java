@@ -1,14 +1,19 @@
 package traits.acquiredTraits.negativeAcquiredTraits;
 import traits.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-public class NegativeAcquiredTraitContainer 
+public class NegativeAcquiredTraitGenerator 
 {
-    private static ArrayList<Trait> negativeTraits = new ArrayList<Trait>();
+    private static List<Trait> negativeTraits;
+    private static Random random;
 
-    public NegativeAcquiredTraitContainer()
+    public NegativeAcquiredTraitGenerator()
     {
-        negativeTraits.clear();
+        random = new Random();
+        negativeTraits = new ArrayList<Trait>();
+
         negativeTraits.add(new Craven()); //0
         negativeTraits.add(new Awkward()); //1
         negativeTraits.add(new Selfish()); //2
@@ -34,7 +39,18 @@ public class NegativeAcquiredTraitContainer
 
     }
 
-    public ArrayList<Trait> getList()
+    public Trait generateRandomTrait()
+    {
+        if (negativeTraits.isEmpty()) 
+        {
+            return null;
+        }
+        
+        int index = random.nextInt(negativeTraits.size());
+        return negativeTraits.get(index);
+    }
+
+    public List<Trait> getList()
     {
         return negativeTraits;
     }  

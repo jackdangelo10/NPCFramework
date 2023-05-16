@@ -12,17 +12,17 @@ public class Just extends Trait
         addOpposite("Impatient");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
-        c.setBaseRep(c.getBaseReputation() + 15);
+        c.setBaseReputation(c.getBaseReputation() + 15);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
-        c.setBaseRep(c.getBaseReputation() - 15);
+        c.setBaseReputation(c.getBaseReputation() - 15);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

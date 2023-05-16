@@ -13,22 +13,22 @@ public class InvoluntarilyCelibate extends Trait
         addOpposite("Prolific");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setFertility(0);
         c.setCHR(c.getCHR() - 3);
-        c.setBaseRep(c.getBaseReputation() - 15);
+        c.setBaseReputation(c.getBaseReputation() - 15);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         NormalRandom rand100 = new NormalRandom(3, 50);
         c.setFertility(rand100.randomNum(1, 100));
         c.setCHR(c.getCHR() + 3);
-        c.setBaseRep(c.getBaseReputation() + 15);
+        c.setBaseReputation(c.getBaseReputation() + 15);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

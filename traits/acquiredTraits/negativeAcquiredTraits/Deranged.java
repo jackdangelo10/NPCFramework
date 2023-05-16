@@ -10,29 +10,29 @@ public class Deranged extends Trait
         setTraitName("Deranged");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setPER(c.getPER() - 7);
         c.setCHR(c.getCHR() + 2);
         c.setINT(c.getINT() - 3);
         c.setLCK(c.getLCK() + 3);
-        c.setBaseRep(c.getBaseReputation() - 10);
+        c.setBaseReputation(c.getBaseReputation() - 10);
         c.setBaseSway(c.getBaseSway() - 15);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setPER(c.getPER() + 7);
         c.setCHR(c.getCHR() - 2);
         c.setINT(c.getINT() + 3);
         c.setLCK(c.getLCK() - 3);
-        c.setBaseRep(c.getBaseReputation() + 10);
+        c.setBaseReputation(c.getBaseReputation() + 10);
         c.setBaseSway(c.getBaseSway() + 15);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
-        if(c.getTraitList().contains("Stressed"))
+        if(c.getTraits().containsKey("Stressed"))
         {
             return true;
         }

@@ -12,23 +12,23 @@ public class Deceitful extends Trait
         addOpposite("Honest");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
-        c.setBaseRep(c.getBaseReputation() - 10);
+        c.setBaseReputation(c.getBaseReputation() - 10);
         c.setBaseSway(c.getBaseSway() - 5);
         c.setCHR(c.getCHR() - 1);
         c.setPER(c.getPER() + 4);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
-        c.setBaseRep(c.getBaseReputation() + 10);
+        c.setBaseReputation(c.getBaseReputation() + 10);
         c.setBaseSway(c.getBaseSway() + 5);
         c.setCHR(c.getCHR() + 1);
         c.setPER(c.getPER() - 4);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

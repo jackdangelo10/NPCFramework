@@ -13,7 +13,7 @@ public class Incapable extends Trait
         addOpposite("Slow");
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
         c.setINT(7 - (int)(Math.random() * 3));
         c.setCHR(c.getCHR() - 3);
@@ -23,7 +23,7 @@ public class Incapable extends Trait
         c.setIncapable(true);
     }
 
-    public void revertCharacter(characters.Character c)
+    public void unapply(characters.Character c)
     {
         c.setINT(7 + (int)(Math.random() * 3));
         c.setCHR(c.getCHR() + 3);
@@ -33,7 +33,7 @@ public class Incapable extends Trait
         c.setIncapable(false);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

@@ -9,23 +9,23 @@ public class Inbred extends Trait
         setTraitName("Inbred"); 
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
-        c.setBaseRep(c.getBaseReputation() - 15);
+        c.setBaseReputation(c.getBaseReputation() - 15);
         c.setINT(c.getINT() - 3);
         c.setCON(c.getCON() - 2);
         c.setGFT(c.getGFT()  + 1);
     }
 
-    public void revertCharacter(characters.Character c)
+    public void unapply(characters.Character c)
     {
-        c.setBaseRep(c.getBaseReputation() + 15);
+        c.setBaseReputation(c.getBaseReputation() + 15);
         c.setINT(c.getINT() + 3);
         c.setCON(c.getCON() + 2);
         c.setGFT(c.getGFT()  - 1);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

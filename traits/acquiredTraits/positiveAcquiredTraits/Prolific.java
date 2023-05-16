@@ -13,19 +13,19 @@ public class Prolific extends Trait
         addOpposite("Celibate");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setCHR(c.getCHR() + 1);
         c.setFertility(c.getFertility() + 20);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setCHR(c.getCHR() - 1);
         c.setFertility(c.getFertility() - 20);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

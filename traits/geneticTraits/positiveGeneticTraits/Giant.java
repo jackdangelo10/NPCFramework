@@ -11,19 +11,19 @@ public class Giant extends Trait
         addOpposite("Dwarf");
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
         c.setSTR(14 + (int)(Math.random() * 5));
         c.setBaseSway(c.getBaseSway() + 10);
     }
 
-    public void revertCharacter(characters.Character c)
+    public void unapply(characters.Character c)
     {
         c.setSTR(14 - (int)(Math.random() * 5));
         c.setBaseSway(c.getBaseSway() - 10);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

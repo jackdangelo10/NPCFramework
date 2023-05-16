@@ -12,19 +12,19 @@ public class Frugal extends Trait
         addOpposite("Generous");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() - 5);
-        c.setBaseRep(c.getBaseReputation() - 7);
+        c.setBaseReputation(c.getBaseReputation() - 7);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setBaseSway(c.getBaseSway() + 5);
-        c.setBaseRep(c.getBaseReputation() + 7);
+        c.setBaseReputation(c.getBaseReputation() + 7);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

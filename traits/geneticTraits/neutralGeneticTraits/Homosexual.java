@@ -12,19 +12,17 @@ public class Homosexual extends Trait
         setTraitName("Homosexual");
     }
 
-    public void modifyCharacter(characters.Character c)
+    public void apply(characters.Character c)
     {
         c.setFertility(0);
-        c.setIsHomosexual(true);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setFertility(rand100.randomNum(1, 100));
-        c.setIsHomosexual(false);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

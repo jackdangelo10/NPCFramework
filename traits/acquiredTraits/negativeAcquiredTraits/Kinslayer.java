@@ -11,19 +11,19 @@ public class Kinslayer extends Trait
         setTraitName("Kinslayer");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
-        c.setBaseRep(c.getBaseReputation() + 5);
+        c.setBaseReputation(c.getBaseReputation() + 5);
         c.setBaseSway(c.getBaseSway() - 25);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
-        c.setBaseRep(c.getBaseReputation() - 5);
+        c.setBaseReputation(c.getBaseReputation() - 5);
         c.setBaseSway(c.getBaseSway() + 20);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

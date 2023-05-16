@@ -12,7 +12,7 @@ public class Ambitious extends Trait
         addOpposite("Slothful");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setSTR(c.getSTR() + 1);
         c.setCON(c.getCON() + 1);
@@ -24,7 +24,7 @@ public class Ambitious extends Trait
         c.setGFT(c.getGFT() + 1);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setSTR(c.getSTR() - 1);
         c.setCON(c.getCON() - 1);
@@ -36,7 +36,7 @@ public class Ambitious extends Trait
         c.setGFT(c.getGFT() - 1);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

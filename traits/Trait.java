@@ -1,5 +1,6 @@
 package traits;
 
+import java.util.ArrayList;
 import java.util.List;
 
 abstract public class Trait 
@@ -12,7 +13,37 @@ abstract public class Trait
     abstract public void apply(characters.Character c);
     abstract public void unapply(characters.Character c);
     abstract public boolean meetsRequirements(characters.Character c);
-    
+
+/**CONSTRUCTOR */
+
+    public Trait()
+    {
+        opposites = new ArrayList<String>();
+    }
+
+/**OPPOSITES LOGIC ********************************************** */
+
+    public void addOpposite(Trait t)
+    {
+        opposites.add(t.getTraitName());
+    }
+
+    public void addOpposite(String traitName)
+    {
+        opposites.add(traitName);
+    }
+
+    public void removeOpposite(Trait t)
+    {
+        removeOpposite(t.getTraitName());
+    }
+
+    public void removeOpposite(String traitName)
+    {
+        opposites.remove(traitName);
+    }
+
+/**GETTERS AND SETTERS *********************************************************** */
     
     public double getChance() {
         return chance;
@@ -38,4 +69,5 @@ abstract public class Trait
     public void setOpposites(List<String> opposites) {
         this.opposites = opposites;
     }
+    
 }

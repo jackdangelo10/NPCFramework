@@ -58,7 +58,22 @@ abstract public class Character
 //* TRAIT LOGIC */ **********************************************************************************
     public void addTrait(Trait t)
     {
-        if(t.meetsRequirements(this))
+        boolean flag = true;
+
+        if(traits.containsKey(t.getTraitName()))
+        {
+            flag = false;
+        }
+
+        for(String i : t.getOpposites())
+        {
+            if(traits.containsKey(i))
+            {
+                flag = false;
+            }
+        }
+
+        if(t.meetsRequirements(this) && flag)
         {
             traits.put(t.getTraitName(), t);
             t.apply(this);
@@ -232,6 +247,12 @@ abstract public class Character
     }
     public void setTurnAge(int turnAge) {
         this.turnAge = turnAge;
+    }
+    public Map<String, Trait> getTraits() {
+        return traits;
+    }
+    public void setTraits(Map<String, Trait> traits) {
+        this.traits = traits;
     }
 
 

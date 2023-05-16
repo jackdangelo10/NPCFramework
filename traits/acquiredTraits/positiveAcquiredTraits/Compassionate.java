@@ -13,11 +13,11 @@ public class Compassionate extends Trait
         addOpposite("Cruel");
     }
 
-    public void modifyCharacter(characters.Character c) {}
+    public void apply(characters.Character c) {}
 
-    public void revertCharacter(characters.Character c) {}
+    public void unapply(characters.Character c) {}
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }

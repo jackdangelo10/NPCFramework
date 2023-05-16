@@ -11,7 +11,7 @@ public class Blinded extends Trait
         setTraitName("Blinded");
     }
 
-    public void modifyCharacter(characters.Character c) 
+    public void apply(characters.Character c) 
     {
         c.setDEX(c.getDEX() - 4);
         c.setLCK(c.getLCK() + 3);
@@ -19,7 +19,7 @@ public class Blinded extends Trait
         c.setPER(c.getPER() - 4);
     }
 
-    public void revertCharacter(characters.Character c) 
+    public void unapply(characters.Character c) 
     {
         c.setDEX(c.getDEX() - 4);
         c.setLCK(c.getLCK() + 3);
@@ -27,7 +27,7 @@ public class Blinded extends Trait
         c.setPER(c.getPER() - 4);
     }
 
-    public boolean satisfyAllConditions(characters.Character c)
+    public boolean meetsRequirements(characters.Character c)
     {
         return true;
     }
