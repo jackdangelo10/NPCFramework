@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import characters.CharacterAttributes.Mood;
 import traits.Trait;
 
 abstract public class Character 
@@ -33,10 +34,12 @@ abstract public class Character
     protected int baseSway = 50;
     protected int health = 100;
     protected boolean incapable = false;
+    protected boolean isAlive = true;
     
     //demographics
     protected CharacterAttributes.Sex sex = null;
     protected CharacterAttributes.Age age = null;
+    protected governments.Attributes.CitizenshipLevel citizenshipLevel = null;
     protected String firstName = "";
     protected String lastName = "";
     protected String name = firstName + " " + lastName;
@@ -46,12 +49,28 @@ abstract public class Character
 
     //personality
     protected Map<String, Trait> traits;
+    protected Identity identity = null;
 
 //* END OF VARIABLES ************************************************************************** */
 
     public Character()
     {
         traits = new HashMap<>();
+    }
+
+//* STAT LOGIC *************************************************************************************/
+
+    public int statRangeCheck(int stat, final int min, final int max)
+    {
+        if(stat > max)
+        {
+            stat = max;
+        }
+        else if(stat < min)
+        {
+            stat = min;
+        }
+        return stat;
     }
 
 
@@ -93,11 +112,83 @@ abstract public class Character
             removedTrait.unapply(this);
         }
     }
-    
-    
 
+/** CHARACTER INTERACTIONS ******************************************************** */
+
+    public int getOpinion(NPC c)
+    {
+        int bonus = 0;
+        if(identity.getIdl() == c.getIdentity().getIdl())
+        {
+            bonus += 10;
+        }
+        for(String i : c.getTraits().keySet())
+        {
+            if(this.getTraits().containsKey(i))
+            {
+                bonus += 5;
+            }
+        }
+        if(identity.getMd() == Mood.RESOLVED || identity.getMd() == Mood.OPTIMISTIC 
+            || identity.getMd() == Mood.CONTENTED)
+        {
+            bonus += 5;
+        }
+        else if(identity.getMd() == Mood.CAUTIOUS || identity.getMd() == Mood.IRRITATED
+        || identity.getMd() == Mood.ANGRY)
+        {
+            bonus -=5;
+        }
+        if(this.getProfession() == c.getProfession())
+        {
+            bonus += 10;
+        }
+        return bonus;
+    }
+
+    public int getVotingOpinion(NPC c)
+    {
+        int opinion = c.getBaseReputation();
+        opinion += getOpinion(c);
+        if(this.identity.getIdl() == c.getIdentity().getIdl())
+        {
+            opinion += 15;
+        }
+        return  opinion;
+    }
+
+    public int getAttraction(NPC c)
+    {
+        int attraction = c.getBaseSway();
+        attraction += getOpinion(c);
+        if(c.getIdentity().getAgreeableness() > 50)
+        {
+            attraction += 5;
+        }
+        for(String i : c.getTraits().keySet())
+        {
+            if(i.equals("Gorgeous"))
+            {
+                attraction += 15;
+            }
+            else if(i.equals("Attractive"))
+            {
+                attraction += 7;
+            }
+            else if(i.equals("Ugly"))
+            {
+                attraction -= 7;
+            }
+            else if(i.equals("Grotesque"))
+            {
+                attraction -= 17;
+            }
+        }
+        return attraction;
+    }
     
-    //Getter and Setter land
+    
+/**GETTERS AND SETTERS *********************************************************** */
     public int getSTR() {
         return STR;
     }
@@ -255,8 +346,20 @@ abstract public class Character
         this.traits = traits;
     }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
 
+    public void setAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
 
+    public Identity getIdentity() {
+        return identity;
+    }
 
+    public void setIdentity(Identity identity) {
+        this.identity = identity;
+    }
     
 }
