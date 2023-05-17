@@ -18,7 +18,7 @@ public class GovernmentAttributes
         Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = LEVELS.size();
 
-        public static CitizenshipLevel randomMood()  
+        public static CitizenshipLevel randomCitizenshipLevel()  
         {
             return LEVELS.get(RANDOM.nextInt(SIZE));
         }

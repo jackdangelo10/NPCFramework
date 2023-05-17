@@ -15,7 +15,7 @@ public class CharacterAttributes
 
     public enum Ideology 
     {
-        HONOR, HUMILITY, MOBILE, STRATIFIED, LIBERTY, ORDER, TOLERANT, TRADITIONAL, SECULAR, PIOUS;
+        HONOR, HUMILITY, MOBILE, STRATIFIED, LIBERTY, ORDER, TOLERANT, TRADITIONAL, SECULAR, PIOUS, APOLITICAL;
         
         private static final List<Ideology> IDEOLOGIES =
         Collections.unmodifiableList(Arrays.asList(values()));

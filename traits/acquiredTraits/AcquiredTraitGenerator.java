@@ -34,7 +34,7 @@ public class AcquiredTraitGenerator
         return acquiredTraits.get(index);
     }
 
-    public ArrayList<Trait> getList()
+    public static ArrayList<Trait> getList()
     {
         return acquiredTraits;
     }  

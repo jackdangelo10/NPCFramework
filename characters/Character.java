@@ -23,6 +23,8 @@ abstract public class Character
 
     protected Profession profession1 = null;
     protected Profession profession2 = null;
+    protected int profession1Skill = 0;
+    protected int profession2Skill = 0;
 
     protected Civilization civ = null;
     protected Settlement settlement = null;
@@ -386,6 +388,22 @@ abstract public class Character
 
     public void setFamily(Family family) {
         this.family = family;
+    }
+
+    public int getProfession1Skill() {
+        return profession1Skill;
+    }
+
+    public void setProfession1Skill(int profession1Skill) {
+        this.profession1Skill = profession1Skill;
+    }
+
+    public int getProfession2Skill() {
+        return profession2Skill;
+    }
+
+    public void setProfession2Skill(int profession2Skill) {
+        this.profession2Skill = profession2Skill;
     }
     
 }
