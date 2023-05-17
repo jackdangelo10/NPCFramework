@@ -24,7 +24,10 @@ public class Family
     {
         Map<String, List<characters.Character>> person1Relationships = relationships.computeIfAbsent(person1, key -> new HashMap<>());
         List<characters.Character> members = person1Relationships.getOrDefault(relationship, new ArrayList<>());
-        members.add(person2);
+        if(!members.contains(person2))
+        {
+            members.add(person2);
+        }
         person1Relationships.put(relationship, members);
     }
 

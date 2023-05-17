@@ -12,6 +12,7 @@ import helper.SetLogic;
 import settlements.Settlement;
 import traits.Trait;
 import traits.geneticTraits.GeneticTraitGenerator;
+import traits.geneticTraits.neutralGeneticTraits.Inbred;
 
 public class Breeder 
 {
@@ -20,6 +21,7 @@ public class Breeder
     private static Character offspring = null;
     private static Civilization civ = null;
     private static Settlement settlement = null;
+    private static RelationMachine relationMachine = new RelationMachine();
 
     public Breeder() {}
 
@@ -87,9 +89,10 @@ public class Breeder
         inheritedTraits();
         mutationTraits();
 
-        //fix this
+        //join family
         offspring.setFamily(female.getFamily());
         offspring.getFamily().addMember(offspring);
+
         offspring.getFamily().addRelationship(offspring, "Mother", female);
         offspring.getFamily().addRelationship(offspring, "Father", female);
 
@@ -156,6 +159,13 @@ public class Breeder
                 offspring.addTrait(tr);
             }
         }
+
+        System.out.println("My wife: " + male.getFamily().getFamilyMembers(male, "Wife"));
+
+        if(relationMachine.areCloselyRelated(male, female));
+        {
+            offspring.addTrait(new Inbred());
+        }
         
     }
 
@@ -193,6 +203,15 @@ public class Breeder
         offspring.setCitizenshipLevel(CitizenshipLevel.MINOR);
         offspring.setLastName(female.getLastName());
         offspring.setFirstName(CharacterNameGenerator.createFirstName());
+
+        if(Math.random() > .5)
+        {
+            offspring.setSex(Sex.MALE);
+        }
+        else
+        {
+            offspring.setSex(Sex.FEMALE);
+        }
     }
 
     private int weightedAverageHigh(int stat1, int stat2)

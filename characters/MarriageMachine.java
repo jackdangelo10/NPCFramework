@@ -15,21 +15,26 @@ public class MarriageMachine
 
     public void marry()
     {
+        female.setFamily(null);
+        male.setFamily(null);
+        
+        Family family = new Family();
+        female.setFamily(family);
+        male.setFamily(family);
+
+        family.addMember(female);
+        family.addMember(male);
+        
+        family.addRelationship(male, "Wife", female);
+        family.addRelationship(female, "Husband", male);
+        
         if(Math.random() > .5)
         {
             female.setLastName(male.getLastName());
-            male.setFamily(female.getFamily());
-            male.getFamily().addMember(male);
-            male.getFamily().addRelationship(male, "Wife", female);
-            male.getFamily().addRelationship(female, "Husband", male);
         }
         else
         {
             male.setLastName(female.getLastName());
-            female.setFamily(male.getFamily());
-            female.getFamily().addMember(female);
-            female.getFamily().addRelationship(male, "Wife", female);
-            female.getFamily().addRelationship(female, "Husband", male);
         }
 
     }

@@ -1,0 +1,82 @@
+package characters;
+
+import javax.management.BadAttributeValueExpException;
+
+import characters.CharacterAttributes.Sex;
+
+public class FamilyGenerator 
+{
+    private static NPCGenerator npcGenerator;
+    private static Breeder breeder;
+
+    public FamilyGenerator()
+    {
+        npcGenerator = new NPCGenerator();
+        breeder = new Breeder();
+    }
+
+    public Family generateFamily()
+    {
+        Character source = npcGenerator.generateRandomAdultNPC();
+        source.setSex(Sex.FEMALE);
+
+        //husband generator
+        if(true)
+        {
+            try
+            {
+                //ensure male partner
+                Character spouse = npcGenerator.generateRandomAdultNPC();
+                spouse.setSex(Sex.MALE);
+
+
+                MarriageMachine machine = new MarriageMachine(source, spouse);
+                //marrying adds to family
+                machine.marry();
+                generateChildren(spouse, source);
+                testFamilyPrint(source);
+            }
+            catch(BadAttributeValueExpException e)
+            {
+                System.out.println(e.toString());
+            }
+            
+        }
+        else
+        {
+            if(Math.random() > .5)
+            {
+                source.setSex(Sex.MALE);
+            }
+        }
+        return source.getFamily();
+    }
+
+    private void generateChildren(Character spouse, Character source)
+    {
+        int count = 0;
+        try
+        {
+            breeder.setCouple(spouse, source, null, null);
+        }
+        catch(BadAttributeValueExpException e)
+        {
+            System.out.println(e.toString());
+        }
+       
+        while(Math.random() > .5 && count < 5)
+        {
+            breeder.breed();
+        }
+    }
+
+    private void testFamilyPrint(Character source)
+    {
+        CharacterPrinter printer = new CharacterPrinter();
+        for(Character c : source.getFamily().getAllMembers())
+        {
+            printer.printCharacter(c);
+        }
+    }
+
+}

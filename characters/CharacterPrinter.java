@@ -24,7 +24,10 @@ public class CharacterPrinter
         System.out.println("Fertility: "  + c.getFertility());
         System.out.println("Reputation: " + c.getBaseReputation());
         System.out.println("Sway: " + c.getBaseSway());
-        System.out.println(c.getProfession1().getProfName());
+        if(c.getProfession1() != null)
+        {
+            System.out.println(c.getProfession1().getProfName());
+        }
         System.out.println(c.getTraits().keySet());
     }
 }

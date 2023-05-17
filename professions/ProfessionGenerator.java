@@ -35,7 +35,7 @@ public class ProfessionGenerator
         professions.add(new Merchant());
     }
 
-    public static Profession generateRandomProfession()
+    public Profession generateRandomProfession()
     {
         if (professions.isEmpty()) 
         {

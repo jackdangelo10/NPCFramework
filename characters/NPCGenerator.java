@@ -2,6 +2,7 @@ package characters;
 
 import characters.CharacterAttributes.Ideology;
 import characters.CharacterAttributes.Mood;
+import characters.CharacterAttributes.Sex;
 import governments.GovernmentAttributes.CitizenshipLevel;
 import helper.NormalRandom;
 import professions.ProfessionGenerator;
@@ -14,6 +15,10 @@ public class NPCGenerator
     private static final NormalRandom rand20 = new NormalRandom(3, 10);
     private static final NormalRandom rand100 = new NormalRandom(3, 50);
     private static final NormalRandom rand5 = new NormalRandom(3, 5);
+    private static final ProfessionGenerator profGen = new ProfessionGenerator();
+    private static final GeneticTraitGenerator gtg = new GeneticTraitGenerator();
+    private static final AcquiredTraitGenerator atg = new AcquiredTraitGenerator();
+    private static final CharacterNameGenerator cng = new CharacterNameGenerator();
 
     public NPC generateRandomNPC()
     {
@@ -41,15 +46,25 @@ public class NPCGenerator
         npc.setBaseReputation(rand100.randomNum(1, 100));
         npc.setBaseSway(rand100.randomNum(1, 100));
         npc.setAge(CharacterAttributes.Age.ADULT);
-        npc.setProfession1(ProfessionGenerator.generateRandomProfession());
+        npc.setProfession1(profGen.generateRandomProfession());
         npc.setProfession1Skill(rand100.randomNum(1, 100));
         npc.setCitizenshipLevel(CitizenshipLevel.randomCitizenshipLevel());
         npc.setFertility(rand100.randomNum(1, 100));
         npc.setHealth(100);
+        
         npc.getIdentity().setIdl(Ideology.randomIdeology());
         npc = generateIdentity(npc);
         npc = generateGeneticTraits(npc);
         npc = generateAcquiredTraits(npc);
+        if(Math.random() > .5)
+        {
+            npc.setSex(Sex.FEMALE);
+        }
+        else
+        {
+            npc.setSex(Sex.MALE);
+        }
+        npc.setName(cng.createName());
         return npc;
     }
 
@@ -74,16 +89,23 @@ public class NPCGenerator
         npc = generateGeneticTraits(npc);
         npc.getIdentity().setIdl(Ideology.APOLITICAL);
         npc = generateIdentity(npc);
+        if(Math.random() > .5)
+        {
+            npc.setSex(Sex.FEMALE);
+        }
+        else
+        {
+            npc.setSex(Sex.MALE);
+        }
+        npc.setName(cng.createName());
         return npc;
     }
 
 
-
-
 /** TRAIT GENERATION ************************************************************************** */
-    private NPC generateGeneticTraits(NPC npc)
+    private static NPC generateGeneticTraits(NPC npc)
     {
-        for(Trait i : GeneticTraitGenerator.getList())
+        for(Trait i : gtg.getList())
         {
             double num = Math.random(); 
             if(num < i.getChance())
@@ -94,9 +116,9 @@ public class NPCGenerator
         return npc;
     }
 
-    private NPC generateAcquiredTraits(NPC npc)
+    private static NPC generateAcquiredTraits(NPC npc)
     {
-        for(Trait i : AcquiredTraitGenerator.getList())
+        for(Trait i : atg.getList())
         {
             double num = Math.random(); 
             if(num < i.getChance())
@@ -108,7 +130,7 @@ public class NPCGenerator
     }
 /**IDENTITY GENERATION ******************************************************************** */
 
-    private NPC generateIdentity(NPC npc)
+    private static NPC generateIdentity(NPC npc)
     {
         npc.getIdentity().setMd(Mood.randomMood());
         npc.getIdentity().setAgreeableness(rand100.randomNum(1, 100));

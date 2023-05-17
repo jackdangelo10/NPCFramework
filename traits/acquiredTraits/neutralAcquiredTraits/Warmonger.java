@@ -8,7 +8,7 @@ public class Warmonger extends Trait
     {
         setChance(.1);
         setInheritable(false);
-        setTraitName("Warmonger ");
+        setTraitName("Warmonger");
         addOpposite("Pacifist");
     }
 

@@ -34,7 +34,7 @@ public class GeneticTraitGenerator
         return geneticTraits.get(index);
     }
 
-    public static ArrayList<Trait> getList()
+    public ArrayList<Trait> getList()
     {
         return geneticTraits;
     }  
