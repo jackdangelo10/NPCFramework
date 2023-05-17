@@ -371,5 +371,21 @@ abstract public class Character
     public void setIdentity(Identity identity) {
         this.identity = identity;
     }
+
+    public governments.GovernmentAttributes.CitizenshipLevel getCitizenshipLevel() {
+        return citizenshipLevel;
+    }
+
+    public void setCitizenshipLevel(governments.GovernmentAttributes.CitizenshipLevel citizenshipLevel) {
+        this.citizenshipLevel = citizenshipLevel;
+    }
+
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
+    }
     
 }

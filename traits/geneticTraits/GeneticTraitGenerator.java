@@ -23,7 +23,7 @@ public class GeneticTraitGenerator
         geneticTraits.addAll(new NeutralGeneticTraitGenerator().getList());
     }
 
-    public Trait generateRandomTrait()
+    public static Trait generateRandomTrait()
     {
         if (geneticTraits.isEmpty()) 
         {
