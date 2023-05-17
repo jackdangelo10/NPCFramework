@@ -1,10 +1,12 @@
 package characters;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 import characters.CharacterAttributes.Mood;
+import civilizations.Civilization;
+import professions.Profession;
+import settlements.Settlement;
+import structures.Structure;
 import traits.Trait;
 
 abstract public class Character 
@@ -39,10 +41,13 @@ abstract public class Character
     //demographics
     protected CharacterAttributes.Sex sex = null;
     protected CharacterAttributes.Age age = null;
-    protected governments.Attributes.CitizenshipLevel citizenshipLevel = null;
+    protected governments.GovernmentAttributes.CitizenshipLevel citizenshipLevel = null;
     protected String firstName = "";
     protected String lastName = "";
     protected String name = firstName + " " + lastName;
+
+    //family
+    protected Family family = null;
     
     //update
     protected int turnAge = 0;
@@ -139,7 +144,12 @@ abstract public class Character
         {
             bonus -=5;
         }
-        if(this.getProfession() == c.getProfession())
+        if(this.getProfession1() == c.getProfession1())
+        {
+            bonus += 10;
+        }
+
+        if(this.getProfession2() != null && this.getProfession2() == c.getProfession2())
         {
             bonus += 10;
         }
