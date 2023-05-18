@@ -21,7 +21,7 @@ public class Breeder
     private static Character offspring = null;
     private static Civilization civ = null;
     private static Settlement settlement = null;
-    private static CommonAncestorCalculator relationMachine = new CommonAncestorCalculator();
+    private static RelationshipFinder finder = new RelationshipFinder();
 
     public Breeder() {}
 
@@ -83,8 +83,12 @@ public class Breeder
         
     }
 
-    public Character breed()
+    public Character breed() throws BadAttributeValueExpException
     {
+        if(male == null || female == null)
+        {
+            throw new BadAttributeValueExpException("Partners not set.");
+        }
         inheritedStats();
         inheritedTraits();
         mutationTraits();
@@ -151,7 +155,8 @@ public class Breeder
             }
         }
 
-        if(relationMachine.areCloselyRelated(male, female))
+        String s = finder.findFamilialRelationship(male, female);
+        if(s != null && s != "Wife" && s != "Husband")
         {
             offspring.addTrait(new Inbred());
         }

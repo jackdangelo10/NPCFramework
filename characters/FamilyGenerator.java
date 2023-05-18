@@ -66,7 +66,15 @@ public class FamilyGenerator
        
         while(Math.random() > .5 && count < 5)
         {
-            breeder.breed();
+            try
+            {
+                breeder.breed();
+            }
+            catch(BadAttributeValueExpException e)
+            {
+                System.out.println(e.toString());
+            }
+            
         }
     }
 

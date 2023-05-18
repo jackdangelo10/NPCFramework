@@ -67,6 +67,12 @@ public class FamilySearch
             case "Girlfriend":
                 girlfriendSearch(c);
                 break;
+            case "Father":
+                relationships.add(c.getFather());
+                break;
+            case "Mother":
+                relationships.add(c.getMother());
+                break;
             default:
                 System.out.println("Relationship not recognized");     
         }
@@ -101,7 +107,7 @@ public class FamilySearch
         {
             for(Character i : c.getFather().getChildren())
             {
-                if(i.getSex() == Sex.FEMALE)
+                if(i.getSex() == Sex.FEMALE && i != c)
                 {
                     relationships.add(i);
                 }
@@ -115,7 +121,7 @@ public class FamilySearch
         {
             for(Character i : c.getFather().getChildren())
             {
-                if(i.getSex() == Sex.MALE)
+                if(i.getSex() == Sex.MALE && i != c)
                 {
                     relationships.add(i);
                 }
@@ -220,20 +226,21 @@ public class FamilySearch
         if(c.getFather() != Adam.getInstance())
         {
             relationships.addAll(c.getFather().getChildren());
+            relationships.remove(c);
         }
     }
 
     private void nephewSearch(Character c)
     {
         siblingSearch(c);
-        List<Character> yourSiblings = relationships;
+        List<Character> yourSiblings = new ArrayList<Character>(relationships);
         relationships.clear();
 
         List<Character> spouseSiblings = new ArrayList<>();
         if(c.getSpouse() != null)
         {
             siblingSearch(c.getSpouse());
-            spouseSiblings = relationships;
+            spouseSiblings = new ArrayList<>(relationships);
             relationships.clear();
         }
 
@@ -241,7 +248,7 @@ public class FamilySearch
         {
             for(Character j : i.getChildren())
             {
-                if(j.getSex() == Sex.MALE)
+                if(j.getSex() == Sex.MALE && i != c)
                 {
                     relationships.add(j);
                 }
@@ -263,14 +270,14 @@ public class FamilySearch
     private void nieceSearch(Character c)
     {
         siblingSearch(c);
-        List<Character> yourSiblings = relationships;
+        List<Character> yourSiblings = new ArrayList<>(relationships);
         relationships.clear();
 
         List<Character> spouseSiblings = new ArrayList<>();
         if(c.getSpouse() != null)
         {
             siblingSearch(c.getSpouse());
-            spouseSiblings = relationships;
+            spouseSiblings = new ArrayList<>(relationships);
             relationships.clear();
         }
 
@@ -301,7 +308,7 @@ public class FamilySearch
     {
         uncleSearch(c);
         auntSearch(c);
-        List<Character> parentSiblings = relationships;
+        List<Character> parentSiblings = new ArrayList<>(relationships);
         relationships.clear();
         for(Character i : parentSiblings)
         {
