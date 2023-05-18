@@ -17,6 +17,7 @@ public abstract class Structure
     protected Settlement settlement = null;
     protected NPC owner = null;
     
+    abstract protected void baseStatAssignments();
     
     
     

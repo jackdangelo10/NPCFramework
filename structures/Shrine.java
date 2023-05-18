@@ -4,11 +4,21 @@ import settlements.Settlement;
 
 public class Shrine extends Structure
 {
+    public Shrine()
+    {
+        baseStatAssignments();
+    }
+
     public Shrine(Civilization c, Settlement s)
     {
         super.civ = c;
         super.settlement = s;
-        super.structureName = "Farmstead";
+        baseStatAssignments();
+    }
+
+    protected void baseStatAssignments()
+    {
+        super.structureName = "Shrine";
         super.incomeInfluence = 3;
     }
 }

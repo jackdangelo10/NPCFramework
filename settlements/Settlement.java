@@ -6,13 +6,14 @@ import characters.Family;
 import characters.NPC;
 import civilizations.Civilization;
 import structures.Structure;
+import characters.Character;
 
 abstract public class Settlement 
 {
     protected Civilization civilization = null;
 
     //demographics
-    protected List<NPC> inhabitants = new ArrayList<NPC>();
+    protected List<Character> inhabitants = new ArrayList<Character>();
     protected List<Family> families = new ArrayList<Family>();
     protected String settlementName;
     protected String settlementAdjective;
@@ -24,6 +25,27 @@ abstract public class Settlement
     protected LocalGovernment government = null;
     protected ArrayList<Structure> structures = new ArrayList<Structure>();
 
+/**ADDING PEOPLE */
+
+    public void addInhabitant(Character c)
+    {
+        inhabitants.add(c);
+        addFamily(c.getFamily());
+    }
+
+    public void addFamily(Family f)
+    {
+        families.add(f);
+        for(Character i : f.getMembers())
+        {
+            addInhabitant(i);
+        }
+    }
+
+    public void addStructure(Structure s)
+    {
+        structures.add(s);
+    }
     
 
 /**GETTERS AND SETTERS ******************************************************************************* */
@@ -34,10 +56,10 @@ abstract public class Settlement
     public void setCivilization(Civilization civilization) {
         this.civilization = civilization;
     }
-    public List<NPC> getInhabitants() {
+    public List<Character> getInhabitants() {
         return inhabitants;
     }
-    public void setInhabitants(List<NPC> inhabitants) {
+    public void setInhabitants(List<Character> inhabitants) {
         this.inhabitants = inhabitants;
     }
     public List<Family> getFamilies() {

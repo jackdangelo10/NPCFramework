@@ -4,10 +4,20 @@ import settlements.Settlement;
 
 public class Castle extends Structure
 {
+    public Castle()
+    {
+        baseStatAssignments();
+    }
+
     public Castle(Civilization c, Settlement s)
     {
         super.civ = c;
         super.settlement = s;
+        baseStatAssignments();
+    }
+
+    protected void baseStatAssignments()
+    {
         super.structureName = "Castle";
         super.incomeFood = -2;
         super.incomeGold = -2;

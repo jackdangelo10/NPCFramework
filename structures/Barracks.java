@@ -8,10 +8,21 @@ public class Barracks extends Structure
 {
     List<Character> stationedGuards = new ArrayList<Character>();
 
+    public Barracks()
+    {
+        baseStatAssignments();
+    }
+
     public Barracks(Civilization c, Settlement s)
     {
         super.civ = c;
         super.settlement = s;
+        baseStatAssignments();
+        
+    }
+
+    protected void baseStatAssignments()
+    {
         super.structureName = "Barracks";
         super.incomeFood = -1;
         super.incomeGold = -1;

@@ -19,9 +19,6 @@ public class Family
 
 
 /**GETTERS AND SETTERS ***************************************************************** */
-    public List<characters.Character> getAllMembers() {
-        return members;
-    }
 
     public List<characters.Character> getMembers() {
         return members;

@@ -4,11 +4,20 @@ import settlements.Settlement;
 
 public class Shop extends Structure
 {
+    public Shop()
+    {
+        baseStatAssignments();
+    }
 
     public Shop(Civilization c, Settlement s)
     {
         super.civ = c;
         super.settlement = s;
+        baseStatAssignments();
+    }
+
+    protected void baseStatAssignments()
+    {
         super.structureName = "Store";
         super.incomeFood = -1;
         super.incomeGold = 4;
