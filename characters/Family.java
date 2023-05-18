@@ -6,7 +6,7 @@ import java.util.List;
 public class Family 
 {
     private List<characters.Character> members;
-    private int familyInfluence = 0;
+    private int status = 0;
 
     public Family() 
     {
@@ -31,12 +31,13 @@ public class Family
         this.members = members;
     }
 
-    public int getFamilyInfluence() {
-        return familyInfluence;
+    public int getStatus() {
+        return status;
     }
 
-    public void setFamilyInfluence(int familyInfluence) {
-        this.familyInfluence = familyInfluence;
+    public void setStatus(int status) {
+        this.status = status;
     }
+
  
 }
