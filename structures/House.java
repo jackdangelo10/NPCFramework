@@ -1,9 +1,13 @@
 package structures;
+import java.util.List;
+
 import civilizations.Civilization;
 import settlements.Settlement;
 
 public class House extends Structure
 {
+    List<Character> household = null;
+
     public House(Civilization c, Settlement s)
     {
         super.civ = c;

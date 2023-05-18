@@ -2,9 +2,10 @@ package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
 
-public class Store extends Structure
+public class Shop extends Structure
 {
-    public Store(Civilization c, Settlement s)
+
+    public Shop(Civilization c, Settlement s)
     {
         super.civ = c;
         super.settlement = s;
