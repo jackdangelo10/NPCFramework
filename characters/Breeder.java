@@ -21,7 +21,7 @@ public class Breeder
     private static Character offspring = null;
     private static Civilization civ = null;
     private static Settlement settlement = null;
-    private static RelationMachine relationMachine = new RelationMachine();
+    private static CommonAncestorCalculator relationMachine = new CommonAncestorCalculator();
 
     public Breeder() {}
 
@@ -92,20 +92,11 @@ public class Breeder
         //join family
         offspring.setFamily(female.getFamily());
         offspring.getFamily().addMember(offspring);
+        offspring.setFather(male);
+        offspring.setMother(female);
 
-        offspring.getFamily().addRelationship(offspring, "Mother", female);
-        offspring.getFamily().addRelationship(offspring, "Father", female);
-
-        if(offspring.getSex() == CharacterAttributes.Sex.FEMALE)
-        {
-            male.getFamily().addRelationship(male, "Daughter", offspring);
-            female.getFamily().addRelationship(female, "Daughter", offspring);
-        }
-        else
-        {
-            male.getFamily().addRelationship(male, "Son", offspring);
-            female.getFamily().addRelationship(female, "Son", offspring);
-        }
+        male.addChild(offspring);
+        female.addChild(offspring);
 
         return offspring;
     }
@@ -146,7 +137,7 @@ public class Breeder
                     offspring.addTrait(tr);
                 }
             }
-            else if(Math.random() > .30 && tr.isInheritable())
+            else if(Math.random() > .25 && tr.isInheritable())
             {
                 offspring.addTrait(tr);
             }
@@ -154,15 +145,13 @@ public class Breeder
         for(int i = 0; i < traitXOR.size(); i++)
         {
             Trait tr = traitPool.get(traitXOR.get(i));
-            if(Math.random() > .77 && tr.isInheritable()) ///***important to add check for opposite trait */
+            if(Math.random() > .66 && tr.isInheritable()) ///***important to add check for opposite trait */
             {
                 offspring.addTrait(tr);
             }
         }
 
-        System.out.println("My wife: " + male.getFamily().getFamilyMembers(male, "Wife"));
-
-        if(relationMachine.areCloselyRelated(male, female));
+        if(relationMachine.areCloselyRelated(male, female))
         {
             offspring.addTrait(new Inbred());
         }
@@ -173,9 +162,6 @@ public class Breeder
     {
         NormalRandom rand = new NormalRandom(1, 0);
         offspring = new NPC();
-        String firstName[] = offspring.getName().split(" ", 2);
-        String lastName[] = female.getName().split(" ", 2);
-        offspring.setName(firstName[0] + " " + lastName[1]);
         offspring.setSTR(weightedAverageHigh(male.getSTR(), female.getSTR()) + 
             rand.randomNum(-2,2));
         offspring.setCON(weightedAverageHigh(male.getCON(), female.getCON()) + 

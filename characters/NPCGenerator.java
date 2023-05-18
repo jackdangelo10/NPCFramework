@@ -32,6 +32,13 @@ public class NPCGenerator
         }
     }
 
+    public NPC generateRandomAdultNPC(CharacterAttributes.Sex sex)
+    {
+        NPC npc = generateRandomAdultNPC();
+        npc.setSex(sex);
+        return npc;
+    }
+
     public NPC generateRandomAdultNPC()
     {
         NPC npc = new NPC();
@@ -65,6 +72,15 @@ public class NPCGenerator
             npc.setSex(Sex.MALE);
         }
         npc.setName(cng.createName());
+        npc.setFather(Adam.getInstance());
+        npc.setMother(Eve.getInstance());
+        return npc;
+    }
+
+    public NPC generateRandomChildNPC(CharacterAttributes.Sex sex)
+    {
+        NPC npc = generateRandomChildNPC();
+        npc.setSex(sex);
         return npc;
     }
 
@@ -98,6 +114,8 @@ public class NPCGenerator
             npc.setSex(Sex.MALE);
         }
         npc.setName(cng.createName());
+        npc.setFather(Adam.getInstance());
+        npc.setMother(Eve.getInstance());
         return npc;
     }
 

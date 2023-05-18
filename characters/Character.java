@@ -1,6 +1,8 @@
 package characters;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import civilizations.Civilization;
 import professions.Profession;
@@ -47,8 +49,14 @@ abstract public class Character
     protected String lastName = "";
     protected String name = firstName + " " + lastName;
 
-    //family
+    //family and friends
     protected Family family = null;
+    protected Character father = null;
+    protected Character mother = null;
+    protected Character spouse = null;
+    protected Character partner = null;
+    protected List<Character> friends = null;
+    protected List<Character> children = null;
     
     //update
     protected int turnAge = 0;
@@ -61,8 +69,23 @@ abstract public class Character
     public Character()
     {
         traits = new HashMap<>();
+        friends = new ArrayList<>();
+        children = new ArrayList<>();
+
         family = new Family();
         family.addMember(this);
+    }
+
+//**RELATIONSHIP LOGIC ******************************************************************************** */
+
+    public void addFriend(Character c)
+    {
+        friends.add(c);
+    }
+
+    public void addChild(Character c)
+    {
+        children.add(c);
     }
 
 //* STAT LOGIC *************************************************************************************/
@@ -252,18 +275,32 @@ abstract public class Character
     }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+        this.name = firstName + " " + lastName;
     }
     public String getLastName() {
         return lastName;
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+        this.name = firstName + " " + lastName;
     }
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
+        String parts[] = name.split(" ", 2);
+        if(parts.length == 2)
+        {
+            this.firstName = parts[0];
+            this.lastName = parts[1];
+        }
+        else
+        {
+            firstName = parts[0];
+            lastName = "";
+        }
+        
     }
     public int getTurnAge() {
         return turnAge;
@@ -317,5 +354,55 @@ abstract public class Character
     public void setProfession2Skill(int profession2Skill) {
         this.profession2Skill = profession2Skill;
     }
+
+    public Character getFather() {
+        return father;
+    }
+
+    public void setFather(Character father) {
+        this.father = father;
+    }
+
+    public Character getMother() {
+        return mother;
+    }
+
+    public void setMother(Character mother) {
+        this.mother = mother;
+    }
+
+    public List<Character> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<Character> friends) {
+        this.friends = friends;
+    }
+
+    public Character getSpouse() {
+        return spouse;
+    }
+
+    public void setSpouse(Character spouse) {
+        this.spouse = spouse;
+    }
+
+    public Character getPartner() {
+        return partner;
+    }
+
+    public void setPartner(Character partner) {
+        this.partner = partner;
+    }
+
+    public List<Character> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Character> children) {
+        this.children = children;
+    }
+
+    
     
 }

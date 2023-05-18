@@ -21,7 +21,7 @@ public class FamilyGenerator
         source.setSex(Sex.FEMALE);
 
         //husband generator
-        if(true)
+        if(Math.random() > .5)
         {
             try
             {

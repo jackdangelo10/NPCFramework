@@ -15,6 +15,11 @@ public class MarriageMachine
 
     public void marry()
     {
+        if(female.getTraits().containsKey("Homosexual") || male.getTraits().containsKey("Homosexual"))
+        {
+            System.out.println("One partner is homosexual, cannot marry opposite sex.");
+            return;
+        }
         female.setFamily(null);
         male.setFamily(null);
         
@@ -24,9 +29,9 @@ public class MarriageMachine
 
         family.addMember(female);
         family.addMember(male);
-        
-        family.addRelationship(male, "Wife", female);
-        family.addRelationship(female, "Husband", male);
+
+        male.setSpouse(female);
+        female.setSpouse(male);
         
         if(Math.random() > .5)
         {
