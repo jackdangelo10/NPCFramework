@@ -1,15 +1,16 @@
 package structures;
+
 import civilizations.Civilization;
 import settlements.Settlement;
 
-public class TownHall extends Structure
+public class AlchemyLabratory extends Structure
 {
-    public TownHall()
+    public AlchemyLabratory()
     {
         baseStatAssignments();
     }
 
-    public TownHall(Civilization c, Settlement s)
+    public AlchemyLabratory(Civilization c, Settlement s)
     {
         super.civ = c;
         super.settlement = s;
@@ -18,10 +19,10 @@ public class TownHall extends Structure
 
     protected void baseStatAssignments()
     {
-        super.structureName = "Town Hall";
+        super.structureName = "Alchemy Labratory";
         super.incomeFood = -1;
-        super.incomeGold = -1;
-        super.incomeManpower = 3;
-        super.incomeInfluence = 5;
+        super.incomeGold = 5;
+        super.incomeManpower = -1;
+        super.incomeInfluence = 3;
     }
 }

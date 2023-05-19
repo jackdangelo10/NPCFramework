@@ -151,19 +151,17 @@ public class TestSuite
         james.setFather(uncle_james);
 
 
-        //Calculator needs some serious editing
         RelationshipFinder finder = new RelationshipFinder();
-        String relationship = finder.findFamilialRelationship(me, uncle_james);
-        //System.out.println(relationship);
+        String relationship = finder.findFamilialRelationship(nick, uncle_mike);
+        System.out.println(relationship);
         
         FamilySearch search = new FamilySearch();
         //Cousins and nephew/niece not working.
 
-        List<Character> people = search.search(mom, "Nephew");
+        List<Character> people = search.search(joey, "Sibling");
         for(Character i : people)
         {
             System.out.println(i.getName());
         }
-        
     }
 }

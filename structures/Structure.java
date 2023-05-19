@@ -3,8 +3,9 @@ import characters.NPC;
 import civilizations.Civilization;
 import settlements.Settlement;
 
-public abstract class Structure 
+public abstract class Structure implements Cloneable
 {
+
     protected String structureName;
     protected int incomeFood = 0;
     protected int incomeGold = 0;
@@ -18,7 +19,20 @@ public abstract class Structure
     protected NPC owner = null;
     
     abstract protected void baseStatAssignments();
-    
+
+/**CLONABLE IMPLEMENTATION ************************************************************ */
+
+    @Override
+    public Structure clone() {
+        try 
+        {
+            return (Structure) super.clone();
+        } catch (CloneNotSupportedException e) 
+        {
+            // Handle the exception if necessary
+            return null;
+        }
+    }
     
     
 /**GETTERS AND SETTERS ************************************************************* */

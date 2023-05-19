@@ -52,6 +52,54 @@ public class FamilyGenerator
         return source.getFamily();
     }
 
+    public Family generateFamily(int familySize)
+    {
+        Character source = npcGenerator.generateRandomAdultNPC();
+        source.setSex(Sex.FEMALE);
+        if(familySize == 1)
+        {
+            if(Math.random() > .5)
+            {
+                source.setSex(Sex.MALE);
+            }
+            return source.getFamily();
+        }
+        Character spouse = null;
+        if(familySize > 1)
+        {
+            try
+            {
+                spouse = npcGenerator.generateRandomAdultNPC();
+                spouse.setSex(Sex.MALE);
+
+
+                MarriageMachine machine = new MarriageMachine(source, spouse);
+                //marrying adds to family
+                machine.marry();
+            }
+            catch(BadAttributeValueExpException e)
+            {
+                System.out.println(e.toString());
+            }
+        }
+        if(familySize > 2)
+        {
+            int childrenNum = familySize - 2;
+            for(int i = 0; i < childrenNum; i++)
+            {
+                try
+                {
+                    breeder.setCouple(spouse, source, null, null);
+                }
+                catch(BadAttributeValueExpException e)
+                {
+                    System.out.println(e.toString());
+                }
+            }
+        }
+        return source.getFamily();
+    }
+
     private void generateChildren(Character spouse, Character source)
     {
         int count = 0;
@@ -81,7 +129,7 @@ public class FamilyGenerator
     private void testFamilyPrint(Character source)
     {
         CharacterPrinter printer = new CharacterPrinter();
-        for(Character c : source.getFamily().getAllMembers())
+        for(Character c : source.getFamily().getMembers())
         {
             printer.printCharacter(c);
         }

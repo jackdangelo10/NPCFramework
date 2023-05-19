@@ -105,4 +105,20 @@ abstract public class Settlement
         this.structures = structures;
     }
 
+    public int getMAX_POP() {
+        return MAX_POP;
+    }
+
+    public void setMAX_POP(int mAX_POP) {
+        MAX_POP = mAX_POP;
+    }
+
+    public int getMIN_POP() {
+        return MIN_POP;
+    }
+
+    public void setMIN_POP(int mIN_POP) {
+        MIN_POP = mIN_POP;
+    }
+    
 }

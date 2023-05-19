@@ -73,6 +73,9 @@ public class FamilySearch
             case "Mother":
                 relationships.add(c.getMother());
                 break;
+            case "Sibling":
+                siblingSearch(c);
+                break;
             default:
                 System.out.println("Relationship not recognized");     
         }
@@ -285,7 +288,7 @@ public class FamilySearch
         {
             for(Character j : i.getChildren())
             {
-                if(j.getSex() == Sex.MALE)
+                if(j.getSex() == Sex.FEMALE)
                 {
                     relationships.add(j);
                 }
