@@ -215,13 +215,6 @@ public class StructureGenerator
         return cityTierStructures.get(index).clone();
     }
 
-    public 
-
-    public List<Structure> getList()
-    {
-        return structures;
-    }
-
     public static List<Structure> getStructures() {
         return structures;
     }

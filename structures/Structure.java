@@ -22,6 +22,8 @@ public abstract class Structure implements Cloneable
     protected int incomeHappiness = 0;
 
     protected List<characters.Character> assignedNPCs = new ArrayList<characters.Character>();
+
+    protected Map<String, List<characters.Character>> assignedCharactersByProfession = new HashMap<>();
     protected Map<String, Integer> associatedProfessions = new HashMap<String, Integer>();
     protected characters.Character apprentice = null;
     protected int totalCapacity = 0;
@@ -51,8 +53,16 @@ public abstract class Structure implements Cloneable
 
     public boolean hasVacancy(String profession)
     {
-        int capacity = associatedProfessions.getOrDefault(profession, 0);
-        return assignedNPCs.stream().filter(Character -> Character.getProfession1().getProfName().equals(profession)).count() < capacity;
+        int capacity = associatedProfessions.get(profession);
+        int currentSize = assignedCharactersByProfession.get(profession).size();
+        if(currentSize >= capacity)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     public boolean hasApprentice() 

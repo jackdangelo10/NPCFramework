@@ -6,13 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-
 import characters.Character;
 import structures.Structure;
-import structures.StructureGenerator;
 
 public class ProfessionAssignmentScheduler 
 {
+    private static Map<Character, Structure> mappings = new HashMap<>();
 
     public static void schedule(List<Character> npcs, List<Structure> structures)
     {
@@ -34,6 +33,7 @@ public class ProfessionAssignmentScheduler
                 {
                     if(str.hasVacancy(profession))
                     {
+                        mappings.put(c, str);
                         c.setAssignedStructure(str);
                         str.getAssignedNPCs().add(c);
                         Profession p = ProfessionGenerator.getProfessionMap().get(profession);
@@ -44,8 +44,15 @@ public class ProfessionAssignmentScheduler
                         break outer;
                     }
                 }
-            }
+            }   
+        }
+    }
 
+    public void printMapping()
+    {
+        for(Character i : mappings.keySet())
+        {
+            System.out.print(i.getName() + " " + i.getProfession1().getProfName() + " " + i.getAssignedStructure().getStructureName());
         }
     }
 }

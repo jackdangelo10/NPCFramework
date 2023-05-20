@@ -1,6 +1,7 @@
 import characters.CharacterAttributes.Sex;
 import settlements.Settlement;
 import settlements.SettlementGenerator;
+import structures.Castle;
 import structures.Structure;
 
 import java.util.ArrayList;
@@ -16,12 +17,5 @@ public class TestSuite
      
     public static void main(String[] args) 
     {
-        SettlementGenerator generator = new SettlementGenerator();
-        Settlement s = generator.generateRandomSettlement(null);
-        System.out.println(s.getSettlementSizeName() + ":");
-        for(Structure str : s.getStructures())
-        {
-            System.out.println(str.getStructureName());
-        }
     }
 }
