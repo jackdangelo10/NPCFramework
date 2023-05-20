@@ -1,5 +1,7 @@
 package professions;
 
+import characters.Character;
+
 public class Artist extends Profession
 {
     public Artist()
@@ -27,4 +29,34 @@ public class Artist extends Profession
         } 
         return flag;
     }
+
+    @Override
+    public int calculateProfessionSkill(Character c) 
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+
+        int skill = c.getDEX() + c.getGFT();
+        if(c.getTraits().containsKey("Impatient"))
+        {
+            skill -= 15;
+        }
+        if(c.getTraits().containsKey("Disciplined"))
+        {
+            skill += 15;
+        }
+        if(c.getTraits().containsKey("Inventive"))
+        {
+            skill += 10;
+        }
+        if(c.getTraits().containsKey("Deranged"))
+        {
+            skill += 25;
+        }
+        return skill;
+    }
+
+    
 }

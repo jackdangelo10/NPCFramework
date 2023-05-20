@@ -1,5 +1,7 @@
 package professions;
 
+import characters.Character;
+
 public class Drunkard extends Profession
 {
     public Drunkard()
@@ -29,5 +31,36 @@ public class Drunkard extends Profession
     public boolean satisfyAllConditions(characters.Character c)
     {
         return true;
+    }
+
+    @Override
+    public int calculateProfessionSkill(Character c) 
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+        int skill = c.getCON() + c.getCHR();
+        if(c.getTraits().containsKey("Charming"))
+        {
+            skill += 10;
+        }
+        if(c.getTraits().containsKey("Cruel"))
+        {
+            skill -= 35;
+        }
+        if(c.getTraits().containsKey("Depressed"))
+        {
+            skill -= 20;
+        }
+        if(c.getTraits().containsKey("Generous"))
+        {
+            skill += 10;
+        }
+        if(c.getTraits().containsKey("Brave"))
+        {
+            skill += 5;
+        }
+        return skill;
     }
 }
