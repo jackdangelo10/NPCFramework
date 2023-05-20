@@ -22,6 +22,6 @@ public class Smithy extends Structure
         super.structureName = "Smithy";
         super.incomeGold = -1;
         super.incomeManpower = 3;
-        super.associatedProfession = "Blacksmith";
+        super.associatedProfessions.put("Blacksmith", 1);
     }
 }

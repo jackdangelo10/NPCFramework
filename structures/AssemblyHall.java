@@ -18,11 +18,11 @@ public class AssemblyHall extends Structure
 
     protected void baseStatAssignments()
     {
-        super.structureName = "Town Hall";
+        super.structureName = "Assembly Hall";
         super.incomeFood = -1;
         super.incomeGold = -1;
         super.incomeManpower = 3;
         super.incomeInfluence = 5;
-        super.associatedProfession = "Politician";
+        super.associatedProfessions.put("Politician", 50);
     }
 }

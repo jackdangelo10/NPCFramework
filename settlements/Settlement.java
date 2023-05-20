@@ -21,8 +21,8 @@ abstract public class Settlement
     protected int MAX_STRUCTURES = 0;
     protected int MIN_STRUCTURES = 0;
     
-    protected LocalEconomy economy = null;
-    protected LocalGovernment government = null;
+    //protected LocalEconomy economy = null;
+    //protected LocalGovernment government = null;
     protected ArrayList<Structure> structures = new ArrayList<Structure>();
 
 /**ADDING PEOPLE */
@@ -86,6 +86,8 @@ abstract public class Settlement
     public void setSettlementSizeName(String settlementSizeName) {
         this.settlementSizeName = settlementSizeName;
     }
+
+    /* 
     public LocalEconomy getEconomy() {
         return economy;
     }
@@ -98,27 +100,12 @@ abstract public class Settlement
     public void setGovernment(LocalGovernment government) {
         this.government = government;
     }
+    */
     public ArrayList<Structure> getStructures() {
         return structures;
     }
     public void setStructures(ArrayList<Structure> structures) {
         this.structures = structures;
-    }
-
-    public int getMAX_POP() {
-        return MAX_POP;
-    }
-
-    public void setMAX_POP(int mAX_POP) {
-        MAX_POP = mAX_POP;
-    }
-
-    public int getMIN_POP() {
-        return MIN_POP;
-    }
-
-    public void setMIN_POP(int mIN_POP) {
-        MIN_POP = mIN_POP;
     }
     
 }

@@ -30,8 +30,7 @@ abstract public class Character
     protected Civilization civ = null;
     protected Settlement settlement = null;
 
-    protected Structure workplace = null;
-    protected Structure home = null;
+    protected Structure assignedStructure = null;
 
     //base stats
     protected int fertility = 50;
@@ -216,18 +215,7 @@ abstract public class Character
     public void setSettlement(Settlement settlement) {
         this.settlement = settlement;
     }
-    public Structure getWorkplace() {
-        return workplace;
-    }
-    public void setWorkplace(Structure workplace) {
-        this.workplace = workplace;
-    }
-    public Structure getHome() {
-        return home;
-    }
-    public void setHome(Structure home) {
-        this.home = home;
-    }
+
     public int getFertility() {
         return fertility;
     }
@@ -401,6 +389,14 @@ abstract public class Character
 
     public void setChildren(List<Character> children) {
         this.children = children;
+    }
+
+    public Structure getAssignedStructure() {
+        return assignedStructure;
+    }
+
+    public void setAssignedStructure(Structure assignedStructure) {
+        this.assignedStructure = assignedStructure;
     }
 
     

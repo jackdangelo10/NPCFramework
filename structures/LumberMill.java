@@ -22,5 +22,6 @@ public class LumberMill extends Structure
         super.incomeFood = 0;
         super.incomeGold = 2;
         super.incomeManpower = -2;
+        super.associatedProfessions.put("Miller", 3);
     }
 }

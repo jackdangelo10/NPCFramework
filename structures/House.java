@@ -1,4 +1,5 @@
 package structures;
+import java.util.ArrayList;
 import java.util.List;
 
 import civilizations.Civilization;
@@ -6,7 +7,7 @@ import settlements.Settlement;
 
 public class House extends Structure
 {
-    List<Character> household = null;
+    private static List<Character> household = new ArrayList<Character>();
 
     public House()
     {
@@ -24,5 +25,11 @@ public class House extends Structure
         super.structureName = "House";
         super.incomeFood = -2;
         super.incomeManpower = 2;
+        super.associatedProfessions.put("Unemployed", 10);
+    }
+
+    public void assignHouseholdMember(Character c)
+    {
+        household.add(c);
     }
 }

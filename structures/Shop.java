@@ -22,6 +22,6 @@ public class Shop extends Structure
         super.incomeFood = -1;
         super.incomeGold = 4;
         super.incomeManpower = -1;
-        super.associatedProfession = "Merchant";
+        super.associatedProfessions.put("Merchant", 3);
     }
 }

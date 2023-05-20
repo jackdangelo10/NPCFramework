@@ -22,6 +22,6 @@ public class Stables extends Structure
         super.incomeFood = -1;
         super.incomeGold = -1;
         super.incomeManpower = 4;
-        super.associatedProfession = "Stablehand";
+        super.associatedProfessions.put("Stablehand", 2);
     }
 }

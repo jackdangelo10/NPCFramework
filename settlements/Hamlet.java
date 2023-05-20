@@ -9,8 +9,8 @@ public class Hamlet extends Settlement
         super.civilization = c;
         super.settlementSizeName = "Hamlet";
         System.out.println("Initializing hamlet...");
-        super.MAX_STRUCTURES = 5;
-        super.MIN_STRUCTURES = 7;
+        super.MAX_STRUCTURES = 7;
+        super.MIN_STRUCTURES = 5;
     }
 
 }

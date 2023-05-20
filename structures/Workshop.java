@@ -22,6 +22,7 @@ public class Workshop extends Structure
         super.structureName = "Workshop";
         super.incomeGold = -1;
         super.incomeManpower = 3;
-        super.associatedProfession = "Carpenter";
+        super.associatedProfessions.put("Carpenter", 1);
+
     }
 }

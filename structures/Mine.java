@@ -22,6 +22,6 @@ public class Mine extends Structure
         super.incomeGold = 2;
         super.incomeGold = -3;
         super.incomeManpower = 3;
-        super.associatedProfession = "Miner";
+        super.associatedProfessions.put("Miner", 7);
     }
 }

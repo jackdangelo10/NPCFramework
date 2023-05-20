@@ -8,7 +8,7 @@ public class Village extends Settlement
         super.civilization = c;
         super.settlementSizeName = "Village";
         System.out.println("Initializing village...");
-        super.MAX_POP = 13;
+        super.MAX_STRUCTURES = 13;
         super.MIN_STRUCTURES = 8;
     }
 }

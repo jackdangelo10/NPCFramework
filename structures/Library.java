@@ -22,6 +22,6 @@ public class Library extends Structure
         super.incomeFood = -1;
         super.incomeHappiness = 1;
         super.incomeInfluence = 2;
-        super.associatedProfession = "Scholar";
+        super.associatedProfessions.put("Scholar", 3);
     }
 }

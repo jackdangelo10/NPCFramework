@@ -1,4 +1,10 @@
 package structures;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import characters.NPC;
 import civilizations.Civilization;
 import professions.Profession;
@@ -15,7 +21,10 @@ public abstract class Structure implements Cloneable
     protected int incomeManpower = 0;
     protected int incomeHappiness = 0;
 
-    protected String associatedProfession = null;
+    protected List<characters.Character> assignedNPCs = new ArrayList<characters.Character>();
+    protected Map<String, Integer> associatedProfessions = new HashMap<String, Integer>();
+    protected characters.Character apprentice = null;
+    protected int totalCapacity = 0;
 
     //where its located
     protected Civilization civ = null;
@@ -38,6 +47,30 @@ public abstract class Structure implements Cloneable
         }
     }
     
+/**ASSIGNMENT LOGIC ******************************************************************** */
+
+    public boolean hasVacancy(String profession)
+    {
+        int capacity = associatedProfessions.getOrDefault(profession, 0);
+        return assignedNPCs.stream().filter(Character -> Character.getProfession1().getProfName().equals(profession)).count() < capacity;
+    }
+
+    public boolean hasApprentice() 
+    {
+        return apprentice != null && !assignedNPCs.contains(apprentice);
+    }
+
+    public boolean isFull()
+    {
+        if(assignedNPCs.size() >= totalCapacity)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
 /**GETTERS AND SETTERS ************************************************************* */
     public String getStructureName() {
@@ -95,5 +128,30 @@ public abstract class Structure implements Cloneable
         this.owner = owner;
     }
 
+    public List<characters.Character> getAssignedNPCs() {
+        return assignedNPCs;
+    }
+
+    public void setAssignedNPCs(List<characters.Character> assignedNPCs) {
+        this.assignedNPCs = assignedNPCs;
+
+    }
+
+    public Map<String, Integer> getAssociatedProfessions() {
+        return associatedProfessions;
+    }
+
+    public void setAssociatedProfessions(Map<String, Integer> associatedProfessions) {
+        this.associatedProfessions = associatedProfessions;
+    }
+
+    public characters.Character getApprentice() {
+        return apprentice;
+    }
+
+    public void setApprentice(characters.Character apprentice) {
+        this.apprentice = apprentice;
+    } 
+    
     
 }

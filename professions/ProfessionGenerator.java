@@ -103,7 +103,33 @@ public class ProfessionGenerator
     public ArrayList<Profession> getList()
     {
         return professions;
+    }
+
+    public static ArrayList<Profession> getProfessions() {
+        return professions;
+    }
+
+    public static void setProfessions(ArrayList<Profession> professions) {
+        ProfessionGenerator.professions = professions;
+    }
+
+    public static Map<String, Profession> getProfessionMap() {
+        return professionMap;
+    }
+
+    public static void setProfessionMap(Map<String, Profession> professionMap) {
+        ProfessionGenerator.professionMap = professionMap;
+    }
+
+    public static Random getRandom() {
+        return random;
+    }
+
+    public static void setRandom(Random random) {
+        ProfessionGenerator.random = random;
     }  
+
+    
 
     
 }

@@ -22,6 +22,6 @@ public class HolySite extends Structure
         super.structureName = "Holy Site";
         super.incomeFood = -2;
         super.incomeInfluence = 7;
-        super.associatedProfession = "Preacher";
+        super.associatedProfessions.put("Preacher", 1);
     }
 }

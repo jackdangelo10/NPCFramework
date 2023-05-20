@@ -23,5 +23,6 @@ public class Palace extends Structure
         super.incomeGold = -1;
         super.incomeManpower = -1;
         super.incomeInfluence = 10;
+        super.associatedProfessions.put("Steward", 1);
     }
 }

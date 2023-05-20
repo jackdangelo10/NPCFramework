@@ -23,5 +23,8 @@ public class Castle extends Structure
         super.incomeGold = -2;
         super.incomeManpower = 6;
         super.incomeInfluence = 1;
+        super.associatedProfessions.put("Guard", 10);
+        super.associatedProfessions.put("Worker", 5);
+        super.associatedProfessions.put("Castellan", 1);
     }
 }

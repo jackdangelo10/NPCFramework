@@ -24,6 +24,6 @@ public class Citadel extends Structure
         super.incomeGold = -2;
         super.incomeManpower = -4;
         super.incomeInfluence = 4;
-        super.associatedProfession = "Guard";
+        super.associatedProfessions.put("Guard", 20);
     }
 }

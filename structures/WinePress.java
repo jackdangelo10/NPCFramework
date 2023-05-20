@@ -24,5 +24,6 @@ public class WinePress extends Structure
         super.incomeGold = 2;
         super.incomeManpower = -2;
         super.incomeInfluence = 1;
+        super.associatedProfessions.put("Worker", 4);
     }
 }

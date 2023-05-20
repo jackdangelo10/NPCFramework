@@ -5,6 +5,7 @@ import settlements.Settlement;
 
 public class AlchemyLabratory extends Structure
 {
+
     public AlchemyLabratory()
     {
         baseStatAssignments();
@@ -24,6 +25,6 @@ public class AlchemyLabratory extends Structure
         super.incomeGold = 5;
         super.incomeManpower = -1;
         super.incomeInfluence = 3;
-        super.associatedProfession = "Alchemist";
+        super.associatedProfessions.put("Alchemist", 3);
     }
 }

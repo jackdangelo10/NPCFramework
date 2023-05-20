@@ -112,7 +112,6 @@ public class StructureGenerator
         baseStructures.add(farmstead);
         baseStructures.add(smithy);
 
-        hamletTierStructures.add(house);
         hamletTierStructures.add(pasture);
         hamletTierStructures.add(shop);
         hamletTierStructures.add(granary);

@@ -23,6 +23,6 @@ public class Brewery extends Structure
         super.incomeFood = 2;
         super.incomeGold = 3;
         super.incomeManpower = -2;
-        super.associatedProfession = "Brewer";
+        super.associatedProfessions.put("Brewer", 4);
     }
 }

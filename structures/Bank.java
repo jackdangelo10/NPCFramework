@@ -23,6 +23,6 @@ public class Bank extends Structure
         super.incomeGold = 10;
         super.incomeManpower = -2;
         super.incomeInfluence = 3;
-        super.associatedProfession = "Banker";
+        super.associatedProfessions.put("Banker", 5);
     }
 }

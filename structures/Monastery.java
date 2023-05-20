@@ -23,6 +23,6 @@ public class Monastery extends Structure
         super.incomeGold = -1;
         super.incomeHappiness = 1;
         super.incomeInfluence = 2;
-        super.associatedProfession = "Monk";
+        super.associatedProfessions.put("Monk", 5);
     }
 }

@@ -22,6 +22,6 @@ public class Harbor extends Structure
         super.structureName = "Harbor";
         super.incomeFood = 4;
         super.incomeGold = 5;
-        super.associatedProfession = "Fisher";
+        super.associatedProfessions.put("Fisher", 10);
     }
 }

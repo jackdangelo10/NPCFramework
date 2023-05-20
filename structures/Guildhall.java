@@ -5,7 +5,7 @@ import settlements.Settlement;
 
 public class Guildhall extends Structure
 {
-    private Faction guild = null;
+    //private Faction guild = null;
 
     public Guildhall()
     {

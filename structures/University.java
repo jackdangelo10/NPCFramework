@@ -24,6 +24,6 @@ public class University extends Structure
         super.incomeGold = -1;
         super.incomeManpower = -1;
         super.incomeInfluence = 6;
-        super.associatedProfession = "Scholar";
+        super.associatedProfessions.put("Scholar", 6);
     }
 }

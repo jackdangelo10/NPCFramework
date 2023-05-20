@@ -23,5 +23,6 @@ public class Watermill extends Structure
         super.incomeFood = 2;
         super.incomeGold = 1;
         super.incomeManpower = 1;
+        super.associatedProfessions.put("Miller", 1);
     }
 }

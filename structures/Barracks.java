@@ -27,7 +27,7 @@ public class Barracks extends Structure
         super.incomeFood = -1;
         super.incomeGold = -1;
         super.incomeManpower = 4;
-        super.associatedProfession = "Guard";
+        super.associatedProfessions.put("Guard", 15);
     }
 
     public void addGuard(Character c)
