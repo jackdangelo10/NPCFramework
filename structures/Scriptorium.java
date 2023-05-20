@@ -23,5 +23,6 @@ public class Scriptorium extends Structure
         super.incomeFood = -1;
         super.incomeGold = -2;
         super.incomeInfluence = 4;
+        super.associatedProfession = "Scholar";
     }
 }

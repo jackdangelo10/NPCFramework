@@ -22,5 +22,6 @@ public class Guardhouse extends Structure
         super.structureName = "Guardhouse";
         super.incomeGold = -1;
         super.incomeManpower = -1;
+        super.associatedProfession = "Guard";
     }
 }

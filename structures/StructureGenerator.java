@@ -1,10 +1,9 @@
 package structures;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
-
-import civilizations.Civilization;
-import settlements.Settlement;
 
 public class StructureGenerator 
 {
@@ -15,8 +14,9 @@ public class StructureGenerator
     private static List<Structure> townTierStructures = new ArrayList<Structure>();
     private static List<Structure> cityTierStructures = new ArrayList<Structure>();
     private static Random random = new Random();
+    private static Map<String, Structure> structureMap = new HashMap<String, Structure>();
 
-    public StructureGenerator(Civilization c, Settlement s)
+    public StructureGenerator()
     {
         structures.clear();
         baseStructures.clear();
@@ -25,45 +25,86 @@ public class StructureGenerator
         townTierStructures.clear();
         cityTierStructures.clear();
 
-        Structure bank = new Bank(c, s);
-        Structure barracks = new Barracks(c, s);
-        Structure castle = new Castle(c, s);
-        Structure courthouse = new Courthouse(c,s);
-        Structure dock = new Dock(c, s);
-        Structure farmstead = new Farmstead(c, s);
-        Structure forge = new Forge(c, s);
-        Structure granary = new Granary(c, s);
-        Structure guardhouse = new Guardhouse(c, s);
-        Structure guildhall = new Guildhall(c, s);
-        Structure house = new House(c, s);
-        Structure library = new Library(c, s);
-        Structure lumbermill = new LumberMill(c, s);
-        Structure mine = new Mine(c,s);
-        Structure monastery = new Monastery(c, s);
-        Structure palace = new Palace(c, s);
-        Structure pasture = new Pasture(c, s);
-        Structure quarry = new Quarry(c, s);
-        Structure shop = new Shop(c, s);
-        Structure shrine = new Shrine(c, s);
-        Structure smithy = new Smithy(c, s);
-        Structure stables = new Stables(c, s);
-        Structure tavern = new Tavern(c, s);
-        Structure assemblyhall = new AssemblyHall(c, s);
-        Structure workshop = new Workshop(c, s);
-        Structure citadel = new Citadel(c, s);
-        Structure temple = new Temple(c, s);
-        Structure alchemylab = new AlchemyLabratory(c, s);
-        Structure windmill = new Windmill(c, s);
-        Structure winepress = new WinePress(c, s);
-        Structure loomhouse = new LoomHouse(c, s);
-        Structure emporium = new Emporium(c, s);
-        Structure university = new University(c, s);
-        Structure scriptorium = new Scriptorium(c, s);
-        Structure watermill = new Watermill(c, s);
-        Structure harbor = new Harbor(c, s);
-        Structure brewery = new Brewery(c, s);
-        Structure port = new Port(c, s);
-        Structure holysite = new HolySite(c, s);
+        Structure bank = new Bank();
+        Structure barracks = new Barracks();
+        Structure castle = new Castle();
+        Structure courthouse = new Courthouse();
+        Structure dock = new Dock();
+        Structure farmstead = new Farmstead();
+        Structure forge = new Forge();
+        Structure granary = new Granary();
+        Structure guardhouse = new Guardhouse();
+        Structure guildhall = new Guildhall();
+        Structure house = new House();
+        Structure library = new Library();
+        Structure lumbermill = new LumberMill();
+        Structure mine = new Mine();
+        Structure monastery = new Monastery();
+        Structure palace = new Palace();
+        Structure pasture = new Pasture();
+        Structure quarry = new Quarry();
+        Structure shop = new Shop();
+        Structure shrine = new Shrine();
+        Structure smithy = new Smithy();
+        Structure stables = new Stables();
+        Structure tavern = new Tavern();
+        Structure assemblyhall = new AssemblyHall();
+        Structure workshop = new Workshop();
+        Structure citadel = new Citadel();
+        Structure temple = new Temple();
+        Structure alchemylab = new AlchemyLabratory();
+        Structure windmill = new Windmill();
+        Structure winepress = new WinePress();
+        Structure loomhouse = new LoomHouse();
+        Structure emporium = new Emporium();
+        Structure university = new University();
+        Structure scriptorium = new Scriptorium();
+        Structure watermill = new Watermill();
+        Structure harbor = new Harbor();
+        Structure brewery = new Brewery();
+        Structure port = new Port();
+        Structure holysite = new HolySite();
+
+        structureMap.put("Bank", bank);
+        structureMap.put("Barracks", barracks);
+        structureMap.put("Castle", castle);
+        structureMap.put("Courthouse", courthouse);
+        structureMap.put("Dock", dock);
+        structureMap.put("Farmstead", farmstead);
+        structureMap.put("Forge", forge);
+        structureMap.put("Granary", granary);
+        structureMap.put("Guardhouse", guardhouse);
+        structureMap.put("Guildhall", guildhall);
+        structureMap.put("House", house);
+        structureMap.put("Library", library);
+        structureMap.put("Lumbermill", lumbermill);
+        structureMap.put("Mine", mine);
+        structureMap.put("Monastery", monastery);
+        structureMap.put("Palace", palace);
+        structureMap.put("Pasture", pasture);
+        structureMap.put("Quarry", quarry);
+        structureMap.put("Shop", shop);
+        structureMap.put("Shrine", shrine);
+        structureMap.put("Smithy", smithy);
+        structureMap.put("Stables", stables);
+        structureMap.put("Tavern", tavern);
+        structureMap.put("Assembly Hall", assemblyhall);
+        structureMap.put("Workshop", workshop);
+        structureMap.put("Citadel", citadel);
+        structureMap.put("Temple", temple);
+        structureMap.put("Alchemy Labratory", alchemylab);
+        structureMap.put("Windmill", windmill);
+        structureMap.put("Wine Press", winepress);
+        structureMap.put("Loomhouse", loomhouse);
+        structureMap.put("Emporium", emporium);
+        structureMap.put("University", university);
+        structureMap.put("Scriptorium", scriptorium);
+        structureMap.put("Watermill", watermill);
+        structureMap.put("Harbor", harbor);
+        structureMap.put("Brewery", brewery);
+        structureMap.put("Port", port);
+        structureMap.put("Holy Site", holysite);
+
 
         baseStructures.add(workshop);
         baseStructures.add(guardhouse);
@@ -78,6 +119,10 @@ public class StructureGenerator
         hamletTierStructures.add(shrine);
         hamletTierStructures.add(dock);
         hamletTierStructures.add(stables);
+        hamletTierStructures.add(farmstead);
+        hamletTierStructures.add(workshop);
+        hamletTierStructures.add(smithy);
+        hamletTierStructures.add(guardhouse);
 
         villageTierStructures.add(granary);
         villageTierStructures.add(forge);
@@ -88,6 +133,7 @@ public class StructureGenerator
         villageTierStructures.add(tavern);
         villageTierStructures.add(windmill);
         villageTierStructures.add(watermill);
+        villageTierStructures.addAll(hamletTierStructures);
 
         townTierStructures.add(castle);
         townTierStructures.add(harbor);
@@ -99,6 +145,7 @@ public class StructureGenerator
         townTierStructures.add(loomhouse);
         townTierStructures.add(scriptorium);
         townTierStructures.add(guildhall);
+        townTierStructures.addAll(villageTierStructures);
 
         cityTierStructures.add(palace);
         cityTierStructures.add(port);
@@ -108,6 +155,7 @@ public class StructureGenerator
         cityTierStructures.add(alchemylab);
         cityTierStructures.add(emporium);
         cityTierStructures.add(bank);
+        cityTierStructures.addAll(townTierStructures);
 
         structures.addAll(baseStructures);
         structures.addAll(hamletTierStructures);
@@ -168,9 +216,77 @@ public class StructureGenerator
         return cityTierStructures.get(index).clone();
     }
 
+    public 
+
     public List<Structure> getList()
     {
         return structures;
+    }
+
+    public static List<Structure> getStructures() {
+        return structures;
+    }
+
+    public static void setStructures(List<Structure> structures) {
+        StructureGenerator.structures = structures;
+    }
+
+    public static List<Structure> getBaseStructures() {
+        return baseStructures;
+    }
+
+    public static void setBaseStructures(List<Structure> baseStructures) {
+        StructureGenerator.baseStructures = baseStructures;
+    }
+
+    public static List<Structure> getHamletTierStructures() {
+        return hamletTierStructures;
+    }
+
+    public static void setHamletTierStructures(List<Structure> hamletTierStructures) {
+        StructureGenerator.hamletTierStructures = hamletTierStructures;
+    }
+
+    public static List<Structure> getVillageTierStructures() {
+        return villageTierStructures;
+    }
+
+    public static void setVillageTierStructures(List<Structure> villageTierStructures) {
+        StructureGenerator.villageTierStructures = villageTierStructures;
+    }
+
+    public static List<Structure> getTownTierStructures() {
+        return townTierStructures;
+    }
+
+    public static void setTownTierStructures(List<Structure> townTierStructures) {
+        StructureGenerator.townTierStructures = townTierStructures;
+    }
+
+    public static List<Structure> getCityTierStructures() {
+        return cityTierStructures;
+    }
+
+    public static void setCityTierStructures(List<Structure> cityTierStructures) {
+        StructureGenerator.cityTierStructures = cityTierStructures;
+    }
+
+    public static Random getRandom() {
+        return random;
+    }
+
+    public static void setRandom(Random random) {
+        StructureGenerator.random = random;
+    }
+
+    public static Map<String, Structure> getStructureMap() {
+        return structureMap;
+    }
+
+    public static void setStructureMap(Map<String, Structure> structureMap) {
+        StructureGenerator.structureMap = structureMap;
     }  
+
+    
 
 }

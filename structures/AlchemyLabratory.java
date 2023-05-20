@@ -24,5 +24,6 @@ public class AlchemyLabratory extends Structure
         super.incomeGold = 5;
         super.incomeManpower = -1;
         super.incomeInfluence = 3;
+        super.associatedProfession = "Alchemist";
     }
 }

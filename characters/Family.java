@@ -13,7 +13,8 @@ public class Family
         this.members = new ArrayList<>();
     }
 
-    public void addMember(characters.Character person) {
+    public void addMember(characters.Character person) 
+    {
         members.add(person); 
     }
 

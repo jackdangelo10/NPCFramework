@@ -22,5 +22,6 @@ public class Forge extends Structure
         super.incomeFood = -1;
         super.incomeGold = -1;
         super.incomeManpower = +4;
+        super.associatedProfession = "Blacksmith";
     }
 }

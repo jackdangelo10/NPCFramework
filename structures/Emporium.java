@@ -23,5 +23,6 @@ public class Emporium extends Structure
         super.incomeGold = 7;
         super.incomeManpower = -2;
         super.incomeInfluence = 2;
+        super.associatedProfession = "Merchant";
     }
 }

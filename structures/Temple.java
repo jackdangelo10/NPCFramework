@@ -22,5 +22,6 @@ public class Temple extends Structure
         super.structureName = "Temple";
         super.incomeGold = -1;
         super.incomeInfluence = 3;
+        super.associatedProfession = "Preacher";
     }
 }

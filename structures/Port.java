@@ -24,5 +24,6 @@ public class Port extends Structure
         super.incomeGold = 1;
         super.incomeManpower = -2;
         super.incomeInfluence = 2;
+        super.associatedProfession = "Fisher";
     }
 }

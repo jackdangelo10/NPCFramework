@@ -20,5 +20,6 @@ public class Shrine extends Structure
     {
         super.structureName = "Shrine";
         super.incomeInfluence = 3;
+        super.associatedProfession = "Preacher";
     }
 }

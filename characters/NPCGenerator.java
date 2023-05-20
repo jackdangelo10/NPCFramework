@@ -53,8 +53,6 @@ public class NPCGenerator
         npc.setBaseReputation(rand100.randomNum(1, 100));
         npc.setBaseSway(rand100.randomNum(1, 100));
         npc.setAge(CharacterAttributes.Age.ADULT);
-        npc.setProfession1(profGen.generateRandomProfession());
-        npc.setProfession1Skill(rand100.randomNum(1, 100));
         npc.setCitizenshipLevel(CitizenshipLevel.randomCitizenshipLevel());
         npc.setFertility(rand100.randomNum(1, 100));
         npc.setHealth(100);

@@ -22,5 +22,6 @@ public class Quarry extends Structure
         super.incomeFood = -3;
         super.incomeGold = -3;
         super.incomeManpower = 5;
+        super.associatedProfession = "Miner";
     }   
 }

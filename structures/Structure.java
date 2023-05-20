@@ -1,6 +1,8 @@
 package structures;
 import characters.NPC;
 import civilizations.Civilization;
+import professions.Profession;
+import professions.ProfessionGenerator;
 import settlements.Settlement;
 
 public abstract class Structure implements Cloneable
@@ -12,6 +14,8 @@ public abstract class Structure implements Cloneable
     protected int incomeInfluence = 0;
     protected int incomeManpower = 0;
     protected int incomeHappiness = 0;
+
+    protected String associatedProfession = null;
 
     //where its located
     protected Civilization civ = null;

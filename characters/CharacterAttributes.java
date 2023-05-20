@@ -11,7 +11,27 @@ public class CharacterAttributes
 
     public enum Age {CHILD, ADULT;}
 
-    public enum Sex {MALE, FEMALE;}
+    public enum Sex 
+    {
+        MALE
+        {
+            public Sex getOpposite()
+            {
+                return FEMALE;
+            }
+        },
+        
+        FEMALE
+        {
+            public Sex getOpposite()
+            {
+                return MALE;
+            }
+        };
+        
+        public abstract Sex getOpposite();
+
+    }
 
     public enum Ideology 
     {

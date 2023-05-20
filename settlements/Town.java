@@ -9,7 +9,7 @@ public class Town extends Settlement
         super.civilization = c;
         super.settlementSizeName = "Town";
         System.out.println("Initializing town...");
-        super.MAX_POP = 64;
-        super.MIN_POP = 40;
+        super.MAX_STRUCTURES = 20;
+        super.MIN_STRUCTURES = 13;
     }
 }

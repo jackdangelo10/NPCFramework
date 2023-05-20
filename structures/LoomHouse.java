@@ -25,5 +25,6 @@ public class LoomHouse extends Structure
         super.incomeManpower = -1;
         super.incomeInfluence = 1;
         super.incomeHappiness = 3;
+        super.associatedProfession = "Weaver";
     }
 }

@@ -55,13 +55,16 @@ public class FamilyGenerator
     public Family generateFamily(int familySize)
     {
         Character source = npcGenerator.generateRandomAdultNPC();
-        source.setSex(Sex.FEMALE);
+        if(Math.random() > .5)
+        {
+            source.setSex(Sex.FEMALE);
+        }
+        else
+        {
+            source.setSex(Sex.MALE);
+        }
         if(familySize == 1)
         {
-            if(Math.random() > .5)
-            {
-                source.setSex(Sex.MALE);
-            }
             return source.getFamily();
         }
         Character spouse = null;
@@ -70,8 +73,7 @@ public class FamilyGenerator
             try
             {
                 spouse = npcGenerator.generateRandomAdultNPC();
-                spouse.setSex(Sex.MALE);
-
+                spouse.setSex(source.getSex().getOpposite());
 
                 MarriageMachine machine = new MarriageMachine(source, spouse);
                 //marrying adds to family

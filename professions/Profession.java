@@ -13,5 +13,6 @@ public abstract class Profession
     abstract public void modifyCharacter(characters.Character c);
     abstract public void revertCharacter(characters.Character c);
     abstract public boolean satisfyAllConditions(characters.Character c);
+    abstract public int calculateProfessionSkill(characters.Character c);
 
 }

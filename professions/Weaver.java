@@ -1,10 +1,10 @@
 package professions;
 
-public class Rider extends Profession
+public class Weaver extends Profession
 {
-    public Rider()
+    public Weaver()
     {
-        setProfName("Rider");
+        setProfName("Weaver");
     }
 
     public void modifyCharacter(characters.Character c)

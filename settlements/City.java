@@ -7,8 +7,8 @@ public class City extends Settlement
     {
         super.civilization = c;
         super.settlementSizeName = "City";
-        super.MAX_POP = 100;
-        super.MIN_POP = 65;
+        super.MAX_STRUCTURES = 32;
+        super.MIN_STRUCTURES = 21;
         System.out.println("Initializing city...");
         
     }

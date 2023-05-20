@@ -18,8 +18,8 @@ abstract public class Settlement
     protected String settlementName;
     protected String settlementAdjective;
     protected String settlementSizeName;
-    protected int MAX_POP = 0;
-    protected int MIN_POP = 0;
+    protected int MAX_STRUCTURES = 0;
+    protected int MIN_STRUCTURES = 0;
     
     protected LocalEconomy economy = null;
     protected LocalGovernment government = null;

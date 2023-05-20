@@ -24,5 +24,6 @@ public class Pasture extends Structure
         super.structureName = "Pasture";
         super.incomeFood = 3;
         super.incomeGold = -1;
+        super.associatedProfession = "Farmer";
     }
 }

@@ -23,5 +23,6 @@ public class Tavern extends Structure
         super.incomeGold = 1;
         super.incomeManpower = -1;
         super.incomeHappiness = 3;
+        super.associatedProfession = "Barkeeper";
     }
 }

@@ -23,5 +23,6 @@ public class AssemblyHall extends Structure
         super.incomeGold = -1;
         super.incomeManpower = 3;
         super.incomeInfluence = 5;
+        super.associatedProfession = "Politician";
     }
 }

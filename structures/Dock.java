@@ -22,5 +22,6 @@ public class Dock extends Structure
         super.incomeFood = 4;
         super.incomeGold = 1;
         super.incomeManpower = -3;
+        super.associatedProfession = "Fisher";
     }
 }
