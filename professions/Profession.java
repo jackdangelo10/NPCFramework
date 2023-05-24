@@ -15,6 +15,15 @@ public abstract class Profession
     abstract public boolean satisfyAllConditions(characters.Character c);
     abstract public int calculateProfessionSkill(characters.Character c);
 
+    protected int happinessOutput = 0;
+    protected int foodOutput = 0;
+    protected int researchOutput = 0;
+    protected int goldOutput = 0;
+    protected int influenceOutput = 0;
+    protected int policyOutput = 0;
+    protected int manpowerOutput = 0;
+    protected int cultureOutput = 0;
+
     protected int checkProfessionSkill(characters.Character c, int skill)
     {
         if(skill > 100)

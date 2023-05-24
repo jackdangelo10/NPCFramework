@@ -7,6 +7,8 @@ public class Blacksmith extends Profession
     Blacksmith()
     {
         setProfName("Blacksmith");
+        super.manpowerOutput = 4;
+        super.foodOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

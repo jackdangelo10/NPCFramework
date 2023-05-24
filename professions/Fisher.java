@@ -8,6 +8,8 @@ public class Fisher extends Profession
     public Fisher()
     {
         setProfName("Fisher");
+        super.foodOutput = 4;
+        super.manpowerOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

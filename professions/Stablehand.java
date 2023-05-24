@@ -7,6 +7,8 @@ public class Stablehand extends Profession
     public Stablehand()
     {
         setProfName("Stablehand");
+        super.manpowerOutput = 2;
+        super.foodOutput = 3;
     }
 
     public void modifyCharacter(characters.Character c)

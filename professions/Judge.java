@@ -7,6 +7,9 @@ public class Judge extends Profession
     Judge()
     {
         setProfName("Judge");
+        super.policyOutput = 6;
+        super.foodOutput = -1;
+        super.cultureOutput = 1;
     }
 
     public void modifyCharacter(characters.Character c)

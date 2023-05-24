@@ -7,6 +7,7 @@ public class Guard extends Warrior
     Guard()
     {
         setProfName("Guard");
+        super.manpowerOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

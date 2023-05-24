@@ -38,7 +38,7 @@ public class ProfessionGenerator
         Profession alchemist = new Alchemist();
         Profession brewer = new Brewer();
         Profession weaver = new Weaver();
-
+        Profession miner = new Miner();
 
         professions.add(fisher);
         professions.add(stablehand);
@@ -63,6 +63,7 @@ public class ProfessionGenerator
         professions.add(alchemist);
         professions.add(brewer);
         professions.add(weaver);
+        professions.add(miner);
 
         professionMap.put("Fisher", fisher);
         professionMap.put("Stablehand", stablehand);
@@ -87,6 +88,7 @@ public class ProfessionGenerator
         professionMap.put("Alchemist", alchemist);
         professionMap.put("Brewer", brewer);
         professionMap.put("Weaver", weaver);
+        professionMap.put("Miner", miner);
     }
 
     public Profession generateRandomProfession()
@@ -113,7 +115,7 @@ public class ProfessionGenerator
         ProfessionGenerator.professions = professions;
     }
 
-    public static Map<String, Profession> getProfessionMap() {
+    public Map<String, Profession> getProfessionMap() {
         return professionMap;
     }
 

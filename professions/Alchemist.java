@@ -7,6 +7,11 @@ public class Alchemist extends Profession
     public Alchemist()
     {
         setProfName("Alchemist");
+        super.cultureOutput = 1;
+        super.goldOutput = 2;
+        super.influenceOutput = 1;
+        super.foodOutput = -1;
+        super.researchOutput = 5;
     }
 
     public void modifyCharacter(characters.Character c)

@@ -7,6 +7,9 @@ public class Brewer extends Profession
     public Brewer()
     {
         setProfName("Brewer");
+        super.happinessOutput = 4;
+        super.foodOutput = 2;
+        super.manpowerOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

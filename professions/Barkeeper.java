@@ -7,6 +7,9 @@ public class Barkeeper extends Profession
     public Barkeeper()
     {
         setProfName("Barkeeper");
+        super.happinessOutput = 5;
+        super.foodOutput = 1;
+        super.manpowerOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

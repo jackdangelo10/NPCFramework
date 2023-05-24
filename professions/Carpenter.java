@@ -7,6 +7,8 @@ public class Carpenter extends Profession
     public Carpenter()
     {
         setProfName("Carpenter");
+        super.manpowerOutput = 4;
+        super.foodOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

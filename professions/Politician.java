@@ -7,6 +7,9 @@ public class Politician extends Profession
     public Politician()
     {
         setProfName("Politician");
+        super.policyOutput = 7;
+        super.foodOutput = -1;
+        super.happinessOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

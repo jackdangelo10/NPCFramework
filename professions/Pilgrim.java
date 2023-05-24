@@ -7,6 +7,8 @@ public class Pilgrim extends Profession
     public Pilgrim()
     {
         setProfName("Pilgrim");
+        super.cultureOutput = 2;
+        super.foodOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

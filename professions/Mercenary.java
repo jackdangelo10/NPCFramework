@@ -5,6 +5,8 @@ public class Mercenary extends Warrior
     Mercenary()
     {
         setProfName("Mercenary");
+        super.goldOutput = 2;
+        super.foodOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

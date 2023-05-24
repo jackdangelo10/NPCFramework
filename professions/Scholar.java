@@ -7,6 +7,10 @@ public class Scholar extends Profession
     public Scholar()
     {
         setProfName("Scholar");
+        super.researchOutput = 7;
+        super.influenceOutput = 1;
+        super.foodOutput = -1;
+        super.manpowerOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

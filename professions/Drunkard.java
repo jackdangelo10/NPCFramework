@@ -7,6 +7,7 @@ public class Drunkard extends Profession
     public Drunkard()
     {
         setProfName("Drunkard");
+        super.foodOutput = -3;
     }
 
     public void modifyCharacter(characters.Character c)

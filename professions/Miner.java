@@ -7,6 +7,8 @@ public class Miner extends Profession
     public Miner()
     {
         setProfName("Miner");
+        super.manpowerOutput = 4;
+        super.foodOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

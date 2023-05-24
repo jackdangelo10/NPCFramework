@@ -7,6 +7,10 @@ public class Physician extends Profession
     public Physician()
     {
         setProfName("Physician");
+        super.researchOutput = 5;
+        super.influenceOutput = 1;
+        super.manpowerOutput = -1;
+        super.foodOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

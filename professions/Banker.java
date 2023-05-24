@@ -7,6 +7,9 @@ public class Banker extends Profession
     public Banker()
     {
         setProfName("Banker");
+        super.foodOutput = -1;
+        super.goldOutput = 7;
+        super.influenceOutput = 2;
     }
 
     public void modifyCharacter(characters.Character c)

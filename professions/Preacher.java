@@ -7,6 +7,9 @@ public class Preacher extends Profession
     public Preacher()
     {
         setProfName("Preacher");
+        super.cultureOutput = 5;
+        super.foodOutput = -1;
+        super.influenceOutput = 1;
     }
 
     public void modifyCharacter(characters.Character c)

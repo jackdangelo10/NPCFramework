@@ -6,7 +6,7 @@ public class Warrior extends Profession
 {
     public Warrior()
     {
-        
+
     }
 
     public void modifyCharacter(characters.Character c)

@@ -84,6 +84,11 @@ public abstract class Structure implements Cloneable
     }
     
 /**GETTERS AND SETTERS ************************************************************* */
+    public StructureAttributes.ProductionTag getProductionTag()
+    {
+        return productionTag;
+    }
+
     public String getStructureName() {
         return structureName;
     }
@@ -132,6 +137,26 @@ public abstract class Structure implements Cloneable
 
     public void setApprentice(characters.Character apprentice) {
         this.apprentice = apprentice;
+    }
+
+    public Map<String, List<characters.Character>> getAssignedCharactersByProfession() {
+        return assignedCharactersByProfession;
+    }
+
+    public void setAssignedCharactersByProfession(Map<String, List<characters.Character>> assignedCharactersByProfession) {
+        this.assignedCharactersByProfession = assignedCharactersByProfession;
+    }
+
+    public void setProductionTag(StructureAttributes.ProductionTag productionTag) {
+        this.productionTag = productionTag;
+    }
+
+    public int getTotalCapacity() {
+        return totalCapacity;
+    }
+
+    public void setTotalCapacity(int totalCapacity) {
+        this.totalCapacity = totalCapacity;
     } 
     
     

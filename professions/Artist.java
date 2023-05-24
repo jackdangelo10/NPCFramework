@@ -7,6 +7,12 @@ public class Artist extends Profession
     public Artist()
     {
         setProfName("Artist");
+        super.influenceOutput = 2;
+        super.cultureOutput = 5;
+        super.foodOutput = -1;
+        super.goldOutput = -1;
+        super.happinessOutput = 2;
+
     }
 
     public void modifyCharacter(characters.Character c)

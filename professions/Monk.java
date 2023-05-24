@@ -7,6 +7,11 @@ public class Monk extends Profession
     public Monk()
     {
         setProfName("Monk");
+        super.cultureOutput = 5;
+        super.foodOutput = -1;
+        super.researchOutput = 3;
+        super.manpowerOutput = -1;
+        super.influenceOutput = 1;
     }
 
     public void modifyCharacter(characters.Character c)

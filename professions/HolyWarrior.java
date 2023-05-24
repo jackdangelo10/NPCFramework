@@ -5,6 +5,8 @@ public class HolyWarrior extends Warrior
     HolyWarrior()
     {
         setProfName("Holy Warrior");
+        super.cultureOutput = 3;
+        super.foodOutput = -1;
     }
 
     public void modifyCharacter(characters.Character c)

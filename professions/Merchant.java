@@ -7,6 +7,7 @@ public class Merchant extends Profession
     public Merchant()
     {
         setProfName("Merchant");
+        super.goldOutput = 6;
     }
 
     public void modifyCharacter(characters.Character c)
