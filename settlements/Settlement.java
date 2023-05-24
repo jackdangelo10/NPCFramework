@@ -5,6 +5,7 @@ import java.util.List;
 import characters.Family;
 import characters.NPC;
 import civilizations.Civilization;
+import structures.House;
 import structures.Structure;
 import characters.Character;
 
@@ -20,10 +21,12 @@ abstract public class Settlement
     protected String settlementSizeName;
     protected int MAX_STRUCTURES = 0;
     protected int MIN_STRUCTURES = 0;
+
     
     //protected LocalEconomy economy = null;
     //protected LocalGovernment government = null;
     protected ArrayList<Structure> structures = new ArrayList<Structure>();
+    protected House housing = new House(civilization, this);
 
 /**ADDING PEOPLE */
 
@@ -107,5 +110,30 @@ abstract public class Settlement
     public void setStructures(ArrayList<Structure> structures) {
         this.structures = structures;
     }
+
+    public int getMAX_STRUCTURES() {
+        return MAX_STRUCTURES;
+    }
+
+    public void setMAX_STRUCTURES(int mAX_STRUCTURES) {
+        MAX_STRUCTURES = mAX_STRUCTURES;
+    }
+
+    public int getMIN_STRUCTURES() {
+        return MIN_STRUCTURES;
+    }
+
+    public void setMIN_STRUCTURES(int mIN_STRUCTURES) {
+        MIN_STRUCTURES = mIN_STRUCTURES;
+    }
+
+    public House getHousing() {
+        return housing;
+    }
+
+    public void setHousing(House housing) {
+        this.housing = housing;
+    }
+    
     
 }

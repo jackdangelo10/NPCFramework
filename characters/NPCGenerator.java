@@ -5,7 +5,6 @@ import characters.CharacterAttributes.Mood;
 import characters.CharacterAttributes.Sex;
 import governments.GovernmentAttributes.CitizenshipLevel;
 import helper.NormalRandom;
-import professions.ProfessionGenerator;
 import traits.Trait;
 import traits.acquiredTraits.AcquiredTraitGenerator;
 import traits.geneticTraits.GeneticTraitGenerator;
@@ -15,7 +14,6 @@ public class NPCGenerator
     private static final NormalRandom rand20 = new NormalRandom(3, 10);
     private static final NormalRandom rand100 = new NormalRandom(3, 50);
     private static final NormalRandom rand5 = new NormalRandom(3, 5);
-    private static final ProfessionGenerator profGen = new ProfessionGenerator();
     private static final GeneticTraitGenerator gtg = new GeneticTraitGenerator();
     private static final AcquiredTraitGenerator atg = new AcquiredTraitGenerator();
     private static final CharacterNameGenerator cng = new CharacterNameGenerator();

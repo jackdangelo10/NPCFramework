@@ -7,7 +7,7 @@ import settlements.Settlement;
 
 public class House extends Structure
 {
-    private static List<Character> household = new ArrayList<Character>();
+    private static List<characters.Character> household = new ArrayList<characters.Character>();
 
     public House()
     {
@@ -28,8 +28,9 @@ public class House extends Structure
         super.associatedProfessions.put("Unemployed", 10);
     }
 
-    public void assignHouseholdMember(Character c)
+    public void assignHouseholdMember(characters.Character offspring)
     {
-        household.add(c);
+        household.add(offspring);
     }
+    
 }

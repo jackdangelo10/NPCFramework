@@ -190,7 +190,8 @@ public class Breeder
         offspring.setAge(CharacterAttributes.Age.CHILD);
         offspring.setCiv(civ);
         offspring.setSettlement(settlement);
-        offspring.setHome(female.getHome());
+        offspring.setAssignedStructure(settlement.getHousing());
+        settlement.getHousing().assignHouseholdMember(offspring);
         offspring.setCitizenshipLevel(CitizenshipLevel.MINOR);
         offspring.setLastName(female.getLastName());
         offspring.setFirstName(CharacterNameGenerator.createFirstName());
