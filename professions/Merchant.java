@@ -1,5 +1,7 @@
 package professions;
 
+import characters.Character;
+
 public class Merchant extends Profession
 {
     public Merchant()
@@ -33,4 +35,29 @@ public class Merchant extends Profession
         }
         return flag;
     }
+
+    @Override
+    public int calculateProfessionSkill(Character c) 
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+        int skill = c.getCHR() + c.getLCK();
+        if(c.getTraits().containsKey("Charming"))
+        {
+            skill += 20;
+        }
+        if(c.getTraits().containsKey("Shy"))
+        {
+            skill -= 10;
+        }
+        if(c.getTraits().containsKey("Cultulred"))
+        {
+            skill += 5;
+        }
+        return skill;
+    }
+
+    
 }

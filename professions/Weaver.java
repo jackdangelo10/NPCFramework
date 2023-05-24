@@ -1,6 +1,6 @@
 package professions;
 
-public class Weaver extends Profession
+public class Weaver extends Artist
 {
     public Weaver()
     {
@@ -22,4 +22,5 @@ public class Weaver extends Profession
     {
         return true;
     }
+
 }

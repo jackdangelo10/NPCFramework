@@ -58,6 +58,6 @@ public class Alchemist extends Profession
         {
             skill += 15;
         }
-        return skill;
+        return checkProfessionSkill(c, skill);
     }
 }

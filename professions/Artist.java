@@ -37,7 +37,6 @@ public class Artist extends Profession
         {
             return 0;
         }
-
         int skill = c.getDEX() + c.getGFT();
         if(c.getTraits().containsKey("Impatient"))
         {

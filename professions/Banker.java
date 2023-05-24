@@ -32,7 +32,6 @@ public class Banker extends Profession
         {
             return 0;
         }
-
         int skill = c.getCHR() + c.getINT();
         if(c.getTraits().containsKey("Awkward"))
         {
@@ -58,6 +57,6 @@ public class Banker extends Profession
         {
             skill -= 5;
         }
-        return skill;
+        return checkProfessionSkill(c, skill);
     }
 }

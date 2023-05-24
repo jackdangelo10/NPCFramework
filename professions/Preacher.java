@@ -1,5 +1,7 @@
 package professions;
 
+import characters.Character;
+
 public class Preacher extends Profession
 {
     public Preacher()
@@ -33,4 +35,25 @@ public class Preacher extends Profession
         }
         return flag;
     }
+
+    @Override
+    public int calculateProfessionSkill(Character c) 
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+        int skill = c.getCHR() + c.getPER();
+        if(c.getTraits().containsKey("Zealous"))
+        {
+            skill += 25;
+        }
+        if(c.getTraits().containsKey("Cynical"))
+        {
+            skill -= 25;
+        }
+        return skill;
+    }
+
+    
 }

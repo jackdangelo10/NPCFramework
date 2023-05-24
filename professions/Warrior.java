@@ -1,5 +1,7 @@
 package professions;
 
+import characters.Character;
+
 public class Warrior extends Profession
 {
     public Warrior()
@@ -31,4 +33,49 @@ public class Warrior extends Profession
         } 
         return flag;
     }
+
+    @Override
+    public int calculateProfessionSkill(Character c) 
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+        int skill = (int)(c.getSTR() * 2.5);
+        if(c.getTraits().containsKey("Strong"))
+        {
+            skill += 20;
+        }
+        if(c.getTraits().containsKey("Brave"))
+        {
+            skill += 20;
+        }
+        if(c.getTraits().containsKey("Craven"))
+        {
+            skill -= 30;
+        }
+        if(c.getTraits().containsKey("Weak"))
+        {
+            skill -= 20;
+        }
+        if(c.getTraits().containsKey("Frail"))
+        {
+            skill -= 15;
+        }
+        if(c.getTraits().containsKey("Overweight"))
+        {
+            skill -= 15;
+        }
+        if(c.getTraits().containsKey("Pacifist"))
+        {
+            skill -= 30;
+        }
+        if(c.getTraits().containsKey("Warmonger"))
+        {
+            skill += 30;
+        }
+        return skill;
+    }
+
+    
 }

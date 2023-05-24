@@ -1,4 +1,5 @@
 package professions;
+import characters.Character;
 import traits.acquiredTraits.negativeAcquiredTraits.Slothful;
 
 public class Hedonist extends Profession
@@ -28,5 +29,28 @@ public class Hedonist extends Profession
     public boolean satisfyAllConditions(characters.Character c)
     {
         return true;
+    }
+
+    @Override
+    public int calculateProfessionSkill(Character c) 
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+        int skill = c.getCHR() + c.getLCK();
+        if(c.getTraits().containsKey("Charming"))
+        {
+            skill += 25;
+        }
+        if(c.getTraits().containsKey("Selfish"))
+        {
+            skill += 5;
+        }
+        if(c.getTraits().containsKey("Ambitious"))
+        {
+            skill -= 5;
+        }
+        return skill;
     }
 }

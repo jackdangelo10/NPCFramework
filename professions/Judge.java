@@ -1,5 +1,7 @@
 package professions;
 
+import characters.Character;
+
 public class Judge extends Profession
 {
     Judge()
@@ -21,4 +23,25 @@ public class Judge extends Profession
     {
         return true;
     }
+
+    @Override
+    public int calculateProfessionSkill(Character c)
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+        int skill = c.getINT() + c.getPER();
+        if(c.getTraits().containsKey("Just"))
+        {
+            skill += 20;
+        }
+        if(c.getTraits().containsKey("Impatient"))
+        {
+            skill -= 15;
+        }
+        return skill;
+    }
+
+    
 }

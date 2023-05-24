@@ -1,5 +1,7 @@
 package professions;
 
+import characters.Character;
+
 public class Monk extends Profession
 {
     public Monk()
@@ -32,5 +34,28 @@ public class Monk extends Profession
             flag = false;
         }
         return flag;
+    }
+
+    @Override
+    public int calculateProfessionSkill(Character c) 
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+       int skill = c.getINT() + c.getGFT();
+       if(c.getTraits().containsKey("Genius"))
+       {
+            skill += 30;
+       }
+       if(c.getTraits().containsKey("Clever"))
+       {
+            skill += 20;
+       }
+       if(c.getTraits().containsKey("Slow"))
+       {
+            skill -= 20;
+       }
+       return skill;
     }
 }

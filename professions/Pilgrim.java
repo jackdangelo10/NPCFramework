@@ -1,5 +1,7 @@
 package professions;
 
+import characters.Character;
+
 public class Pilgrim extends Profession
 {
     public Pilgrim()
@@ -29,4 +31,17 @@ public class Pilgrim extends Profession
         }
         return flag;
     }
+
+    @Override
+    public int calculateProfessionSkill(Character c) 
+    {
+        if(c.isIncapable())
+        {
+            return 0;
+        }
+        int skill = c.getPER() + c.getINT();
+        return skill;
+    }
+
+    
 }
