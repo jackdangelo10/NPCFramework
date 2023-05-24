@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Monastery extends Structure
 {
@@ -19,10 +20,8 @@ public class Monastery extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Monastery";
-        super.incomeFood = -1;
-        super.incomeGold = -1;
-        super.incomeHappiness = 1;
-        super.incomeInfluence = 2;
         super.associatedProfessions.put("Monk", 5);
+        super.totalCapacity = 5;
+        super.productionTag = ProductionTag.CULTURE;
     }
 }

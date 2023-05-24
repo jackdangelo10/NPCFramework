@@ -2,6 +2,7 @@ package structures;
 import civilizations.Civilization;
 import resources.Resource;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Farmstead extends Structure
 {
@@ -22,9 +23,8 @@ public class Farmstead extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Farmstead";
-        super.incomeFood = 5;
-        super.incomeGold = -3;
-        super.incomeManpower = 1;
         super.associatedProfessions.put("Farmer", 4);
+        super.totalCapacity = 4;
+        super.productionTag = ProductionTag.FOOD;
     }
 }

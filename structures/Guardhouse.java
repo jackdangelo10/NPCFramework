@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Guardhouse extends Structure
 {
@@ -20,8 +21,8 @@ public class Guardhouse extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Guardhouse";
-        super.incomeGold = -1;
-        super.incomeManpower = -1;
         super.associatedProfessions.put("Guard", 5);
+        super.totalCapacity = 5;
+        super.productionTag = ProductionTag.BALANCED;
     }
 }

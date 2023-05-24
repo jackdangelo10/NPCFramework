@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Library extends Structure
 {
@@ -19,9 +20,8 @@ public class Library extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Library";
-        super.incomeFood = -1;
-        super.incomeHappiness = 1;
-        super.incomeInfluence = 2;
         super.associatedProfessions.put("Scholar", 3);
+        super.totalCapacity = 3;
+        super.productionTag = ProductionTag.RESEARCH;
     }
 }

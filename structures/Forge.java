@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Forge extends Structure
 {
@@ -19,9 +20,8 @@ public class Forge extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Forge";
-        super.incomeFood = -1;
-        super.incomeGold = -1;
-        super.incomeManpower = +4;
         super.associatedProfessions.put("Blacksmith", 1);
+        super.totalCapacity = 1;
+        super.productionTag = ProductionTag.MANPOWER;
     }
 }

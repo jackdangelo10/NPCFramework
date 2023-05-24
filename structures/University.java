@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class University extends Structure
 {
@@ -20,10 +21,8 @@ public class University extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "University";
-        super.incomeFood = -1;
-        super.incomeGold = -1;
-        super.incomeManpower = -1;
-        super.incomeInfluence = 6;
         super.associatedProfessions.put("Scholar", 6);
+        super.totalCapacity = 6;
+        super.productionTag = ProductionTag.RESEARCH;
     }
 }

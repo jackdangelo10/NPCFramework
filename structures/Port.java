@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Port extends Structure
 {
@@ -20,10 +21,8 @@ public class Port extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Port";
-        super.incomeFood = 3;
-        super.incomeGold = 1;
-        super.incomeManpower = -2;
-        super.incomeInfluence = 2;
         super.associatedProfessions.put("Fisher", 15);
+        super.totalCapacity = 15;
+        super.productionTag = ProductionTag.FOOD;
     }
 }

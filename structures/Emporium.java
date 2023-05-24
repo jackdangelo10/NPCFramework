@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Emporium extends Structure
 {
@@ -20,9 +21,8 @@ public class Emporium extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Emporium";
-        super.incomeGold = 7;
-        super.incomeManpower = -2;
-        super.incomeInfluence = 2;
         super.associatedProfessions.put("Merchant", 3);
+        super.totalCapacity = 3;
+        super.productionTag = ProductionTag.GOLD;
     }
 }

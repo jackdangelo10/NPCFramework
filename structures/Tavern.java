@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Tavern extends Structure
 {
@@ -19,11 +20,9 @@ public class Tavern extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Tavern";
-        super.incomeFood = -1;
-        super.incomeGold = 1;
-        super.incomeManpower = -1;
-        super.incomeHappiness = 3;
         super.associatedProfessions.put("Barkeeper", 1);
         super.associatedProfessions.put("Worker", 1);
+        super.totalCapacity = 2;
+        super.productionTag = ProductionTag.HAPPINNESS;
     }
 }

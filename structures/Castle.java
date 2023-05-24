@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Castle extends Structure
 {
@@ -19,12 +20,10 @@ public class Castle extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Castle";
-        super.incomeFood = -2;
-        super.incomeGold = -2;
-        super.incomeManpower = 6;
-        super.incomeInfluence = 1;
         super.associatedProfessions.put("Guard", 10);
         super.associatedProfessions.put("Worker", 5);
         super.associatedProfessions.put("Castellan", 1);
+        super.totalCapacity = 16;
+        super.productionTag = ProductionTag.BALANCED;
     }
 }

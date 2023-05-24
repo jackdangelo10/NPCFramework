@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Stables extends Structure
 {
@@ -19,9 +20,8 @@ public class Stables extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Stables";
-        super.incomeFood = -1;
-        super.incomeGold = -1;
-        super.incomeManpower = 4;
         super.associatedProfessions.put("Stablehand", 2);
+        super.totalCapacity = 2;
+        super.productionTag = ProductionTag.FOOD;
     }
 }

@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Granary extends Structure
 {
@@ -19,6 +20,6 @@ public class Granary extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Granary";
-        super.incomeFood = 3;
+        super.productionTag = ProductionTag.FOOD;
     }
 }

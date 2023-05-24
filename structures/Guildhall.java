@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Guildhall extends Structure
 {
@@ -22,9 +23,6 @@ public class Guildhall extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Courthouse";
-        super.incomeGold = 1;
-        super.incomeManpower = -2;
-        super.incomeInfluence = 5;
-        super.incomeHappiness = 1;
+        super.productionTag = ProductionTag.INFLUENCE;
     }
 }

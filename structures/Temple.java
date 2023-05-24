@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Temple extends Structure
 {
@@ -20,8 +21,8 @@ public class Temple extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Temple";
-        super.incomeGold = -1;
-        super.incomeInfluence = 3;
         super.associatedProfessions.put("Preacher", 1);
+        super.totalCapacity = 1;
+        super.productionTag = ProductionTag.CULTURE;
     }
 }

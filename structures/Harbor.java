@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Harbor extends Structure
 {
@@ -20,8 +21,8 @@ public class Harbor extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Harbor";
-        super.incomeFood = 4;
-        super.incomeGold = 5;
         super.associatedProfessions.put("Fisher", 10);
+        super.totalCapacity = 10;
+        super.productionTag = ProductionTag.FOOD;
     }
 }

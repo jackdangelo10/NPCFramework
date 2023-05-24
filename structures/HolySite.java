@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class HolySite extends Structure
 {
@@ -20,8 +21,8 @@ public class HolySite extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Holy Site";
-        super.incomeFood = -2;
-        super.incomeInfluence = 7;
         super.associatedProfessions.put("Preacher", 1);
+        super.totalCapacity = 1;
+        super.productionTag = ProductionTag.CULTURE;
     }
 }

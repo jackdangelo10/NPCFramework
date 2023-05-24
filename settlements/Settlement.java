@@ -16,6 +16,7 @@ abstract public class Settlement
     //demographics
     protected List<Character> inhabitants = new ArrayList<Character>();
     protected List<Family> families = new ArrayList<Family>();
+    protected List<Character> unemployed = new ArrayList<Character>();
     protected String settlementName;
     protected String settlementAdjective;
     protected String settlementSizeName;

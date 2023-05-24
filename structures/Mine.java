@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Mine extends Structure
 {
@@ -19,9 +20,8 @@ public class Mine extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Mine";
-        super.incomeGold = 2;
-        super.incomeGold = -3;
-        super.incomeManpower = 3;
         super.associatedProfessions.put("Miner", 7);
+        super.totalCapacity = 7;
+        super.productionTag = ProductionTag.MANPOWER;
     }
 }

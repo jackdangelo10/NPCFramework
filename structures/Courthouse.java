@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Courthouse extends Structure
 {
@@ -25,9 +26,8 @@ public class Courthouse extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Courthouse";
-        super.incomeGold = -1;
-        super.incomeManpower = 2;
-        super.incomeInfluence = 2;
         super.associatedProfessions.put("Judge", 1);
+        super.totalCapacity = 1;
+        super.productionTag = ProductionTag.POLICY;
     }
 }

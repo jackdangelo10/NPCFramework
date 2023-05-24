@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class WinePress extends Structure
 {
@@ -20,10 +21,8 @@ public class WinePress extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Wine Press";
-        super.incomeFood = 3;
-        super.incomeGold = 2;
-        super.incomeManpower = -2;
-        super.incomeInfluence = 1;
         super.associatedProfessions.put("Worker", 4);
+        super.totalCapacity = 4;
+        super.productionTag = ProductionTag.HAPPINNESS;
     }
 }

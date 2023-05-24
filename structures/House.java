@@ -4,6 +4,7 @@ import java.util.List;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class House extends Structure
 {
@@ -23,9 +24,9 @@ public class House extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "House";
-        super.incomeFood = -2;
-        super.incomeManpower = 2;
         super.associatedProfessions.put("Unemployed", 10);
+        super.totalCapacity = 10;
+        super.productionTag = ProductionTag.BALANCED;
     }
 
     public void assignHouseholdMember(characters.Character offspring)

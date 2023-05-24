@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Dock extends Structure
 {
@@ -19,9 +20,9 @@ public class Dock extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Dock";
-        super.incomeFood = 4;
-        super.incomeGold = 1;
-        super.incomeManpower = -3;
         super.associatedProfessions.put("Fisher", 5);
+        super.totalCapacity = 5;
+        super.productionTag = ProductionTag.FOOD;
+        
     }
 }

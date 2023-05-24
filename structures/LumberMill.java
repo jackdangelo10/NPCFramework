@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class LumberMill extends Structure
 {
@@ -19,9 +20,8 @@ public class LumberMill extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "LumberMill";
-        super.incomeFood = 0;
-        super.incomeGold = 2;
-        super.incomeManpower = -2;
         super.associatedProfessions.put("Miller", 3);
+        super.totalCapacity = 3;
+        super.productionTag = ProductionTag.MANPOWER;
     }
 }

@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Bank extends Structure
 {
@@ -19,10 +20,8 @@ public class Bank extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Bank";
-        super.incomeFood = -2;
-        super.incomeGold = 10;
-        super.incomeManpower = -2;
-        super.incomeInfluence = 3;
         super.associatedProfessions.put("Banker", 5);
+        super.totalCapacity = 5;
+        super.productionTag = ProductionTag.GOLD;
     }
 }

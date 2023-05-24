@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class AssemblyHall extends Structure
 {
@@ -19,10 +20,8 @@ public class AssemblyHall extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Assembly Hall";
-        super.incomeFood = -1;
-        super.incomeGold = -1;
-        super.incomeManpower = 3;
-        super.incomeInfluence = 5;
-        super.associatedProfessions.put("Politician", 50);
+        super.associatedProfessions.put("Politician", 3);
+        super.totalCapacity = 3;
+        super.productionTag = ProductionTag.POLICY;
     }
 }

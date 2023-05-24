@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Watermill extends Structure
 {
@@ -20,9 +21,8 @@ public class Watermill extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Watermill";
-        super.incomeFood = 2;
-        super.incomeGold = 1;
-        super.incomeManpower = 1;
         super.associatedProfessions.put("Miller", 1);
+        super.totalCapacity = 1;
+        super.productionTag = ProductionTag.FOOD;
     }
 }

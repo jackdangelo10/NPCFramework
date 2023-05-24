@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class AlchemyLabratory extends Structure
 {
@@ -21,10 +22,8 @@ public class AlchemyLabratory extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Alchemy Labratory";
-        super.incomeFood = -1;
-        super.incomeGold = 5;
-        super.incomeManpower = -1;
-        super.incomeInfluence = 3;
         super.associatedProfessions.put("Alchemist", 3);
+        super.totalCapacity = 3;
+        super.productionTag = ProductionTag.RESEARCH;
     }
 }

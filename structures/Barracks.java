@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Barracks extends Structure
 {
@@ -24,10 +25,9 @@ public class Barracks extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Barracks";
-        super.incomeFood = -1;
-        super.incomeGold = -1;
-        super.incomeManpower = 4;
         super.associatedProfessions.put("Guard", 15);
+        super.totalCapacity = 15;
+        super.productionTag = ProductionTag.INFLUENCE;
     }
 
     public void addGuard(Character c)

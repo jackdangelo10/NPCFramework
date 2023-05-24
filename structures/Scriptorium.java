@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Scriptorium extends Structure
 {
@@ -20,10 +21,8 @@ public class Scriptorium extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Scriptorium";
-        super.incomeFood = -1;
-        super.incomeGold = -2;
-        super.incomeInfluence = 4;
         super.associatedProfessions.put("Scholar", 3);
-
+        super.totalCapacity = 3;
+        super.productionTag = ProductionTag.RESEARCH;
     }
 }

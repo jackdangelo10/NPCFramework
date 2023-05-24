@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Citadel extends Structure
 {
@@ -20,10 +21,8 @@ public class Citadel extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Citadel";
-        super.incomeFood = -1;
-        super.incomeGold = -2;
-        super.incomeManpower = -4;
-        super.incomeInfluence = 4;
         super.associatedProfessions.put("Guard", 20);
+        super.totalCapacity = 20;
+        super.productionTag = ProductionTag.BALANCED;
     }
 }

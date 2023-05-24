@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Smithy extends Structure
 {
@@ -20,8 +21,8 @@ public class Smithy extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Smithy";
-        super.incomeGold = -1;
-        super.incomeManpower = 3;
         super.associatedProfessions.put("Blacksmith", 1);
+        super.totalCapacity = 1;
+        super.productionTag = ProductionTag.MANPOWER;
     }
 }

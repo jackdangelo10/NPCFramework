@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Workshop extends Structure
 {
@@ -20,9 +21,9 @@ public class Workshop extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Workshop";
-        super.incomeGold = -1;
-        super.incomeManpower = 3;
         super.associatedProfessions.put("Carpenter", 1);
+        super.totalCapacity = 1;
+        super.productionTag = ProductionTag.MANPOWER;
 
     }
 }

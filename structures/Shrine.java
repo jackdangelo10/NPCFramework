@@ -1,6 +1,7 @@
 package structures;
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class Shrine extends Structure
 {
@@ -19,7 +20,8 @@ public class Shrine extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Shrine";
-        super.incomeInfluence = 3;
         super.associatedProfessions.put("Preacher", 1);
+        super.totalCapacity = 1;
+        super.productionTag = ProductionTag.CULTURE;
     }
 }

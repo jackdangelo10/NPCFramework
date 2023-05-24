@@ -2,6 +2,7 @@ package structures;
 
 import civilizations.Civilization;
 import settlements.Settlement;
+import structures.StructureAttributes.ProductionTag;
 
 public class LoomHouse extends Structure
 {
@@ -20,11 +21,8 @@ public class LoomHouse extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Loomhouse";
-        super.incomeFood = -2;
-        super.incomeGold = 1;
-        super.incomeManpower = -1;
-        super.incomeInfluence = 1;
-        super.incomeHappiness = 3;
         super.associatedProfessions.put("Weaver", 3);
+        super.totalCapacity = 3;
+        super.productionTag = ProductionTag.CULTURE;
     }
 }
