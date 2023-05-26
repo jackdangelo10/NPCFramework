@@ -1,6 +1,7 @@
 package resources;
 
-public class Resource 
+public interface Resource 
 {
-    
+    String getResourceName();
+    int calculateResourcePrice();
 }

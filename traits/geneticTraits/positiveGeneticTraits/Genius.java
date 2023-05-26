@@ -14,7 +14,7 @@ public class Genius extends Trait
 
     public void apply(characters.Character c)
     {
-        c.setINT(c.getINT() + 4);
+        c.setINT(c.getINT() + 6);
         c.setCHR(c.getCHR() - 1);
         c.setBaseSway(c.getBaseSway() + 10);
     }

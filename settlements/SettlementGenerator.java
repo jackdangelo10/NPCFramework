@@ -3,7 +3,9 @@ package settlements;
 import java.util.Random;
 import characters.Family;
 import characters.FamilyGenerator;
+import characters.CharacterAttributes.Age;
 import civilizations.Civilization;
+import professions.ProfessionAssignmentScheduler;
 import professions.ProfessionGenerator;
 import structures.Farmstead;
 import structures.Guardhouse;
@@ -12,13 +14,14 @@ import structures.Structure;
 import structures.StructureGenerator;
 import structures.AssemblyHall;
 import structures.Workshop;
+import structures.StructureAttributes.ProductionTag;
 
 public class SettlementGenerator 
 {
     private static Random random = new Random();
     private static FamilyGenerator familyGenerator = new FamilyGenerator();
     private static StructureGenerator structureGenerator = new StructureGenerator();
-    private static ProfessionGenerator professionGenerator = new ProfessionGenerator();
+    private static ProfessionAssignmentScheduler professionAssignmentScheduler = new ProfessionAssignmentScheduler();
     private int courthouseCount = 0;
     private int citadelCount = 0;
     private int holysiteCount = 0;
@@ -26,6 +29,7 @@ public class SettlementGenerator
     private int castleCount = 0;
     private int palaceCount = 0;
     private int universityCount = 0;
+    private final int BASE_STRUCTURE_COUNT = 5;
 
     public Settlement generateRandomSettlement(Civilization c)
     {
@@ -60,6 +64,9 @@ public class SettlementGenerator
         int structureCount = random.nextInt(hamlet.MAX_STRUCTURES - hamlet.MIN_STRUCTURES);
         generateBaseStructures(hamlet);
         generateHamletTierStructures(hamlet, structureCount);
+        generatePopulation(hamlet);
+        hamlet.setUnemployed(professionAssignmentScheduler.schedule(hamlet.getUnemployed(), hamlet.getStructures(), ProductionTag.BALANCED));
+        assignHousing(hamlet);
 
         resetCounts();
         return hamlet;
@@ -68,9 +75,12 @@ public class SettlementGenerator
     public Settlement generateRandomVillage(Civilization c)
     {
         Settlement village = new Village(c);
-        int structureCount = random.nextInt(village.MAX_STRUCTURES - village.MIN_STRUCTURES) + village.MIN_STRUCTURES - 5;
+        int structureCount = random.nextInt(village.MAX_STRUCTURES - village.MIN_STRUCTURES) + village.MIN_STRUCTURES - BASE_STRUCTURE_COUNT;
         generateBaseStructures(village);
         generateVillageTierStructures(village, structureCount);
+        generatePopulation(village);
+        village.setUnemployed(professionAssignmentScheduler.schedule(village.getUnemployed(), village.getStructures(), ProductionTag.BALANCED));
+        assignHousing(village);
 
         resetCounts();
         return village;
@@ -79,9 +89,12 @@ public class SettlementGenerator
     public Settlement generateRandomTown(Civilization c)
     {
         Settlement town = new Town(c);
-        int structureCount = random.nextInt(town.MAX_STRUCTURES - town.MIN_STRUCTURES) + town.MIN_STRUCTURES - 5;
+        int structureCount = random.nextInt(town.MAX_STRUCTURES - town.MIN_STRUCTURES) + town.MIN_STRUCTURES - BASE_STRUCTURE_COUNT;
         generateBaseStructures(town);
         generateTownTierStructures(town, structureCount);
+        generatePopulation(town);
+        town.setUnemployed(professionAssignmentScheduler.schedule(town.getUnemployed(), town.getStructures(), ProductionTag.BALANCED));
+        assignHousing(town);
 
         resetCounts();
         return town;
@@ -90,23 +103,62 @@ public class SettlementGenerator
     public Settlement generateRandomCity(Civilization c)
     {
         Settlement city = new City(c);
-        int structureCount = random.nextInt(city.MAX_STRUCTURES - city.MIN_STRUCTURES - 5) + city.MIN_STRUCTURES - 5;
+        int structureCount = random.nextInt(city.MAX_STRUCTURES - city.MIN_STRUCTURES - 5) + city.MIN_STRUCTURES - BASE_STRUCTURE_COUNT;
         generateBaseStructures(city);
         generateCityTierStructures(city, structureCount);
+        generatePopulation(city);
+        city.setUnemployed(professionAssignmentScheduler.schedule(city.getUnemployed(), city.getStructures(), ProductionTag.BALANCED));
+        assignHousing(city);
 
         resetCounts();
         return city;
     }
 
-/**AUXILARY GENERATION ************************************************************ */
+/**POPULATION GENERATION ************************************************************ */
 
 
     //generate structures and then people in the structures 
 
     private void generatePopulation(Settlement s)
     {
-        
+        int familyCount = s.getStructures().size();
+        for(int i = 0; i < familyCount; i++)
+        {
+            Family f = familyGenerator.generateFamily();
+            for(characters.Character c : f.getMembers())
+            {
+                if(c.getAge() == Age.ADULT)
+                {
+                    s.getUnemployed().add(c);
+                }
+            }
+            s.getFamilies().add(f);
+        }
     }
+
+/**UNEMPLOYED HOUSING ************************************************************* */
+
+    private void assignHousing(Settlement s)
+    {
+        if(s.getUnemployed() == null || s.getUnemployed().isEmpty())
+        {
+            return;
+        }
+        int numberOfHousesNeeded = (int)(Math.ceil(s.getUnemployed().size() / 10));
+        if(numberOfHousesNeeded == 0)
+        {
+            s.getHousing().addAll(s.getUnemployed());;
+        }
+        int numberOfHousesProvided = numberOfHousesNeeded + random.nextInt(4) - 1;
+        for(int i = 0; i < numberOfHousesProvided; i++)
+        {
+            s.getHousing().addHouse();
+        }
+        s.setUnhoused(s.getHousing().addAll(s.getUnemployed()));
+    }
+
+
+/**STRUCTURE GENERATION **************************************************************** */
 
     private void generateBaseStructures(Settlement s)
     {

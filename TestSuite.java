@@ -30,26 +30,7 @@ public class TestSuite
      
     public static void main(String[] args) 
     {
-        NPCGenerator gen = new NPCGenerator();
-        List<characters.Character> npcList = new ArrayList<characters.Character>();
-        for(int i = 0; i < 3; i++)
-        {
-            npcList.add(gen.generateRandomAdultNPC());
-        }
-        List<Structure> structureList = new ArrayList<>();
-        structureList.add(new AssemblyHall());
-        structureList.add(new Mine());
-        structureList.add(new Farmstead());
-        structureList.add(new WinePress());
-        structureList.add(new WinePress());
-        structureList.add(new WinePress());
-        structureList.add(new WinePress());
-        structureList.add(new WinePress());
-        structureList.add(new WinePress());
-        ProfessionAssignmentScheduler scheduler = new ProfessionAssignmentScheduler();
-        List<characters.Character> list = scheduler.schedule(npcList, structureList, ProductionTag.BALANCED);
-        
-        scheduler.printMap();
-        System.out.println("unemployed " + list);
+        SettlementGenerator gen = new SettlementGenerator();
+        Settlement s = gen.generateRandomSettlement(null);
     }
 }

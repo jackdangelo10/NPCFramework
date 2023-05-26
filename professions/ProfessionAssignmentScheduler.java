@@ -28,6 +28,7 @@ public class ProfessionAssignmentScheduler
         {
             //fix balanced code so that it doesn't fill up entirely
             Collections.shuffle(availableStructures);
+
             return assignNPCsToStructuresBalanced(unemployedQueue, structures);
         }
         else
@@ -65,7 +66,14 @@ public class ProfessionAssignmentScheduler
             }   
         }
         //remaining unemployed people returned to settlement
-        return new ArrayList<characters.Character>(unemployedQueue);
+        if(unemployedQueue.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return new ArrayList<characters.Character>(unemployedQueue);
+        }
     }
 
 
@@ -106,7 +114,14 @@ public class ProfessionAssignmentScheduler
                 }
             }
         }
-        return new ArrayList<characters.Character>(unemployedQueue);
+        if(unemployedQueue.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return new ArrayList<characters.Character>(unemployedQueue);
+        } 
     }
 
     public void printMap()

@@ -39,6 +39,12 @@ public class ProfessionGenerator
         Profession brewer = new Brewer();
         Profession weaver = new Weaver();
         Profession miner = new Miner();
+        Profession barkeeper = new Barkeeper();
+        Profession hedonist = new Hedonist();
+        Profession miller = new Miller();
+        Profession castellan = new Castellan();
+        Profession worker = new Worker();
+        Profession steward = new Steward();
 
         professions.add(fisher);
         professions.add(stablehand);
@@ -64,6 +70,12 @@ public class ProfessionGenerator
         professions.add(brewer);
         professions.add(weaver);
         professions.add(miner);
+        professions.add(barkeeper);
+        professions.add(hedonist);
+        professions.add(miller);
+        professions.add(castellan);
+        professions.add(worker);
+        professions.add(steward);
 
         professionMap.put("Fisher", fisher);
         professionMap.put("Stablehand", stablehand);
@@ -89,6 +101,12 @@ public class ProfessionGenerator
         professionMap.put("Brewer", brewer);
         professionMap.put("Weaver", weaver);
         professionMap.put("Miner", miner);
+        professionMap.put("Barkeeper", barkeeper);
+        professionMap.put("Hedonist", hedonist);
+        professionMap.put("Miller", miller);
+        professionMap.put("Castellan", castellan);
+        professionMap.put("Worker", worker);
+        professionMap.put("Steward", steward);
     }
 
     public Profession generateRandomProfession()

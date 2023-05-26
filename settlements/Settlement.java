@@ -1,7 +1,10 @@
 package settlements;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+
 import characters.Family;
 import characters.NPC;
 import civilizations.Civilization;
@@ -17,6 +20,7 @@ abstract public class Settlement
     protected List<Character> inhabitants = new ArrayList<Character>();
     protected List<Family> families = new ArrayList<Family>();
     protected List<Character> unemployed = new ArrayList<Character>();
+    protected Queue<Character> unhoused = new LinkedList<Character>();
     protected String settlementName;
     protected String settlementAdjective;
     protected String settlementSizeName;
@@ -27,7 +31,7 @@ abstract public class Settlement
     //protected LocalEconomy economy = null;
     //protected LocalGovernment government = null;
     protected ArrayList<Structure> structures = new ArrayList<Structure>();
-    protected House housing = new House(civilization, this);
+    protected House housing = new House();
 
 /**ADDING PEOPLE */
 
@@ -50,6 +54,7 @@ abstract public class Settlement
     {
         structures.add(s);
     }
+
     
 
 /**GETTERS AND SETTERS ******************************************************************************* */
@@ -128,6 +133,14 @@ abstract public class Settlement
         MIN_STRUCTURES = mIN_STRUCTURES;
     }
 
+    public List<Character> getUnemployed() {
+        return unemployed;
+    }
+
+    public void setUnemployed(List<Character> unemployed) {
+        this.unemployed = unemployed;
+    }
+
     public House getHousing() {
         return housing;
     }
@@ -135,6 +148,14 @@ abstract public class Settlement
     public void setHousing(House housing) {
         this.housing = housing;
     }
-    
+
+    public Queue<Character> getUnhoused() {
+        return unhoused;
+    }
+
+    public void setUnhoused(Queue<Character> unhoused) {
+        this.unhoused = unhoused;
+    }
+
     
 }
