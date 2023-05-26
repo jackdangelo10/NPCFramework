@@ -23,5 +23,6 @@ public class Palace extends Structure
         super.associatedProfessions.put("Steward", 1);
         super.totalCapacity = 1;
         super.productionTag = ProductionTag.INFLUENCE;
+        super.priority = 10;
     }
 }

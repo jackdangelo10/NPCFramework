@@ -23,5 +23,6 @@ public class Bank extends Structure
         super.associatedProfessions.put("Banker", 5);
         super.totalCapacity = 5;
         super.productionTag = ProductionTag.GOLD;
+        super.priority = 5;
     }
 }

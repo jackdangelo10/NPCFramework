@@ -20,8 +20,9 @@ public class Mine extends Structure
     protected void baseStatAssignments()
     {
         super.structureName = "Mine";
-        super.associatedProfessions.put("Miner", 7);
-        super.totalCapacity = 7;
+        super.associatedProfessions.put("Miner", 3);
+        super.totalCapacity = 3;
+        super.priority = 7;
         super.productionTag = ProductionTag.MANPOWER;
     }
 }

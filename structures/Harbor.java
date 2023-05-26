@@ -24,5 +24,6 @@ public class Harbor extends Structure
         super.associatedProfessions.put("Fisher", 10);
         super.totalCapacity = 10;
         super.productionTag = ProductionTag.FOOD;
+        super.priority = 8;
     }
 }

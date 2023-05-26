@@ -27,6 +27,7 @@ public class House extends Structure
         super.associatedProfessions.put("Unemployed", 10);
         super.totalCapacity = 10;
         super.productionTag = ProductionTag.BALANCED;
+        super.priority = 1;
     }
 
     public void assignHouseholdMember(characters.Character offspring)

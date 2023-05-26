@@ -24,5 +24,6 @@ public class Port extends Structure
         super.associatedProfessions.put("Fisher", 15);
         super.totalCapacity = 15;
         super.productionTag = ProductionTag.FOOD;
+        super.priority = 7;
     }
 }

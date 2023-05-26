@@ -28,7 +28,7 @@ public class ProfessionAssignmentScheduler
         {
             //fix balanced code so that it doesn't fill up entirely
             Collections.shuffle(availableStructures);
-            assignNPCsToStructuresBalanced(npcs, structures);
+            return assignNPCsToStructuresBalanced(unemployedQueue, structures);
         }
         else
         {
@@ -69,17 +69,44 @@ public class ProfessionAssignmentScheduler
     }
 
 
-    private void assignNPCsToStructuresBalanced(List<characters.Character> npcs, List<Structure> structures)
+    private List<characters.Character> assignNPCsToStructuresBalanced(Queue<characters.Character> unemployedQueue, List<Structure> availableStructures)
     {
-        int totalJobs = 0;
-        for(Structure str : structures)
+        int jobsPerStructure = (int) Math.ceil((unemployedQueue.size() / availableStructures.size()));
+        if(jobsPerStructure == 0)
         {
-            totalJobs += str.getTotalCapacity();
+            jobsPerStructure++;
+            //priority so that crucial buildings don't go unoccupied.
+            availableStructures.sort(Comparator.comparingInt(Structure::getPriority).reversed());
         }
-        int jobsPerStructure = totalJobs / structures.size();
-        int remainingJobs = totalJobs % structures.size();
-
-        ///FIX LATER
+        outer:
+        for(Structure str: availableStructures)
+        {
+            int count = 0;
+            while(count < jobsPerStructure && !str.isFull())
+            {
+                if(unemployedQueue.isEmpty())
+                {
+                    break outer;
+                }
+                characters.Character c = unemployedQueue.poll();
+                for(String profession : str.getAssociatedProfessions().keySet())
+                {
+                    if(str.hasVacancy(profession))
+                    {
+                        mappings.put(c.getName(), profession + " " + str.getStructureName());
+                        c.setAssignedStructure(str);
+                        str.getAssignedNPCs().add(c);
+                        Profession p = professionGenerator.getProfessionMap().get(profession);
+                        c.setProfession1(p);
+                        int skill = p.calculateProfessionSkill(c);
+                        c.setProfession1Skill(skill);
+                        count++;
+                        break;
+                    }
+                }
+            }
+        }
+        return new ArrayList<characters.Character>(unemployedQueue);
     }
 
     public void printMap()

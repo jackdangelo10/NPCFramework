@@ -24,5 +24,6 @@ public class Watermill extends Structure
         super.associatedProfessions.put("Miller", 1);
         super.totalCapacity = 1;
         super.productionTag = ProductionTag.FOOD;
+        super.priority = 4;
     }
 }

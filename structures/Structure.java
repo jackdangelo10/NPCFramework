@@ -19,6 +19,7 @@ public abstract class Structure implements Cloneable
     
     protected characters.Character apprentice = null;
     protected int totalCapacity = 0;
+    protected int priority = 0;
 
     //where its located
     protected Civilization civ = null;
@@ -157,6 +158,14 @@ public abstract class Structure implements Cloneable
 
     public void setTotalCapacity(int totalCapacity) {
         this.totalCapacity = totalCapacity;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     } 
     
     

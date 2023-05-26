@@ -23,5 +23,6 @@ public class LumberMill extends Structure
         super.associatedProfessions.put("Miller", 3);
         super.totalCapacity = 3;
         super.productionTag = ProductionTag.MANPOWER;
+        super.priority = 7;
     }
 }

@@ -24,5 +24,6 @@ public class LoomHouse extends Structure
         super.associatedProfessions.put("Weaver", 3);
         super.totalCapacity = 3;
         super.productionTag = ProductionTag.CULTURE;
+        super.priority = 2;
     }
 }

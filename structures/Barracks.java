@@ -28,6 +28,7 @@ public class Barracks extends Structure
         super.associatedProfessions.put("Guard", 15);
         super.totalCapacity = 15;
         super.productionTag = ProductionTag.INFLUENCE;
+        super.priority = 6;
     }
 
     public void addGuard(Character c)

@@ -25,5 +25,6 @@ public class AlchemyLabratory extends Structure
         super.associatedProfessions.put("Alchemist", 3);
         super.totalCapacity = 3;
         super.productionTag = ProductionTag.RESEARCH;
+        super.priority = 1;
     }
 }

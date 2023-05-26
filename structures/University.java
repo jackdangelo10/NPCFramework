@@ -24,5 +24,6 @@ public class University extends Structure
         super.associatedProfessions.put("Scholar", 6);
         super.totalCapacity = 6;
         super.productionTag = ProductionTag.RESEARCH;
+        super.priority = 3;
     }
 }

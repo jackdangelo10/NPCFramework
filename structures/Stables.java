@@ -23,5 +23,6 @@ public class Stables extends Structure
         super.associatedProfessions.put("Stablehand", 2);
         super.totalCapacity = 2;
         super.productionTag = ProductionTag.FOOD;
+        super.priority = 7;
     }
 }

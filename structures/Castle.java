@@ -25,5 +25,6 @@ public class Castle extends Structure
         super.associatedProfessions.put("Castellan", 1);
         super.totalCapacity = 16;
         super.productionTag = ProductionTag.BALANCED;
+        super.priority = 8;
     }
 }

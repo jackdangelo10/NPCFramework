@@ -13,6 +13,7 @@ import structures.Guardhouse;
 import structures.Mine;
 import structures.Smithy;
 import structures.Structure;
+import structures.WinePress;
 import structures.Workshop;
 import structures.StructureAttributes.ProductionTag;
 
@@ -31,21 +32,24 @@ public class TestSuite
     {
         NPCGenerator gen = new NPCGenerator();
         List<characters.Character> npcList = new ArrayList<characters.Character>();
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 3; i++)
         {
             npcList.add(gen.generateRandomAdultNPC());
         }
         List<Structure> structureList = new ArrayList<>();
-        structureList.add(new Farmstead());
-        structureList.add(new Dock());
         structureList.add(new AssemblyHall());
-        structureList.add(new Guardhouse());
-        structureList.add(new Smithy());
-        structureList.add(new Workshop());
         structureList.add(new Mine());
-        structureList.add(new AlchemyLabratory());
+        structureList.add(new Farmstead());
+        structureList.add(new WinePress());
+        structureList.add(new WinePress());
+        structureList.add(new WinePress());
+        structureList.add(new WinePress());
+        structureList.add(new WinePress());
+        structureList.add(new WinePress());
         ProfessionAssignmentScheduler scheduler = new ProfessionAssignmentScheduler();
-        scheduler.schedule(npcList, structureList, ProductionTag.RESEARCH);
+        List<characters.Character> list = scheduler.schedule(npcList, structureList, ProductionTag.BALANCED);
+        
         scheduler.printMap();
+        System.out.println("unemployed " + list);
     }
 }

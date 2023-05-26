@@ -29,5 +29,6 @@ public class Courthouse extends Structure
         super.associatedProfessions.put("Judge", 1);
         super.totalCapacity = 1;
         super.productionTag = ProductionTag.POLICY;
+        super.priority = 10;
     }
 }

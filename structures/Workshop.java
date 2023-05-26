@@ -24,6 +24,7 @@ public class Workshop extends Structure
         super.associatedProfessions.put("Carpenter", 1);
         super.totalCapacity = 1;
         super.productionTag = ProductionTag.MANPOWER;
+        super.priority = 10;
 
     }
 }

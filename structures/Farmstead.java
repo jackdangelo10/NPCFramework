@@ -26,5 +26,6 @@ public class Farmstead extends Structure
         super.associatedProfessions.put("Farmer", 4);
         super.totalCapacity = 4;
         super.productionTag = ProductionTag.FOOD;
+        super.priority = 9;
     }
 }

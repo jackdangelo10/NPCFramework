@@ -23,5 +23,6 @@ public class Shop extends Structure
         super.associatedProfessions.put("Merchant", 3);
         super.totalCapacity = 3;
         super.productionTag = ProductionTag.GOLD;
+        super.priority = 5;
     }
 }

@@ -23,6 +23,7 @@ public class Dock extends Structure
         super.associatedProfessions.put("Fisher", 5);
         super.totalCapacity = 5;
         super.productionTag = ProductionTag.FOOD;
+        super.priority = 7;
         
     }
 }

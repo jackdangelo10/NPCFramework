@@ -24,5 +24,6 @@ public class WinePress extends Structure
         super.associatedProfessions.put("Worker", 4);
         super.totalCapacity = 4;
         super.productionTag = ProductionTag.HAPPINNESS;
+        super.priority = 1;
     }
 }

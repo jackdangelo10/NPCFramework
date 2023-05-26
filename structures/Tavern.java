@@ -24,5 +24,6 @@ public class Tavern extends Structure
         super.associatedProfessions.put("Worker", 1);
         super.totalCapacity = 2;
         super.productionTag = ProductionTag.HAPPINNESS;
+        super.priority = 2;
     }
 }

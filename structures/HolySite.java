@@ -24,5 +24,6 @@ public class HolySite extends Structure
         super.associatedProfessions.put("Preacher", 1);
         super.totalCapacity = 1;
         super.productionTag = ProductionTag.CULTURE;
+        super.priority = 1;
     }
 }

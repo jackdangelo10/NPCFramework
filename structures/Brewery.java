@@ -24,5 +24,6 @@ public class Brewery extends Structure
         super.associatedProfessions.put("Brewer", 4);
         super.totalCapacity = 4;
         super.productionTag = ProductionTag.HAPPINNESS;
+        super.priority = 2;
     }
 }

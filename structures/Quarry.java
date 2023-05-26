@@ -23,5 +23,6 @@ public class Quarry extends Structure
         super.associatedProfessions.put("Miner", 7);
         super.totalCapacity = 7;
         super.productionTag = ProductionTag.MANPOWER;
+        super.priority = 6;
     }   
 }

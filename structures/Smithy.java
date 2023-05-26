@@ -24,5 +24,6 @@ public class Smithy extends Structure
         super.associatedProfessions.put("Blacksmith", 1);
         super.totalCapacity = 1;
         super.productionTag = ProductionTag.MANPOWER;
+        super.priority = 9;
     }
 }

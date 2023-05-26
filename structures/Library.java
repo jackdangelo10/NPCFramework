@@ -23,5 +23,6 @@ public class Library extends Structure
         super.associatedProfessions.put("Scholar", 3);
         super.totalCapacity = 3;
         super.productionTag = ProductionTag.RESEARCH;
+        super.priority = 4;
     }
 }

@@ -24,5 +24,6 @@ public class Guardhouse extends Structure
         super.associatedProfessions.put("Guard", 5);
         super.totalCapacity = 5;
         super.productionTag = ProductionTag.BALANCED;
+        super.priority = 5;
     }
 }

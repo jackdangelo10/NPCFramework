@@ -24,5 +24,6 @@ public class Citadel extends Structure
         super.associatedProfessions.put("Guard", 20);
         super.totalCapacity = 20;
         super.productionTag = ProductionTag.BALANCED;
+        super.priority = 6;
     }
 }

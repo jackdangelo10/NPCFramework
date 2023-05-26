@@ -23,5 +23,6 @@ public class Monastery extends Structure
         super.associatedProfessions.put("Monk", 5);
         super.totalCapacity = 5;
         super.productionTag = ProductionTag.CULTURE;
+        super.priority = 3;
     }
 }

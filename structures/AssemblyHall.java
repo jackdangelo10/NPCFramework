@@ -23,5 +23,6 @@ public class AssemblyHall extends Structure
         super.associatedProfessions.put("Politician", 3);
         super.totalCapacity = 3;
         super.productionTag = ProductionTag.POLICY;
+        super.priority = 10;
     }
 }

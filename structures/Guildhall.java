@@ -24,5 +24,6 @@ public class Guildhall extends Structure
     {
         super.structureName = "Courthouse";
         super.productionTag = ProductionTag.INFLUENCE;
+        super.priority = 1;
     }
 }

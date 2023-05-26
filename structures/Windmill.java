@@ -24,5 +24,6 @@ public class Windmill extends Structure
         super.associatedProfessions.put("Miller", 1);
         super.totalCapacity = 1;
         super.productionTag = ProductionTag.MANPOWER;
+        super.priority = 3;
     }
 }

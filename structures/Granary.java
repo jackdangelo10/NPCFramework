@@ -21,5 +21,6 @@ public class Granary extends Structure
     {
         super.structureName = "Granary";
         super.productionTag = ProductionTag.FOOD;
+        super.priority = 3;
     }
 }
