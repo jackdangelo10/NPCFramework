@@ -1,7 +1,7 @@
 package resources;
 
-public interface Resource 
+public abstract class Resource 
 {
-    String getResourceName();
-    int calculateResourcePrice();
+    protected String resourceName;
+    protected int quantity;
 }
