@@ -2,7 +2,7 @@ package resources.Ores.Minerals;
 
 import resources.Ores.Ore;
 
-public class Mineral extends Ore
+public abstract class Mineral extends Ore
 {
     
 }

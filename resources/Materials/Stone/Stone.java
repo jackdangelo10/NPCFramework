@@ -2,7 +2,10 @@ package resources.Materials.Stone;
 
 import resources.Materials.Materials;
 
-public class Stone extends Materials
+public abstract class Stone extends Materials
 {
-    
+    public Stone()
+    {
+        super.resourceName = "Stone";
+    }
 }

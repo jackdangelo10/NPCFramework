@@ -1,6 +1,6 @@
 package resources.Foodstuffs.FarmsteadCrops;
 
-public class Vegetable extends FarmsteadCrop
+public class GrainResource extends FarmsteadCrop
 {
     
 }

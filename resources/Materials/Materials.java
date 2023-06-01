@@ -2,7 +2,7 @@ package resources.Materials;
 
 import resources.Resource;
 
-public class Materials extends Resource
+public abstract class Materials extends Resource
 {
     
 }
