@@ -7,5 +7,6 @@ public abstract class Ore extends Resource
     public Ore()
     {
         super();
+        super.associatedStructure = "Mine";
     }
 }

@@ -5,5 +5,8 @@ import resources.Resource;
 
 public abstract class AnimalResource extends Resource
 {
-
+    public AnimalResource()
+    {
+        super.associatedStructure = "Pasture";
+    }
 }

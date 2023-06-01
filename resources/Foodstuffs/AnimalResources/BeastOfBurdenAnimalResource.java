@@ -7,7 +7,7 @@ public class BeastOfBurdenAnimalResource extends AnimalResource
 
     public BeastOfBurdenAnimalResource(Animal a) 
     {
-        super(a);
+        super.resourceName = "Beast of Burden";
     }
     
 }

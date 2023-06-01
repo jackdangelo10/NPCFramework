@@ -4,7 +4,7 @@ import civilizations.Civilization;
 import settlements.Settlement;
 import structures.Structure;
 
-public class Animal 
+public abstract class Animal 
 {
     protected String animalName;
     protected boolean isAlive = true;

@@ -6,6 +6,6 @@ public abstract class Stone extends Materials
 {
     public Stone()
     {
-        super.resourceName = "Stone";
+        super.associatedStructure = "Quarry";
     }
 }
