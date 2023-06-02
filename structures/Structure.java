@@ -31,7 +31,8 @@ public abstract class Structure implements Cloneable
 /**CLONABLE IMPLEMENTATION ************************************************************ */
 
     @Override
-    public Structure clone() {
+    public Structure clone() 
+    {
         try 
         {
             return (Structure) super.clone();

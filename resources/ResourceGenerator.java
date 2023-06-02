@@ -8,7 +8,6 @@ import java.util.Random;
 import resources.Foodstuffs.AnimalResources.BeastOfBurdenAnimalResource;
 import resources.Foodstuffs.AnimalResources.DomesticAnimalResource;
 import resources.Foodstuffs.AnimalResources.LivestockResource;
-import resources.Foodstuffs.FarmsteadCrops.FarmsteadCrop;
 import resources.Foodstuffs.FarmsteadCrops.FruitResource;
 import resources.Foodstuffs.FarmsteadCrops.GrainResource;
 import resources.Foodstuffs.FarmsteadCrops.VegetableResource;
@@ -154,6 +153,8 @@ public class ResourceGenerator
         resourceMap.put("Moonstone", moonstone);
     }
 
+    //ALLLL CLON!!!!!!!!!!!!!
+
     public Resource generateRandomResource()
     {
         if (resources.isEmpty()) 
@@ -162,6 +163,107 @@ public class ResourceGenerator
         }
         
         int index = random.nextInt(resources.size());
-        return resources.get(index);
+        return resources.get(index).clone();
+    }
+
+    public Resource generateRandomFoodstuff()
+    {
+        if (foodstuffs.isEmpty()) 
+        {
+            return null;
+        }
+        
+        int index = random.nextInt(foodstuffs.size());
+        return foodstuffs.get(index).clone();
+    }
+
+    public Resource generateRandomPlantationCrop()
+    {
+        if(plantationCrops.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(plantationCrops.size());
+        return plantationCrops.get(index).clone();
+    }
+
+    public Resource generateRandomFarmsteadCrop()
+    {
+        if(farmsteadCrops.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(farmsteadCrops.size());
+        return farmsteadCrops.get(index).clone();
+    }
+
+    public Resource generateRandomAnimalResource()
+    {
+        if(animalResources.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(animalResources.size());
+        return animalResources.get(index).clone();
+    }
+
+    public Resource generateRandomOre()
+    {
+        if(ores.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(ores.size());
+        return ores.get(index).clone();
+    }
+
+    public Resource generateRandomMetal()
+    {
+        if(metals.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(metals.size());
+        return metals.get(index).clone();
+    }
+
+    public Resource generateRandomMineral()
+    {
+        if(minerals.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(minerals.size());
+        return minerals.get(index).clone();
+    }
+
+    public Resource generateRandomMaterial()
+    {
+        if(materials.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(materials.size());
+        return materials.get(index).clone();
+    }
+
+    public Resource generateRandomTimber()
+    {
+        if(timber.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(timber.size());
+        return timber.get(index).clone();
+    }
+
+    public Resource generateRandomStone()
+    {
+        if(stone.isEmpty())
+        {
+            return null;
+        }
+        int index = random.nextInt(stone.size());
+        return stone.get(index).clone();
     }
 }
