@@ -5,5 +5,6 @@ public class Silver extends Metal
     public Silver()
     {
         super.resourceName = "Silver";
+        super.goldOutput = 2;
     }
 }

@@ -1,5 +1,7 @@
 package settlements;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import characters.Family;
 import characters.FamilyGenerator;
@@ -7,6 +9,7 @@ import characters.CharacterAttributes.Age;
 import civilizations.Civilization;
 import professions.ProfessionAssignmentScheduler;
 import professions.ProfessionGenerator;
+import resources.Resource;
 import structures.Farmstead;
 import structures.Guardhouse;
 import structures.Smithy;
@@ -112,6 +115,21 @@ public class SettlementGenerator
 
         resetCounts();
         return city;
+    }
+
+/**RESOURCE GENERATION *************************************************************** */
+
+    public List<Resource> generateRandomResourceList()
+    {
+        List<Resource> settlementResources = new ArrayList<Resource>();
+
+
+
+
+
+
+
+        return settlementResources;
     }
 
 /**POPULATION GENERATION ************************************************************ */
@@ -333,5 +351,16 @@ public class SettlementGenerator
         castleCount = 0;
         palaceCount = 0;
         universityCount = 0;
+    }
+
+    private void generateResourceStructures(List<Resource> resources, Settlement s)
+    {
+        for(Resource r : resources)
+        {
+            String structureName = r.getAssociatedStructure();
+            Structure str = structureGenerator.getStructureFromMap(structureName);
+            str.setSettlement(s);
+            s.getStructures().add(str);
+        }
     }
 }

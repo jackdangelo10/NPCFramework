@@ -7,5 +7,6 @@ public abstract class FarmsteadCrop extends Foodstuffs
     public FarmsteadCrop()
     {
         super.associatedStructure = "Farmstead";
+        super.foodOutput = 5;
     }
 }

@@ -164,6 +164,13 @@ public class StructureGenerator
 
     }
 
+    public Structure getStructureFromMap(String s)
+    {
+        return structureMap.get(s).clone();
+    }
+
+/**RANDOM STRUCTURE GENERATION *************************************************** */
+
     public Structure generateRandomStructure()
     {
         if(structures.isEmpty()) 
@@ -214,6 +221,10 @@ public class StructureGenerator
         int index = random.nextInt(cityTierStructures.size());
         return cityTierStructures.get(index).clone();
     }
+
+
+
+/**GETTERS AND SETTERS ******************************************************** */
 
     public static List<Structure> getStructures() {
         return structures;

@@ -7,5 +7,6 @@ public class LivestockResource extends AnimalResource
     public LivestockResource(Animal a)
     {
         super.resourceName = "Livestock";
+        super.foodOutput = 2;
     }
 }
