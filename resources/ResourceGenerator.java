@@ -270,7 +270,37 @@ public class ResourceGenerator
 
     public List<Resource> generateRandomResourceSpawn()
     {
-        
-        return null;
+        List<Resource> resources = new ArrayList<Resource>();
+        Resource farmsteadCrop = generateRandomFarmsteadCrop();
+        farmsteadCrop.setQuantity(random.nextInt(3) + 1);
+        resources.add(farmsteadCrop);
+        if(Math.random() > .5)
+        {
+            Resource ore = generateRandomOre();
+            ore.setQuantity(random.nextInt(3) + 1);
+            resources.add(ore.clone());
+        }
+
+        if(Math.random() > .5)
+        {
+            Resource timber = generateRandomTimber();
+            timber.setQuantity(random.nextInt(3) + 1);
+            resources.add(timber.clone());
+        }
+        else
+        {
+            Resource stone = generateRandomStone();
+            stone.setQuantity(random.nextInt(3) + 1);
+            resources.add(stone.clone());
+        }
+
+        if(Math.random() > .5)
+        {
+            Resource foodstuff = generateRandomFoodstuff();
+            foodstuff.setQuantity(random.nextInt(3) + 1);
+            resources.add(foodstuff.clone());
+        }
+
+        return resources;
     }
 }

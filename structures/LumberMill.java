@@ -19,7 +19,7 @@ public class LumberMill extends Structure
 
     protected void baseStatAssignments()
     {
-        super.structureName = "LumberMill";
+        super.structureName = "Lumber Mill";
         super.associatedProfessions.put("Miller", 3);
         super.totalCapacity = 3;
         super.productionTag = ProductionTag.MANPOWER;

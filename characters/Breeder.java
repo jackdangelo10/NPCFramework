@@ -156,8 +156,9 @@ public class Breeder
         }
 
         String s = finder.findFamilialRelationship(male, female);
-        if(s != null && s != "Wife" && s != "Husband")
+        if(s != null && s != "Wife")
         {
+            System.out.println("Inbred relationship is " + s);
             offspring.addTrait(new Inbred());
         }
         

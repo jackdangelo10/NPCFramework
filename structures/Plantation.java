@@ -1,17 +1,20 @@
 package structures;
 
 import civilizations.Civilization;
+import resources.Resource;
 import settlements.Settlement;
 import structures.StructureAttributes.ProductionTag;
 
-public class Watermill extends Structure
+public class Plantation extends Structure
 {
-    public Watermill()
+    private Resource crop = null;
+
+    public Plantation()
     {
         baseStatAssignments();
     }
 
-    public Watermill(Civilization c, Settlement s)
+    public Plantation(Civilization c, Settlement s)
     {
         super.civ = c;
         super.settlement = s;
@@ -20,10 +23,10 @@ public class Watermill extends Structure
 
     protected void baseStatAssignments()
     {
-        super.structureName = "Water Mill";
-        super.associatedProfessions.put("Miller", 1);
-        super.totalCapacity = 1;
+        super.structureName = "Plantation";
+        super.associatedProfessions.put("Farmer", 4);
+        super.totalCapacity = 4;
         super.productionTag = ProductionTag.FOOD;
-        super.priority = 4;
+        super.priority = 8;
     }
 }

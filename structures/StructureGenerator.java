@@ -64,6 +64,7 @@ public class StructureGenerator
         Structure brewery = new Brewery();
         Structure port = new Port();
         Structure holysite = new HolySite();
+        Structure plantation = new Plantation();
 
         structureMap.put("Bank", bank);
         structureMap.put("Barracks", barracks);
@@ -77,7 +78,7 @@ public class StructureGenerator
         structureMap.put("Guildhall", guildhall);
         structureMap.put("House", house);
         structureMap.put("Library", library);
-        structureMap.put("Lumbermill", lumbermill);
+        structureMap.put("Lumber Mill", lumbermill);
         structureMap.put("Mine", mine);
         structureMap.put("Monastery", monastery);
         structureMap.put("Palace", palace);
@@ -93,17 +94,18 @@ public class StructureGenerator
         structureMap.put("Citadel", citadel);
         structureMap.put("Temple", temple);
         structureMap.put("Alchemy Labratory", alchemylab);
-        structureMap.put("Windmill", windmill);
+        structureMap.put("Wind Mill", windmill);
         structureMap.put("Wine Press", winepress);
         structureMap.put("Loomhouse", loomhouse);
         structureMap.put("Emporium", emporium);
         structureMap.put("University", university);
         structureMap.put("Scriptorium", scriptorium);
-        structureMap.put("Watermill", watermill);
+        structureMap.put("Water Mill", watermill);
         structureMap.put("Harbor", harbor);
         structureMap.put("Brewery", brewery);
         structureMap.put("Port", port);
         structureMap.put("Holy Site", holysite);
+        structureMap.put("Plantation", plantation);
 
 
         baseStructures.add(workshop);
@@ -144,6 +146,7 @@ public class StructureGenerator
         townTierStructures.add(loomhouse);
         townTierStructures.add(scriptorium);
         townTierStructures.add(guildhall);
+        townTierStructures.add(plantation);
         townTierStructures.addAll(villageTierStructures);
 
         cityTierStructures.add(palace);
@@ -166,7 +169,15 @@ public class StructureGenerator
 
     public Structure getStructureFromMap(String s)
     {
-        return structureMap.get(s).clone();
+        if(structureMap.get(s) == null)
+        {
+            System.out.println("Structure not implemented yet: "  + s);
+            return null;
+        }
+        else
+        {
+            return structureMap.get(s).clone();
+        }
     }
 
 /**RANDOM STRUCTURE GENERATION *************************************************** */

@@ -7,7 +7,7 @@ public class Pregnant extends Trait
 
     public Pregnant()
     {
-        setChance(.05);
+        setChance(.005);
         setInheritable(false);
         setTraitName("Pregnant");
     }

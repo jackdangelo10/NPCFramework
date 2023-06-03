@@ -8,6 +8,7 @@ import java.util.Queue;
 import characters.Family;
 import characters.NPC;
 import civilizations.Civilization;
+import economies.SettlementEconomy;
 import structures.House;
 import structures.Structure;
 import characters.Character;
@@ -28,7 +29,7 @@ abstract public class Settlement
     protected int MIN_STRUCTURES = 0;
 
     
-    //protected LocalEconomy economy = null;
+    protected SettlementEconomy economy = new SettlementEconomy();
     //protected LocalGovernment government = null;
     protected ArrayList<Structure> structures = new ArrayList<Structure>();
     protected House housing = new House();
@@ -157,5 +158,12 @@ abstract public class Settlement
         this.unhoused = unhoused;
     }
 
-    
+    public SettlementEconomy getEconomy() {
+        return economy;
+    }
+
+    public void setEconomy(SettlementEconomy economy) {
+        this.economy = economy;
+    }
+
 }

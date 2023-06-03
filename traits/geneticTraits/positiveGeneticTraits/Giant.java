@@ -6,7 +6,7 @@ public class Giant extends Trait
 
     public Giant()
     {
-        setChance(.02);
+        setChance(.002);
         setTraitName("Giant");
         addOpposite("Dwarf");
     }

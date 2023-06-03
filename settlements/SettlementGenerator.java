@@ -10,6 +10,7 @@ import civilizations.Civilization;
 import professions.ProfessionAssignmentScheduler;
 import professions.ProfessionGenerator;
 import resources.Resource;
+import resources.ResourceGenerator;
 import structures.Farmstead;
 import structures.Guardhouse;
 import structures.Smithy;
@@ -19,12 +20,16 @@ import structures.AssemblyHall;
 import structures.Workshop;
 import structures.StructureAttributes.ProductionTag;
 
+
+//REORGANIZE SO THAT RESOURCES CAN BE PASSED TO SETTLEMENT TO START AND IF THEY ARE MISSING A CORE BUILDING IT FILLS IT IN
+
 public class SettlementGenerator 
 {
     private static Random random = new Random();
     private static FamilyGenerator familyGenerator = new FamilyGenerator();
     private static StructureGenerator structureGenerator = new StructureGenerator();
     private static ProfessionAssignmentScheduler professionAssignmentScheduler = new ProfessionAssignmentScheduler();
+    private static ResourceGenerator resourceGenerator = new ResourceGenerator();
     private int courthouseCount = 0;
     private int citadelCount = 0;
     private int holysiteCount = 0;
@@ -65,12 +70,15 @@ public class SettlementGenerator
     {
         Settlement hamlet = new Hamlet(c);
         int structureCount = random.nextInt(hamlet.MAX_STRUCTURES - hamlet.MIN_STRUCTURES);
+        generateResourceStructures(resourceGenerator.generateRandomResourceSpawn(), hamlet);
         generateBaseStructures(hamlet);
         generateHamletTierStructures(hamlet, structureCount);
         generatePopulation(hamlet);
         hamlet.setUnemployed(professionAssignmentScheduler.schedule(hamlet.getUnemployed(), hamlet.getStructures(), ProductionTag.BALANCED));
         assignHousing(hamlet);
 
+
+        initialize(hamlet);
         resetCounts();
         return hamlet;
     }
@@ -79,12 +87,14 @@ public class SettlementGenerator
     {
         Settlement village = new Village(c);
         int structureCount = random.nextInt(village.MAX_STRUCTURES - village.MIN_STRUCTURES) + village.MIN_STRUCTURES - BASE_STRUCTURE_COUNT;
+        generateResourceStructures(resourceGenerator.generateRandomResourceSpawn(), village);
         generateBaseStructures(village);
         generateVillageTierStructures(village, structureCount);
         generatePopulation(village);
         village.setUnemployed(professionAssignmentScheduler.schedule(village.getUnemployed(), village.getStructures(), ProductionTag.BALANCED));
         assignHousing(village);
 
+        initialize(village);
         resetCounts();
         return village;
     }
@@ -93,12 +103,14 @@ public class SettlementGenerator
     {
         Settlement town = new Town(c);
         int structureCount = random.nextInt(town.MAX_STRUCTURES - town.MIN_STRUCTURES) + town.MIN_STRUCTURES - BASE_STRUCTURE_COUNT;
+        generateResourceStructures(resourceGenerator.generateRandomResourceSpawn(), town);
         generateBaseStructures(town);
         generateTownTierStructures(town, structureCount);
         generatePopulation(town);
         town.setUnemployed(professionAssignmentScheduler.schedule(town.getUnemployed(), town.getStructures(), ProductionTag.BALANCED));
         assignHousing(town);
 
+        initialize(town);
         resetCounts();
         return town;
     }
@@ -107,30 +119,18 @@ public class SettlementGenerator
     {
         Settlement city = new City(c);
         int structureCount = random.nextInt(city.MAX_STRUCTURES - city.MIN_STRUCTURES - 5) + city.MIN_STRUCTURES - BASE_STRUCTURE_COUNT;
+        generateResourceStructures(resourceGenerator.generateRandomResourceSpawn(), city);
         generateBaseStructures(city);
         generateCityTierStructures(city, structureCount);
         generatePopulation(city);
         city.setUnemployed(professionAssignmentScheduler.schedule(city.getUnemployed(), city.getStructures(), ProductionTag.BALANCED));
         assignHousing(city);
 
+        initialize(city);
         resetCounts();
         return city;
     }
 
-/**RESOURCE GENERATION *************************************************************** */
-
-    public List<Resource> generateRandomResourceList()
-    {
-        List<Resource> settlementResources = new ArrayList<Resource>();
-
-
-
-
-
-
-
-        return settlementResources;
-    }
 
 /**POPULATION GENERATION ************************************************************ */
 
@@ -149,7 +149,9 @@ public class SettlementGenerator
                 {
                     s.getUnemployed().add(c);
                 }
+                s.getInhabitants().add(c);
             }
+            f.setFamilyName(f.getMembers().get(0).getLastName());
             s.getFamilies().add(f);
         }
     }
@@ -182,7 +184,11 @@ public class SettlementGenerator
     {
         for(Structure str : StructureGenerator.getBaseStructures())
         {
-            s.getStructures().add(str.clone());
+            //already a farmstead generated from the resources
+            if(str.getStructureName() != "Farmstead")
+            {
+                s.getStructures().add(str.clone());
+            } 
         }
     }
 
@@ -361,6 +367,14 @@ public class SettlementGenerator
             Structure str = structureGenerator.getStructureFromMap(structureName);
             str.setSettlement(s);
             s.getStructures().add(str);
+            s.getEconomy().addResource(r);
+            s.getEconomy().addResourceStructurePairing(r, str);
+            s.getEconomy().setSettlement(s);
         }
+    }
+
+    private void initialize(Settlement s)
+    {
+        s.getEconomy().updateOutputs();
     }
 }

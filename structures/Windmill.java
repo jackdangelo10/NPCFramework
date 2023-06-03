@@ -20,7 +20,7 @@ public class Windmill extends Structure
 
     protected void baseStatAssignments()
     {
-        super.structureName = "Windmill";
+        super.structureName = "Wind Mill";
         super.associatedProfessions.put("Miller", 1);
         super.totalCapacity = 1;
         super.productionTag = ProductionTag.MANPOWER;

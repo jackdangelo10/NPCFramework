@@ -4,6 +4,7 @@ import professions.ProfessionAssignmentScheduler;
 import professions.ProfessionGenerator;
 import settlements.Settlement;
 import settlements.SettlementGenerator;
+import settlements.SettlementPrinter;
 import structures.AlchemyLabratory;
 import structures.AssemblyHall;
 import structures.Castle;
@@ -16,9 +17,11 @@ import structures.Structure;
 import structures.WinePress;
 import structures.Workshop;
 import structures.StructureAttributes.ProductionTag;
+import traits.acquiredTraits.neutralAcquiredTraits.Pregnant;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.management.BadAttributeValueExpException;
 
@@ -32,5 +35,7 @@ public class TestSuite
     {
         SettlementGenerator gen = new SettlementGenerator();
         Settlement s = gen.generateRandomSettlement(null);
+        SettlementPrinter printer = new SettlementPrinter();
+        printer.printSettlement(s);
     }
 }

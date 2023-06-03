@@ -3,7 +3,7 @@ package resources;
 public abstract class Resource implements Cloneable
 {
     protected String resourceName;
-    protected int quantity;
+    protected int quantity = 0;
     protected String associatedStructure = null;
 
     protected int happinessOutput = 0;

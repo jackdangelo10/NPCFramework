@@ -126,6 +126,10 @@ abstract public class Character
             traits.put(t.getTraitName(), t);
             t.apply(this);
         }
+        else
+        {
+            System.out.println("Trait " + t.getTraitName() + " could not be applied");
+        }
     }
 
     public void removeTrait(Trait t)

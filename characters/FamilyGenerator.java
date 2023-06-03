@@ -15,6 +15,7 @@ public class FamilyGenerator
         breeder = new Breeder();
     }
 
+    //***OUTDATED FIX **************************************************************** */
     public Family generateFamily()
     {
         Character source = npcGenerator.generateRandomAdultNPC();
@@ -34,7 +35,6 @@ public class FamilyGenerator
                 //marrying adds to family
                 machine.marry();
                 generateChildren(spouse, source);
-                testFamilyPrint(source);
             }
             catch(BadAttributeValueExpException e)
             {
@@ -52,9 +52,12 @@ public class FamilyGenerator
         return source.getFamily();
     }
 
+    /**CURRENT WORKING FAMILY GENERATION **************************************************** */
+
     public Family generateFamily(int familySize)
     {
         Character source = npcGenerator.generateRandomAdultNPC();
+        source.getFamily().setFamilyName(source.getLastName());
         if(Math.random() > .5)
         {
             source.setSex(Sex.FEMALE);

@@ -8,7 +8,7 @@ public class Homosexual extends Trait
     
     public Homosexual()
     {
-        setChance(.03);
+        setChance(.01);
         setTraitName("Homosexual");
     }
 

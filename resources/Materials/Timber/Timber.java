@@ -6,7 +6,7 @@ public abstract class Timber extends Materials
 {
     public Timber()
     {
-        super.associatedStructure = "Saw Mill";
+        super.associatedStructure = "Lumber Mill";
         super.manpowerOutput = 1;
     }
 }

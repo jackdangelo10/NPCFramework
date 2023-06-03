@@ -6,6 +6,7 @@ import java.util.List;
 public class Family 
 {
     private List<characters.Character> members;
+    private String familyName;
     private int status = 0;
 
     public Family() 
@@ -35,6 +36,14 @@ public class Family
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
     }
 
  
