@@ -5,12 +5,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * contains attributes to be assigned to characters
+ * these will be used during interactions as well as determining how they vote
+ * and which factions they might join
+ */
 public class CharacterAttributes 
 {
     private static final Random RANDOM = new Random();
 
+    //represents age of the character
     public enum Age {CHILD, ADULT;}
 
+    //represents sex of the character
     public enum Sex 
     {
         MALE
@@ -33,6 +40,8 @@ public class CharacterAttributes
 
     }
 
+    //represents political beliefs of character and has an internal function to
+    //retrieve a random ideology for assignment/generation
     public enum Ideology 
     {
         HONOR, HUMILITY, MOBILE, STRATIFIED, LIBERTY, ORDER, TOLERANT, TRADITIONAL, SECULAR, PIOUS, APOLITICAL;
@@ -47,6 +56,10 @@ public class CharacterAttributes
         }
     }
 
+    //represents the current mood of the character, which is randomized each time the player interacts with them
+    //(time restrictions apply to avoid spamming/abuse of system)
+    //effects dialogue options and receptiveness
+    //retrieve a random mood for assignment/generation
     public enum Mood
     {
         AFRAID, RESOLVED, ANGRY, CAUTIOUS, CONTENTED, IRRITATED, MELANCHOLY, RESTLESS,

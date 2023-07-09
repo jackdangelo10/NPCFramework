@@ -1,86 +1,99 @@
 package characters;
 
 import javax.management.BadAttributeValueExpException;
-import characters.CharacterAttributes.Sex;
 
+
+//class to marry two characters and assign each other as spouses and to the same family
 public class MarriageMachine 
 {
-    private static Character male = null;
-    private static Character female = null;
+    private static Character p1 = null;
+    private static Character p2 = null;
 
-    public MarriageMachine(Character p1, Character p2) throws BadAttributeValueExpException
+    public MarriageMachine(Character character1, Character character2) throws BadAttributeValueExpException
     {
-        setCouple(p1, p2);
+        setCouple(character1, character2);
     }
 
+    /**
+     * marries the two characters together
+     */
     public void marry()
     {
-        if(female.getTraits().containsKey("Homosexual") || male.getTraits().containsKey("Homosexual"))
+        //temporary measure to test offspring generation
+        if(p2.getTraits().containsKey("Homosexual") || p1.getTraits().containsKey("Homosexual"))
         {
-            System.out.println("One partner is homosexual, cannot marry opposite sex.");
             return;
         }
-        female.setFamily(null);
-        male.setFamily(null);
+        p2.setFamily(null);
+        p1.setFamily(null);
+        
+        //create new family together as default
+        /**
+         * NOTE
+         * eventually there will be a dynasty/inheritance system that will be implemented which will make this
+         * a bit more complex
+         * Possibly the NPCs will get to choose which family they stay part of or whether they break off to form
+         * a new family line. This will be affected by the culture of the civilization they are part of
+         */
         
         Family family = new Family();
-        female.setFamily(family);
-        male.setFamily(family);
+        p2.setFamily(family);
+        p1.setFamily(family);
 
-        family.addMember(female);
-        family.addMember(male);
+        family.addMember(p2);
+        family.addMember(p1);
 
-        male.setSpouse(female);
-        female.setSpouse(male);
+        p1.setSpouse(p2);
+        p2.setSpouse(p1);
         
         if(Math.random() > .5)
         {
-            female.setLastName(male.getLastName());
+            p2.setLastName(p1.getLastName());
         }
         else
         {
-            male.setLastName(female.getLastName());
+            p1.setLastName(p2.getLastName());
         }
 
     }
 
+    /**
+     * resets variables
+     */
     public void reset()
     {   
-        male = null;
-        female = null;
+        p1 = null;
+        p2 = null;
     }
 
+    /**
+     * checks if the characters are children
+     * @param p1 - input character 1
+     * @param p2 - input character 2
+     * @throws BadAttributeValueExpException
+     */
     public void checkConditions(Character p1, Character p2) throws BadAttributeValueExpException
     {
-        if(p1.getSex() == Sex.MALE && p2.getSex() == Sex.MALE)
-        {
-            throw new BadAttributeValueExpException("Both men");
-        }
-        if(p1.getSex() == Sex.FEMALE && p2.getSex() == Sex.FEMALE)
-        {
-            throw new BadAttributeValueExpException("Both women");
-        }
         if(p1.getAge() == CharacterAttributes.Age.CHILD || p2.getAge() == CharacterAttributes.Age.CHILD)
         {
-            throw new BadAttributeValueExpException("Ethan Paragus error");
+            throw new BadAttributeValueExpException("One or more of characters are children.");
         }
     }
 
-    public void setCouple(Character p1, Character p2) throws BadAttributeValueExpException
+    /**
+     * assigns couple after checks
+     * @param character1
+     * @param character2
+     * @throws BadAttributeValueExpException
+     */
+    public void setCouple(Character character1, Character character2) throws BadAttributeValueExpException
     {
         try
         {
-            checkConditions(p1, p2);
-            if(p1.getSex() == Sex.MALE)
-            {
-                male = p1;
-                female = p2;
-            }
-            else
-            {
-                male = p2;
-                female = p1;
-            }
+            checkConditions(character1, character2);
+            p1 = character1;
+            p2 = character2;
+
         }
         catch(BadAttributeValueExpException e)
         {

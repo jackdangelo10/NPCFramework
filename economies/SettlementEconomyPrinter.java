@@ -2,6 +2,7 @@ package economies;
 
 import resources.Resource;
 
+//prints all relevant details about the settlement economies
 public class SettlementEconomyPrinter extends EconomyPrinter
 {
     public void printEconomy(SettlementEconomy e)

@@ -2,6 +2,7 @@ package characters;
 
 import characters.CharacterAttributes.Mood;
 
+//Non-Player Character with additional stats than character base to influence behavior
 public class NPC extends Character
 {
     /** CHARACTER INTERACTIONS ******************************************************** */
@@ -13,6 +14,12 @@ public class NPC extends Character
         identity = new Identity();
     }
 
+    /**
+     * calculates opinion of another NPC
+     * eventually will be extended to get opinions of player
+     * @param c - character to rate
+     * @return - NPCs rating 0-100 if NPC c
+     */
     public int getOpinion(NPC c)
     {
         int bonus = 0;
@@ -49,6 +56,11 @@ public class NPC extends Character
         return bonus;
     }
 
+    /**
+     * gets opinion of this NPC on NPC c on whether or not to vote for him
+     * @param c - NPC to be rated
+     * @return - opinion on electing NPC c 0-100
+     */
     public int getVotingOpinion(NPC c)
     {
         int opinion = c.getBaseReputation();
@@ -60,6 +72,11 @@ public class NPC extends Character
         return  opinion;
     }
 
+    /**
+     * calculates this NPC's attraction to NPC c
+     * @param c - NPC to be rated
+     * @return - attraction rated 0-100
+     */
     public int getAttraction(NPC c)
     {
         int attraction = c.getBaseSway();

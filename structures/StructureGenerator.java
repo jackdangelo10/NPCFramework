@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+//keeps track and allows for random generation of structures.
 public class StructureGenerator 
 {
     private static List<Structure> structures = new ArrayList<Structure>();

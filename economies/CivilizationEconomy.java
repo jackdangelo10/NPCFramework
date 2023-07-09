@@ -5,6 +5,8 @@ import java.util.List;
 
 import civilizations.Civilization;
 
+//NOTE: this will be redone as I have made the decision to make the economy unique to the government type
+//However, the base abstract resource types will remain in use.
 public class CivilizationEconomy extends Economy
 {
     private List<SettlementEconomy> settlementEconomies = new ArrayList<SettlementEconomy>();

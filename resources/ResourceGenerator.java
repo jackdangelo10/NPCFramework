@@ -33,6 +33,7 @@ import resources.Ores.Minerals.Gemstones;
 import resources.Ores.Minerals.Moonstone;
 import resources.Ores.Minerals.Salt;
 
+//generates and stores each resource and allows for random generation
 public class ResourceGenerator 
 {
     private static ArrayList<Resource> resources;

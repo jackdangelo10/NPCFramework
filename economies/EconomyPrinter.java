@@ -1,5 +1,6 @@
 package economies;
 
+//prints all relevant details about economy
 public class EconomyPrinter 
 {
     public void printEconomy(Economy e)

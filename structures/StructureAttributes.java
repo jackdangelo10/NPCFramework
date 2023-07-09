@@ -1,5 +1,6 @@
 package structures;
 
+//associated with the building's main focus of economic production
 public class StructureAttributes 
 {
     public enum ProductionTag 

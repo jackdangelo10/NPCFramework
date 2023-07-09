@@ -1,5 +1,8 @@
 package resources;
 
+
+//represents a category of items that will affect the economy and decide which items
+//will be available in the in-game marketplace
 public abstract class Resource implements Cloneable
 {
     protected String resourceName;

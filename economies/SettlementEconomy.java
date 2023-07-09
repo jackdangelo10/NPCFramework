@@ -8,22 +8,36 @@ import resources.Resource;
 import settlements.Settlement;
 import structures.Structure;
 
+//refers to the economy of a specific settlement
+//keeps track of the resources it has and if those resources are being worked by a structure
 public class SettlementEconomy extends Economy
 {
     private List<Resource> resources = new ArrayList<Resource>();
     private Map<Resource, Structure> resourceStructures = new HashMap<Resource, Structure>();
     private Settlement settlement = null;
     
+    /**
+     * @param r resource to be added to list of settlement resources
+     */
     public void addResource(Resource r)
     {
         resources.add(r);
     }
     
+    /**
+     * pairs a resource and structure that works it
+     * @param r - resource
+     * @param str - structure
+     */
     public void addResourceStructurePairing(Resource r, Structure str)
     {
         resourceStructures.put(r, str);
     }
 
+    /**
+     * @param r - resource
+     * @return true or false if the resource has an assigned structure
+     */
     public boolean isResourceWorked(Resource r)
     {
         if(resourceStructures.get(r) == null)
@@ -36,6 +50,10 @@ public class SettlementEconomy extends Economy
         }
     }
 
+    /**
+     * calculates the outputs of the settlement economy based on the resources being worked
+     * as well as the jobs being worked
+     */
     public void updateOutputs()
     {
         super.happinessOutput = 0;

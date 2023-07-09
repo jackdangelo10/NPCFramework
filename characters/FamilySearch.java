@@ -5,12 +5,32 @@ import java.util.List;
 
 import characters.CharacterAttributes.Sex;
 
+
+//class designed to search for the characters which fulfill the conditions of
+//being a certain relationship to the given character
 public class FamilySearch 
 {
     private List<Character> relationships = null;
 
     public FamilySearch() {relationships = new ArrayList<Character>();}
 
+    /**
+     * @param c - given character 
+     * @param relationship - string representing the relationship to search for
+     * @return - a list of characters that fulfill this relationship
+     * ex. search(Jack, "Wife") returns null
+     * switch case to call function specific to relationship
+     * 
+     * NOTES
+     * consider that you currently cannot have children out of wedlock as eventually planned
+     * this means that "step" relationships are not implemented
+     * 
+     * as of now, the primary use of this function is to test for characters related by blood
+     * ex. your father's brother's wife will not be considered your aunt
+     * the same goes for all other non-blood relationships for the most part (in the process
+     * of implementing)
+     * 
+     */
     public List<Character> search(Character c, String relationship)
     {
         relationships.clear();
@@ -86,6 +106,10 @@ public class FamilySearch
         return relationships;
     }
 
+    /**
+     * checks if has a wife (female spouse)
+     * @param c - input character
+     */
     private void wifeSearch(Character c)
     {
         if(c.getSpouse() == null) {return;}
@@ -95,6 +119,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks if has a husband (male spouse)
+     * @param c - input character
+     */
     private void husbandSearch(Character c)
     {
         if(c.getSpouse() == null) {return;}
@@ -104,6 +132,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks if has a sister (female child of father)
+     * @param c
+     */
     private void sisterSearch(Character c)
     {
         if(c.getFather() != Adam.getInstance())
@@ -118,6 +150,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks if has a brother (male child of father)
+     * @param c
+     */
     private void brotherSearch(Character c)
     {
         if(c.getFather() != Adam.getInstance())
@@ -132,6 +168,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for grandfathers (fathers of mother and father)
+     * @param c
+     */
     private void grandfatherSearch(Character c)
     {
         if(c.getFather() != Adam.getInstance())
@@ -150,6 +190,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for grandmothers (mothers of mother and father)
+     * @param c
+     */
     private void grandmotherSearch(Character c)
     {
         if(c.getFather() != Adam.getInstance())
@@ -168,18 +212,30 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for uncles (brothers of father and mother)
+     * @param c
+     */
     private void uncleSearch(Character c)
     {
         brotherSearch(c.getFather());
         brotherSearch(c.getMother());
     }
 
+    /**
+     * checks for aunts (sisters of mother and father)
+     * @param c
+     */
     private void auntSearch(Character c)
     {
         sisterSearch(c.getFather());
         sisterSearch(c.getMother());
     }
 
+    /**
+     * checks for sons (male child)
+     * @param c
+     */
     private void sonSearch(Character c)
     {
         for(Character i : c.getChildren())
@@ -191,6 +247,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for daughters (female child)
+     * @param c
+     */
     private void daughterSearch(Character c)
     {
         for(Character i : c.getChildren())
@@ -202,6 +262,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for grandsons (sons of children)
+     * @param c
+     */
     private void grandsonSearch(Character c)
     {
         if(!c.getChildren().isEmpty())
@@ -213,6 +277,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for granddaughters (daughters of children)
+     * @param c
+     */
     private void granddaughterSearch(Character c)
     {
         if(!c.getChildren().isEmpty())
@@ -224,6 +292,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for siblings (children of father besides this character)
+     * @param c
+     */
     private void siblingSearch(Character c)
     {
         if(c.getFather() != Adam.getInstance())
@@ -233,6 +305,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for nephews (sons of siblings and spouse's siblings)
+     * @param c
+     */
     private void nephewSearch(Character c)
     {
         siblingSearch(c);
@@ -270,6 +346,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for nieces (daughters of siblings and spouse's siblings)
+     * @param c
+     */
     private void nieceSearch(Character c)
     {
         siblingSearch(c);
@@ -307,6 +387,11 @@ public class FamilySearch
         }
     }
 
+    /**
+     * ONLY INCLUDES FIRST COUSINS
+     * checks for cousins (children of aunts and uncles)
+     * @param c
+     */
     private void cousinSearch(Character c)
     {
         uncleSearch(c);
@@ -319,6 +404,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for boyfriend (male partner)
+     * @param c
+     */
     private void boyfriendSearch(Character c)
     {
         if(c.getPartner() != null)
@@ -330,6 +419,10 @@ public class FamilySearch
         }
     }
 
+    /**
+     * checks for girlfriend (female partner)
+     * @param c
+     */
     private void girlfriendSearch(Character c)
     {
         if(c.getPartner() != null)

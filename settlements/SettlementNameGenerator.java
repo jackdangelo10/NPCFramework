@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+//temporary settlement name generator, not complete 
 public class SettlementNameGenerator 
 {
     private static final String consonants = "bcdfghjklmnpqrstvwxy";

@@ -10,6 +10,9 @@ import settlements.Settlement;
 import structures.Structure;
 import traits.Trait;
 
+/**
+ * class meant to represent a human being in an RPG style
+ */
 abstract public class Character 
 {
     //base attributes
@@ -24,12 +27,14 @@ abstract public class Character
 
     protected Profession profession1 = null;
     protected Profession profession2 = null;
+    //profession skills will be used as percent checks as well as influence the market (ex. how much money the business makes)
     protected int profession1Skill = 0;
     protected int profession2Skill = 0;
 
     protected Civilization civ = null;
     protected Settlement settlement = null;
 
+    //general housing reservoir or workplace
     protected Structure assignedStructure = null;
 
     //base stats
@@ -67,10 +72,10 @@ abstract public class Character
 
     public Character()
     {
+        //initalization
         traits = new HashMap<>();
         friends = new ArrayList<>();
         children = new ArrayList<>();
-
         family = new Family();
         family.addMember(this);
     }
@@ -89,6 +94,13 @@ abstract public class Character
 
 //* STAT LOGIC *************************************************************************************/
 
+    /**
+     * checks if stats are within valid range (ex. 1-20 for base attributes such as strength)
+     * @param stat 
+     * @param min
+     * @param max
+     * @return adjusted stat if out of range, otherwise same number
+     */
     public int statRangeCheck(int stat, final int min, final int max)
     {
         if(stat > max)
@@ -104,15 +116,24 @@ abstract public class Character
 
 
 //* TRAIT LOGIC */ **********************************************************************************
+    
+    /**
+     * assigns traits to characters and performs necessary checks to see if the character
+     * is eligible for that trait
+     * @param t the trait to be added to the character
+     */
     public void addTrait(Trait t)
     {
         boolean flag = true;
 
+        //checks if character already has trait
         if(traits.containsKey(t.getTraitName()))
         {
             flag = false;
         }
 
+        //checks if character has mutually exclusive opposite traits
+        //ex. Strong and Weak
         for(String i : t.getOpposites())
         {
             if(traits.containsKey(i))
@@ -121,6 +142,8 @@ abstract public class Character
             }
         }
 
+        //checks to see if the character meets the traits requirements
+        //ex. trait Pregnant requires character to be FEMALE
         if(t.meetsRequirements(this) && flag)
         {
             traits.put(t.getTraitName(), t);
@@ -128,15 +151,24 @@ abstract public class Character
         }
         else
         {
-            System.out.println("Trait " + t.getTraitName() + " could not be applied");
+            //testing line
+            //System.out.println("Trait " + t.getTraitName() + " could not be applied");
         }
     }
 
+    /**
+     * function overload of below
+     * @param t trait to be removed
+     */
     public void removeTrait(Trait t)
     {
         removeTrait(t.getTraitName());
     }
 
+    /**
+     * removes trait from list of traits and unapplies effects
+     * @param traitName - name of trait to be removed
+     */
     public void removeTrait(String traitName)
     {
         Trait removedTrait = traits.remove(traitName);

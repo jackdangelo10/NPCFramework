@@ -4,10 +4,17 @@ import civilizations.Civilization;
 import settlements.Settlement;
 import structures.Structure;
 
+/**
+ * Intended to represent Animal entities of any type 
+ * Can be owned by a character or left null
+ * Can be assigned to a structure such as "Pasture"
+ */
 public abstract class Animal 
 {
     protected String animalName;
     protected boolean isAlive = true;
+
+    //intended to be either CHILD or ADULT
     protected AnimalAttributes.Age age = null;
     protected int STR = 0;
     protected int CON = 0;
@@ -23,6 +30,8 @@ public abstract class Animal
     protected Structure assignedStructure = null;
 
     protected Character owner = null;
+
+// GETTERS AND SETTERS ****************************************************/
 
     public String getAnimalName() {
         return animalName;

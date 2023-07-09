@@ -7,6 +7,7 @@ import characters.CharacterAttributes.Age;
 import economies.SettlementEconomyPrinter;
 import structures.Structure;
 
+//prints all relevant information about settlements
 public class SettlementPrinter 
 {
     CharacterPrinter characterPrinter = new CharacterPrinter();

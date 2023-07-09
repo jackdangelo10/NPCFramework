@@ -9,6 +9,9 @@ import traits.Trait;
 import traits.acquiredTraits.AcquiredTraitGenerator;
 import traits.geneticTraits.GeneticTraitGenerator;
 
+/**
+ * Generates NPCs for game
+ */
 public class NPCGenerator 
 {
     private static final NormalRandom rand20 = new NormalRandom(3, 10);
@@ -18,6 +21,9 @@ public class NPCGenerator
     private static final AcquiredTraitGenerator atg = new AcquiredTraitGenerator();
     private static final CharacterNameGenerator cng = new CharacterNameGenerator();
 
+    /**
+     * @return completely random NPC weighted so that adults are more likely
+     */
     public NPC generateRandomNPC()
     {
         if(Math.random() > .2)
@@ -30,6 +36,10 @@ public class NPCGenerator
         }
     }
 
+    /**
+     * @param sex of NPC
+     * @return randomly generated adult NPC with assigned sex
+     */
     public NPC generateRandomAdultNPC(CharacterAttributes.Sex sex)
     {
         NPC npc = generateRandomAdultNPC();
@@ -37,6 +47,9 @@ public class NPCGenerator
         return npc;
     }
 
+    /**
+     * @return randomly generated adult NPC
+     */
     public NPC generateRandomAdultNPC()
     {
         NPC npc = new NPC();
@@ -73,6 +86,10 @@ public class NPCGenerator
         return npc;
     }
 
+    /**
+     * @param sex of NPC
+     * @return randomly generated child NPC with assigned sex
+     */
     public NPC generateRandomChildNPC(CharacterAttributes.Sex sex)
     {
         NPC npc = generateRandomChildNPC();
@@ -117,6 +134,12 @@ public class NPCGenerator
 
 
 /** TRAIT GENERATION ************************************************************************** */
+    
+    /**
+     * has chance of assigning each genetic trait to npc
+     * @param npc to generate traits for
+     * @return the NPC with its newly assigned traits
+     */
     private static NPC generateGeneticTraits(NPC npc)
     {
         for(Trait i : gtg.getList())
@@ -130,6 +153,11 @@ public class NPCGenerator
         return npc;
     }
 
+    /**
+     * has chance of assigning each acquired trait to npc
+     * @param npc to generate traits for
+     * @return the NPC with its newly assigned traits
+     */
     private static NPC generateAcquiredTraits(NPC npc)
     {
         for(Trait i : atg.getList())
@@ -144,6 +172,7 @@ public class NPCGenerator
     }
 /**IDENTITY GENERATION ******************************************************************** */
 
+    //generates randomized identity for NPC
     private static NPC generateIdentity(NPC npc)
     {
         npc.getIdentity().setMd(Mood.randomMood());

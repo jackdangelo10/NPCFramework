@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+//class to keep track of and generate professions in a map
+//will implement a more efficient design where the profession generator is a singleton class that returns clones
+//of the professions
 public class ProfessionGenerator 
 {
     private static ArrayList<Profession> professions;

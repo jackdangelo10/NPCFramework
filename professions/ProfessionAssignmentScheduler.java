@@ -13,11 +13,19 @@ import structures.Structure;
 import structures.StructureAttributes;
 import structures.StructureAttributes.ProductionTag;
 
+//a scheduler designed to assign professions to the unemployed and assigned them an associated structure in the settlement
 public class ProfessionAssignmentScheduler 
 {
     private static Map<String, String> mappings = new HashMap<>();
     private static ProfessionGenerator professionGenerator = new ProfessionGenerator();
 
+    /**
+     * @param npcs list of unemployed npcs
+     * @param structures list of available structures
+     * @param tag - a tag representing the focus of the settlement economy (HAPPINNESS, FOOD, 
+     * GOLD, INFLUENCE, MANPOWER, RESEARCH, POLICY, CULTURE, BALANCED;)
+     * @return the remaining unemployed characters in a list
+     */
     public List<characters.Character> schedule(List<characters.Character> npcs, List<Structure> structures, StructureAttributes.ProductionTag tag)
     {
         Queue<characters.Character> unemployedQueue = new LinkedList<>(npcs);
@@ -33,6 +41,7 @@ public class ProfessionAssignmentScheduler
         }
         else
         {
+            //sort placing structures that match the tag first in the list
             availableStructures.sort(Comparator.comparingInt(structure -> structure.getProductionTag() == tag ? 0 : 1));
         }
 
@@ -77,9 +86,17 @@ public class ProfessionAssignmentScheduler
     }
 
 
+    /**
+     * @param unemployedQueue queue of unemployed characters
+     * @param availableStructures list of available structures
+     * @return remaining unemployed list
+     */
     private List<characters.Character> assignNPCsToStructuresBalanced(Queue<characters.Character> unemployedQueue, List<Structure> availableStructures)
     {
+        //so that the distribution of jobs is equal amount all structures
         int jobsPerStructure = (int) Math.ceil((unemployedQueue.size() / availableStructures.size()));
+        
+        //structures are ranked with a priority 1-10
         if(jobsPerStructure == 0)
         {
             jobsPerStructure++;

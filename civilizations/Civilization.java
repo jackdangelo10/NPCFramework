@@ -7,6 +7,7 @@ import economies.CivilizationEconomy;
 import governments.Government;
 import settlements.Settlement;
 
+//represents the entire civilization that will be simulated
 public class Civilization 
 {
     Government civilizationGovernment = null;

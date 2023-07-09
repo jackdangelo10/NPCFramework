@@ -3,11 +3,15 @@ package traits;
 import java.util.ArrayList;
 import java.util.List;
 
+//represents a physical or personality trait of a character which
+//will affect their stats and events
 abstract public class Trait 
 {
     protected double chance;
     protected String traitName;
     protected boolean inheritable = true;
+
+    //mutually exclusive traits
     protected List<String> opposites;
 
     abstract public void apply(characters.Character c);

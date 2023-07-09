@@ -4,6 +4,7 @@ import javax.management.BadAttributeValueExpException;
 
 import characters.CharacterAttributes.Sex;
 
+//designed to randomly generate a family of characters
 public class FamilyGenerator 
 {
     private static NPCGenerator npcGenerator;
@@ -54,10 +55,18 @@ public class FamilyGenerator
 
     /**CURRENT WORKING FAMILY GENERATION **************************************************** */
 
+    /**
+     * @param familySize generates a family of this size
+     * 1 implies one adult, 2 implies two adults, 3+ implies 2 adults and their offspring
+     * @return the family object generated
+     */
     public Family generateFamily(int familySize)
     {
+        //first adult generated
         Character source = npcGenerator.generateRandomAdultNPC();
         source.getFamily().setFamilyName(source.getLastName());
+
+        //randomizes the source character's sex
         if(Math.random() > .5)
         {
             source.setSex(Sex.FEMALE);
@@ -70,6 +79,10 @@ public class FamilyGenerator
         {
             return source.getFamily();
         }
+
+        //generates a spouse
+        // **NOTE** : for now I have only implemented heterosexual marriages in order to test the offspring system
+        // I intended to include same sex marriage in the final version and implement an adoption system for orphans
         Character spouse = null;
         if(familySize > 1)
         {
@@ -87,6 +100,8 @@ public class FamilyGenerator
                 System.out.println(e.toString());
             }
         }
+
+        //generates the appropriate amount of children
         if(familySize > 2)
         {
             int childrenNum = familySize - 2;
@@ -105,6 +120,8 @@ public class FamilyGenerator
         return source.getFamily();
     }
 
+    //**OUTDATED ****************************************************************** */
+    // generates a random amount of children up to 5
     private void generateChildren(Character spouse, Character source)
     {
         int count = 0;
@@ -128,15 +145,6 @@ public class FamilyGenerator
                 System.out.println(e.toString());
             }
             
-        }
-    }
-
-    private void testFamilyPrint(Character source)
-    {
-        CharacterPrinter printer = new CharacterPrinter();
-        for(Character c : source.getFamily().getMembers())
-        {
-            printer.printCharacter(c);
         }
     }
 

@@ -1,6 +1,9 @@
 package settlements;
 import civilizations.Civilization;
 
+/**
+ * represents the class of settlement with 21-32 structures
+ */
 public class City extends Settlement
 {
     public City(Civilization c)

@@ -1,8 +1,14 @@
 package characters;
 
+//used to go a bit deeper into how NPCs will interact with the player
 public class Identity 
 {
 
+//These personality stats will be used to decide what decisions an NPC will make
+//each pathway of an event will be ranked with the stats and the closest match to the
+//character's own stats will be chosen
+//if the event choice goes poorly or well, this will reflect and the character's 
+//personality stats will be altered accordingly
 /** BIG 5 PERSONALITY STATS *************************************************** */
     //tendency to experience negative emotions, how emotionally stable you are
     private int neuroticism = 0;

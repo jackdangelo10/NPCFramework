@@ -39,6 +39,11 @@ public class SettlementGenerator
     private int universityCount = 0;
     private final int BASE_STRUCTURE_COUNT = 5;
 
+    /**
+     * selects which size settlement to generate
+     * @param c the civilization which the settlement belongs to
+     * @return the generated settlement
+     */
     public Settlement generateRandomSettlement(Civilization c)
     {
         double chance = Math.random();
@@ -66,6 +71,10 @@ public class SettlementGenerator
 
 /***SETTLEMENT GENERATION *********************************************************** */
 
+    /**
+     * @param c - civilization hamlet is in
+     * @return - randomly generated hamlet
+     */
     public Settlement generateRandomHamlet(Civilization c)
     {
         Settlement hamlet = new Hamlet(c);
@@ -83,6 +92,10 @@ public class SettlementGenerator
         return hamlet;
     }
 
+    /**
+     * @param c - civilization village is in
+     * @return randomly generated village
+     */
     public Settlement generateRandomVillage(Civilization c)
     {
         Settlement village = new Village(c);
@@ -99,6 +112,10 @@ public class SettlementGenerator
         return village;
     }
 
+    /**
+     * @param c - civilization the town is in
+     * @return randomly generated town
+     */
     public Settlement generateRandomTown(Civilization c)
     {
         Settlement town = new Town(c);
@@ -115,6 +132,10 @@ public class SettlementGenerator
         return town;
     }
 
+    /**
+     * @param c - civilization the city is in
+     * @return randomly generated city
+     */
     public Settlement generateRandomCity(Civilization c)
     {
         Settlement city = new City(c);
@@ -158,6 +179,8 @@ public class SettlementGenerator
 
 /**UNEMPLOYED HOUSING ************************************************************* */
 
+    //The Housing Reservoir takes up to 10 characters per housing unit that are unemployed
+    //it is not a specific structure but a place to store unproductive NPCs in a settlement
     private void assignHousing(Settlement s)
     {
         if(s.getUnemployed() == null || s.getUnemployed().isEmpty())

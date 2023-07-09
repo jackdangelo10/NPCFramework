@@ -1,5 +1,7 @@
 package economies;
 
+//represents count of abstract resources and how many are earned per turn
+//the game will be in real time so this will be every in game day
 public abstract class Economy 
 {
     protected int happinessOutput = 0;

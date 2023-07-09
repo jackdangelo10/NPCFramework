@@ -1,9 +1,9 @@
 package settlements;
 import civilizations.Civilization;
 
+//class of settlement with 5-7 structures
 public class Hamlet extends Settlement
 {
-    //population is 7 - 20
     public Hamlet(Civilization c)
     {
         super.civilization = c;

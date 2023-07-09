@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+//this class is a placeholder for name generation to distinguish characters
+// ...sometimes produces okayish sounding names
 public class CharacterNameGenerator 
 {
     private static final String consonants = "bcdfghjklmnpqrstvwxy";
@@ -17,6 +19,9 @@ public class CharacterNameGenerator
     private static int SUFFIXESV_SIZE = 0;
     //5 vowels
 
+    /**
+     * constructor assigns preset suffixes
+     */
     public CharacterNameGenerator()
     {
         suffixesC.add("man");       
@@ -65,11 +70,17 @@ public class CharacterNameGenerator
 
     }
 
+    /**
+     * @return the new name generated, combined string of first and last name
+     */
     public String createName()
     {
         return createFirstName() + " " + createLastName();
     }
 
+    /**
+     * @return generated last name
+     */
     public String createLastName()
     {
         String name = createFirstName();
@@ -87,6 +98,9 @@ public class CharacterNameGenerator
         return name;  
     }
 
+    /**
+     * @return generated first name
+     */
     public static String createFirstName()
     {
         int nameLength = rand.nextInt(5) + 3;

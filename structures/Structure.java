@@ -7,6 +7,7 @@ import characters.NPC;
 import civilizations.Civilization;
 import settlements.Settlement;
 
+//represents a building or other structure in a settlement
 public abstract class Structure implements Cloneable
 {
 
@@ -45,6 +46,10 @@ public abstract class Structure implements Cloneable
     
 /**ASSIGNMENT LOGIC ******************************************************************** */
 
+    /**
+     * @param profession tests structure for vacancy of this profession
+     * @return whether there is a vacancy 
+     */
     public boolean hasVacancy(String profession)
     {
         int capacity = associatedProfessions.get(profession);
@@ -68,11 +73,13 @@ public abstract class Structure implements Cloneable
         }
     }
 
+    //checks if the building has an assigned apprentice
     public boolean hasApprentice() 
     {
         return apprentice != null && !assignedNPCs.contains(apprentice);
     }
 
+    //checks if building is full of professions
     public boolean isFull()
     {
         if(assignedNPCs.size() >= totalCapacity)

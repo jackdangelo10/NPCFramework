@@ -1,5 +1,6 @@
 package characters;
 
+//prints all relevant details about a character
 public class CharacterPrinter 
 {
     public void printCharacter(Character c)

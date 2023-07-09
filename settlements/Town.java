@@ -1,6 +1,7 @@
 package settlements;
 import civilizations.Civilization;
 
+//class of settlement with 13-20 structures
 public class Town extends Settlement
 {
     //population is 40 - 64

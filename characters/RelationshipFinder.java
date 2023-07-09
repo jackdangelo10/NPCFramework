@@ -2,8 +2,16 @@ package characters;
 
 import characters.CharacterAttributes.Sex;
 
+/*
+ * class that determines the relationship between two characters
+ */
 public class RelationshipFinder 
 {
+    /**
+     * @param p1 character 1
+     * @param p2 character 2
+     * @return string of the relationship between character 1 and 2
+     */
     public String findFamilialRelationship(Character p1, Character p2) {
         //if(p1 == Eve.getInstance() || p1 == Adam.getInstance() || p2 == Eve.getInstance() || p2 == Adam.getInstance())
         //{

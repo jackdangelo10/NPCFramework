@@ -1,5 +1,6 @@
 package professions;
 
+//represents the profession a character has in association with a workplace structure
 public abstract class Profession 
 {
     protected double chance;

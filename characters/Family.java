@@ -3,6 +3,7 @@ package characters;
 import java.util.ArrayList;
 import java.util.List;
 
+//to represent a family unit of characters
 public class Family 
 {
     private List<characters.Character> members;

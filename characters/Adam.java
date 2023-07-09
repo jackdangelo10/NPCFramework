@@ -2,6 +2,11 @@ package characters;
 
 import characters.CharacterAttributes.Sex;
 
+/**
+ * Singleton class designed to be the top of the family tree,
+ * the original "father" entity
+ */
+
 public class Adam extends Character
 {
     private static Adam instance;
@@ -12,6 +17,9 @@ public class Adam extends Character
         setSex(Sex.MALE);
     }
 
+    /**
+     * @return global instance of Adam
+     */
     public static Adam getInstance()
     {
         if(instance == null)

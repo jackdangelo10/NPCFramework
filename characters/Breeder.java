@@ -14,6 +14,11 @@ import traits.Trait;
 import traits.geneticTraits.GeneticTraitGenerator;
 import traits.geneticTraits.neutralGeneticTraits.Inbred;
 
+
+/**
+ * class which takes a male and female character and produces
+ * an offspring character which inherits their traits/stats
+ */
 public class Breeder 
 {
     private static Character male = null;
@@ -25,28 +30,45 @@ public class Breeder
 
     public Breeder() {}
 
+    /**
+     * constructor that assigns necessary values
+     * @param p1 - mate candidate #1
+     * @param p2 - mate candidate #2
+     * @param c - civilization that the offspring will belong to
+     * @param s - settlement that the offspring will belong to
+     * @throws BadAttributeValueExpException
+     */
     public Breeder(Character p1, Character p2, Civilization c, Settlement s) 
         throws BadAttributeValueExpException
     {
         setCouple(p1, p2, c, s);
     }
 
+    /**
+     * Makes sure that two characters are capable of reproduction
+     * @param p1 - mate candidate #1
+     * @param p2 c
+     * @throws BadAttributeValueExpException
+     */
     public void checkConditions(Character p1, Character p2) throws BadAttributeValueExpException
     {
         if(p1.getSex() == Sex.MALE && p2.getSex() == Sex.MALE)
         {
-            throw new BadAttributeValueExpException("Both men");
+            throw new BadAttributeValueExpException("Two men cannot reproduce");
         }
         if(p1.getSex() == Sex.FEMALE && p2.getSex() == Sex.FEMALE)
         {
-            throw new BadAttributeValueExpException("Both women");
+            throw new BadAttributeValueExpException("Two women cannot reproduce");
         }
         if(p1.getAge() == CharacterAttributes.Age.CHILD || p2.getAge() == CharacterAttributes.Age.CHILD)
         {
-            throw new BadAttributeValueExpException("Ethan Paragus error");
+            throw new BadAttributeValueExpException("Children cannot reproduce");
         }
     }
     
+    /**
+     * resets variables to default
+     */
     public void reset()
     {   
         male = null;
@@ -56,6 +78,15 @@ public class Breeder
         settlement = null;
     }
 
+    /**
+     * sets the couple that will produce offspring
+     * checks necessary conditions before assignment
+     * @param p1 - mate candidate #1
+     * @param p2 - mate candidate #2
+     * @param c - civilization of offspring
+     * @param s - settlement of offspring
+     * @throws BadAttributeValueExpException
+     */
     public void setCouple(Character p1, Character p2, Civilization c, Settlement s) throws BadAttributeValueExpException
     {
         try
@@ -83,17 +114,28 @@ public class Breeder
         
     }
 
+    /**
+     * causes couple to produce an offspring
+     * calls functions necessary for offspring's generation as a combination
+     * of the two parents
+     * @return the offspring produced by the 
+     * @throws BadAttributeValueExpException
+     */
     public Character breed() throws BadAttributeValueExpException
     {
         if(male == null || female == null)
         {
             throw new BadAttributeValueExpException("Partners not set.");
         }
+
+        //combines stats/traits of parents
         inheritedStats();
         inheritedTraits();
+
+        //offspring gets one random trait
         mutationTraits();
 
-        //join family
+        //joins the family of his parents
         offspring.setFamily(female.getFamily());
         offspring.getFamily().addMember(offspring);
         offspring.setFather(male);
@@ -105,6 +147,9 @@ public class Breeder
         return offspring;
     }
 
+    /**
+     * generate one random valid trait to add to offspring
+     */
     private void mutationTraits()
     {
         Trait mutation = GeneticTraitGenerator.generateRandomTrait();
@@ -115,6 +160,11 @@ public class Breeder
         }
     }
 
+
+    /**
+     * process of inheriting traits from parents. Uses set logic: 
+     * if both parents have trait more likely to get trait than if only one
+     */
     private void inheritedTraits()
     {
         SetLogic setFactory = new SetLogic();
@@ -126,6 +176,7 @@ public class Breeder
 
         maleList.addAll(male.getTraits().keySet());
         femaleList.addAll(female.getTraits().keySet());
+
         ArrayList<String> traitXOR = setFactory.exclusiveOr(maleList, femaleList);
         ArrayList<String> traitIntersection = setFactory.intersection(maleList, 
             femaleList);
@@ -155,6 +206,7 @@ public class Breeder
             }
         }
 
+        //checks if two characters are related by blood
         String s = finder.findFamilialRelationship(male, female);
         if(s != null && s != "Wife")
         {
@@ -164,6 +216,9 @@ public class Breeder
         
     }
 
+    /**
+     * assigns the stats of the offspring
+     */
     private void inheritedStats()
     {
         NormalRandom rand = new NormalRandom(1, 0);
@@ -205,6 +260,13 @@ public class Breeder
         }
     }
 
+    /**
+     * weighs the average of the parents' stats so that the numbers
+     * are lower as appropriate for a child character
+     * @param stat1
+     * @param stat2
+     * @return new stat for offspring
+     */
     private int weightedAverageHigh(int stat1, int stat2)
     {
         double num = 0;
